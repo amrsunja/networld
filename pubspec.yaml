@@ -1,0 +1,87 @@
+name: networld
+description: "A new social network based on your bank money."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Localization
+  intl: ^0.20.2
+
+  # State management
+  flutter_hooks: ^0.21.3+1
+  hooks_riverpod: ^3.1.0
+
+  # UI
+  flutter_svg: ^2.2.3
+  google_fonts: ^6.3.3
+  shimmer: ^3.0.0
+  dismissible_page: ^1.0.2
+  percent_indicator: ^4.2.5
+  flutter_confetti: ^0.5.1
+  animated_flip_counter: ^0.3.4
+
+  # Database
+  sqflite_sqlcipher: ^3.4.0
+  flutter_secure_storage: ^10.0.0
+
+  # Navigation
+  auto_route: ^11.1.0
+
+  # In app purchase
+  in_app_purchase: ^3.2.3
+
+
+  # Notifications
+  flutter_local_notifications: ^19.5.0
+  timezone: ^0.10.0
+  app_settings: ^7.0.0
+  permission_handler: ^12.0.1
+  flutter_timezone: ^5.0.1
+
+  # Utils
+  flutter_inappwebview: ^6.1.5
+  url_launcher: ^6.3.2
+  webview_flutter: ^4.13.0
+  flutter_animate: ^4.5.2
+  multiple_result: ^5.2.0
+  freezed_annotation: ^3.1.0
+  collection: ^1.19.1
+  equatable: ^2.0.7
+  path_provider: ^2.1.5
+  cached_network_image: ^3.4.1
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  build_runner: 
+  auto_route_generator: ^10.4.0
+  flutter_gen_runner: ^5.12.0
+  freezed: ^3.2.3
+  icons_launcher: ^3.0.3
+  package_rename: ^1.10.1
+
+
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+

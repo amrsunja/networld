@@ -1,0 +1,32 @@
+package_rename_config:
+  android:
+    app_name: "Networld" # Display name
+    package_name: "com.networld.netapp" # Package name
+    #override_old_package: "com.example.worshipbarometer" # Optional: Cleans up old folder structure
+    lang: "kotlin" # Optional: "kotlin" (default) or "java"
+
+  ios:
+    app_name: "Networld"
+    bundle_name: "Networld" # Bundle name
+    package_name: "com.networld.netapp" # Package name
+
+  #linux:
+    #app_name: "My App" # Window title
+    #package_name: "com.org.app" # Application ID
+    #exe_name: "my_app" # Executable name (binary)
+
+  #macos:
+    #app_name: "My App" # Product name
+    #package_name: "com.org.app" # Product Bundle Identifier
+    #copyright_notice: "Copyright © 2024" # Copyright notice
+
+  #web:
+    #app_name: "My App" # App title & PWA name
+    #short_app_name: "App" # PWA short name (defaults to app_name)
+    #description: "Best App" # Web app description
+
+  #windows:
+    #app_name: "My App" # Window title & Software name
+    #organization: "My Org" # Organization/Company name
+    #copyright_notice: "Copyright © 2024" # Legal copyright
+    #exe_name: "my_app" # Executable name (binary)

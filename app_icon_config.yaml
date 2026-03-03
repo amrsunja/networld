@@ -1,0 +1,35 @@
+#APP ICON
+# run this command to generate spash screen
+# 1. flutter pub run flutter_launcher_icons_maker:main
+icons_launcher:
+  image_path: "assets/images/app_logo_bg.png"
+  platforms:
+    android:
+      enable: true
+      #image_path: "assets/ic_logo_radius.png"
+      #notification_image: "assets/ic_foreground.png"
+      # adaptive_background_color: '#ffffff'
+      #adaptive_background_image: "assets/ic_background.png"
+      #adaptive_foreground_image: "assets/ic_foreground.png"
+      #adaptive_round_image: "assets/ic_logo_round.png"
+      #adaptive_monochrome_image: "assets/ic_black_white.png"
+    ios:
+      enable: true
+      #image_path: "assets/i"
+      # For iOS 18+ (support dark and tinted)
+      #dark_path: "assets/ic_logo_rectangle_dark.png"
+      #tinted_path: "assets/ic_logo_rectangle_tinted.png"
+      
+    #web:
+      #enable: true
+      #image_path: "assets/ic_logo_radius.png"
+      #favicon_path: "assets/ic_logo_round.png"
+    #macos:
+      #enable: false
+      #image_path: "assets/ic_logo_radius.png"
+    #windows:
+      #enable: false
+      #image_path: "assets/ic_logo_radius.png"
+    #linux:
+      #enable: false
+      #image_path: "assets/ic_logo_radius.png"
