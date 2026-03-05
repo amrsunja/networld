@@ -1,0 +1,5 @@
+arb-dir: lib/src/src/core/locale/arbs # Директория, в которой хранятся файлы переводов
+output-dir: lib/src/src/core/locale/gen # Директория, в которой находится сгенерированный файл локализации
+template-arb-file: app_fr.arb # Файл-шаблон, где описываются параметры строк
+output-localization-file: app_localizations.dart # Сгенерированный файл локализации
+nullable-getter: false # В методе of(context) можно не делать проверку на null
