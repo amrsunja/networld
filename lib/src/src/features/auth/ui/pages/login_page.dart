@@ -93,16 +93,14 @@ class LoginPage extends HookConsumerWidget {
                       ),
                       borderRadius: BorderRadius.circular(30),
                       //color: UIColorsToken.black,
-                      /*gradient: LinearGradient(
+                      gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xff181818),
-                          UIColorsToken.black,
-                          UIColorsToken.black,
-                          UIColorsToken.black
+                          Color(0xff181818).withValues(alpha: 0.4),
+                          UIColorsToken.black.withValues(alpha: 0.2),
                         ]
-                      )*/
+                      )
                     ),
                     child: Column(
                       children: [
@@ -144,7 +142,7 @@ class LoginPage extends HookConsumerWidget {
                           customRadius: 18,
                           fullWidth: true,
                           onTap: () {
-                            ref.read(authProvider.notifier).loginWithGoogle();
+                            ref.read(authProvider.notifier).loginWithApple();
                           },
                         ),
             
@@ -191,11 +189,11 @@ class LoginPage extends HookConsumerWidget {
                           ],
                         ),
                         Text(
-                          'Exclusive access for verified high networth individuals only.'.toUpperCase(),
+                          'Exclusive access for verified high networth \nindividuals only.'.toUpperCase(),
                           textAlign: TextAlign.center,
                           style: theme.typo.textXs.regular.copyWith(
-                            letterSpacing: 3,
-                            color: UIColorsToken.white.withValues(alpha: .3)
+                            color: UIColorsToken.white.withValues(alpha: .3),
+                            fontSize: 10
                           ),
                         )
                       ],
