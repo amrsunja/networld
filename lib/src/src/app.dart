@@ -10,6 +10,7 @@ import 'package:networld/src/src/core/providers/widgets/scaffold_messenger_provi
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/utils/enums/app_theme_type.dart';
 import 'package:networld/src/src/core/utils/state_management/app_events.dart';
+import 'package:networld/src/src/features/core/internet_connection/ui/state_management/internet_connection_provider.dart';
 import 'package:networld/src/src/features/settings/ui/state_management/settings_provider.dart';
 
 import 'core/utils/extensions/build_context_extensions.dart';
@@ -48,6 +49,7 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
 	Widget build(BuildContext context) {
     // Listen to app events
     ref.watch(appEventsListenerProvider);
+    ref.watch(internetConnectionProvider);
 
 		final appSettings = ref.watch(settingsProvider).data;
 		final appRouter = ref.read(navigationServicesProvider);
