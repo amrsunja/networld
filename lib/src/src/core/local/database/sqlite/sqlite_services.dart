@@ -8,6 +8,8 @@ import '../secure_storage/secure_storage_config.dart';
 import '../secure_storage/secure_storage_services.dart';
 import 'sqlite_config.dart';
 
+const int _dbVersion = 2;
+
 
 abstract class SQLiteServices {
   String dayKey(DateTime date);
@@ -53,7 +55,7 @@ class SQLiteServicesImpl implements SQLiteServices {
       return await openDatabase(
         'networld.db',
         password: password,
-        version: 1,
+        version: _dbVersion,
         onCreate: (db, version) async {
            // Settings table
           await db.execute('''
@@ -79,7 +81,26 @@ class SQLiteServicesImpl implements SQLiteServices {
               'system'
             );
           ''');
+
+          // Profiles table
+          await db.execute('''
+            CREATE TABLE ${SQLiteConfig.profilesTableName} (
+              ${SQLiteConfig.profileUserIdKey} TEXT PRIMARY KEY,
+              ${SQLiteConfig.profileDataKey} TEXT NOT NULL
+            );
+          ''');
+
           debugPrint('Created All tables for new app database');
+        },
+        onUpgrade: (db, oldVersion, newVersion) async {
+          if (oldVersion < 2) {
+            await db.execute('''
+              CREATE TABLE IF NOT EXISTS ${SQLiteConfig.profilesTableName} (
+                ${SQLiteConfig.profileUserIdKey} TEXT PRIMARY KEY,
+                ${SQLiteConfig.profileDataKey} TEXT NOT NULL
+              );
+            ''');
+          }
         },
         onOpen: (db) async {
           await db.rawQuery('PRAGMA cipher_version;');
