@@ -27,7 +27,7 @@ final l10nProvider = Provider<AppLocale>((ref) {
 
 class L10n {
 	static Locale get fr => all[0];
-	static Locale get en => all[2];
+	static Locale get en => all[1];
 
   static final all = [
     const Locale('fr', 'FR'),

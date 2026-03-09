@@ -104,6 +104,42 @@ abstract class AppLocalizations {
   /// **'French'**
   String get appLanguage;
 
+  /// No description provided for @l10nSuccess.
+  ///
+  /// In fr, this message translates to:
+  /// **'☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠ SUCCESS ☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠'**
+  String get l10nSuccess;
+
+  /// No description provided for @success_internet_connection.
+  ///
+  /// In fr, this message translates to:
+  /// **'Internet connection established'**
+  String get success_internet_connection;
+
+  /// No description provided for @l10nErrors.
+  ///
+  /// In fr, this message translates to:
+  /// **'☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠ ERRORS ☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠'**
+  String get l10nErrors;
+
+  /// No description provided for @error_server_failure.
+  ///
+  /// In fr, this message translates to:
+  /// **'Something went wrong. Please check your internet connection'**
+  String get error_server_failure;
+
+  /// No description provided for @error_db_failure.
+  ///
+  /// In fr, this message translates to:
+  /// **'Something went wrong. Please try again or contact us'**
+  String get error_db_failure;
+
+  /// No description provided for @error_internet_connection_lost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Internet connection is lost'**
+  String get error_internet_connection_lost;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:
