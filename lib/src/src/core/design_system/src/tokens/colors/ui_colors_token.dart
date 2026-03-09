@@ -60,6 +60,7 @@ class UIColorsToken {
 	// PRIMARY (Gold / brand)
   static const Color pri500 = Color(0xffFFC107);
   static const Color pri400 = Color(0xffFFCA28);
+  static const Color pri350 = Color(0xffFFD700);
 	static const Color pri300 = Color(0xffFFD54F);
 	static const Color pri200 = Color(0xffFFE082);
 	static const Color pri100 = Color(0xffFFECB3);

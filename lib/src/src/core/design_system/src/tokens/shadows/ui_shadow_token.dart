@@ -18,6 +18,13 @@ class UIShadowToken {
 		);
   }
 
+  static final kTextShadow = [
+    Shadow(
+      color: UIColorsToken.pri500.withValues(alpha: 0.5),
+      blurRadius: 100
+    )
+  ];
+
   static final kXs = [
     shadow(y: 1, blur: 2, colorOpacity: 0.05)
   ];

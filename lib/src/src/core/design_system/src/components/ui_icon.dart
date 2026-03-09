@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../app_ui.dart';
 
@@ -29,7 +28,7 @@ class UIIcon extends StatelessWidget {
 			onTap: onTap,
 			child: Transform.flip(
         //flipX: locale.languageCode == L10n.ar.languageCode || locale.languageCode == L10n.ur.languageCode,
-			  child: FaIcon(
+			  child: Icon(
           icon,
 			  	color: defaultColor ? null : color ?? theme.colors.contentColor,
           size: size,

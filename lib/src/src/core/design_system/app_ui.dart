@@ -23,4 +23,6 @@ export './src/components/ui_page_appbar.dart';
 export './src/components/ui_divider.dart';
 export './src/components/ui_input_field.dart';
 export './src/components/ui_nav_bar.dart';
+export './src/components/cards/ui_transparent_blured_card.dart';
+export './src/components/sliders/ui_dynamic_liquid_glass_slider.dart';
 

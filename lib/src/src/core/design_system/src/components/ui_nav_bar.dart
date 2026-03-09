@@ -1,5 +1,8 @@
+import 'dart:io';
+
+import 'package:cupertino_native/cupertino_native.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconic/iconic.dart';
 import '../../app_ui.dart';
 
 
@@ -7,14 +10,14 @@ class UINavBar extends StatefulWidget {
 	const UINavBar({
 		super.key,
 		required this.currentPage,
-		this.onPageChange,
+		required this.onPageChange,
 		this.isBusy = false,
 		this.onCreatePostTap,
 	});
 
 	final int currentPage;
 	final bool isBusy;
-	final Function(int)? onPageChange;
+	final Function(int) onPageChange;
 	final VoidCallback? onCreatePostTap;
 
   @override
@@ -33,6 +36,21 @@ class _UINavBarState extends State<UINavBar> {
 	@override
 	Widget build(BuildContext context) {
 		final theme = AppTheme.of(context);
+    if (Platform.isIOS) {
+      return CNTabBar(
+        backgroundColor: theme.colors.fgColor,
+        tint: UIColorsToken.pri500,
+        iconSize: 24,
+        items: [
+          CNTabBarItem(label: 'Home', icon: CNSymbol('house.fill')),
+          CNTabBarItem(label: 'Social', icon: CNSymbol('line.3.horizontal')),
+          CNTabBarItem(label: 'Profile', icon: CNSymbol('person.crop.circle')),
+        ],
+        //currentIndex: currentIndex,
+        currentIndex: widget.currentPage,
+        onTap: widget.onPageChange,
+      );
+    }
 		return ClipRRect(
 		  child: BottomNavigationBar(
 		  	backgroundColor: theme.colors.fgColor,
@@ -47,15 +65,15 @@ class _UINavBarState extends State<UINavBar> {
 		  	items: [
 		  		BottomNavigationBarItem(
 		  			label: '',
-		  			icon: _buildIcon(FontAwesomeIcons.home, isActive: widget.currentPage == 0),
+		  			icon: _buildIcon(Iconic.home, isActive: widget.currentPage == 0),
 		  		),
 		  		BottomNavigationBarItem(
 		  			label: '',
-		  			icon: _buildIcon(FontAwesomeIcons.list, isActive: widget.currentPage == 1),
+		  			icon: _buildIcon(Iconic.list, isActive: widget.currentPage == 1),
 		  		),
 		  		BottomNavigationBarItem(
 		  			label: '',
-		  			icon: _buildIcon(FontAwesomeIcons.person, isActive: widget.currentPage == 2),
+		  			icon: _buildIcon(Iconic.user, isActive: widget.currentPage == 2),
 		  		),
 		  	],
 		  ),

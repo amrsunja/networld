@@ -6,15 +6,19 @@ class UIButton extends StatelessWidget {
   final String? title;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
+  final Widget? customPrefixIcon;
+  final Widget? customSuffixIcon;
 	final bool disabled;
 	final bool isBusy;
 	final bool fullWidth;
 	final Color bgColor;
+	final LinearGradient? bgGradient;
 	final Color fgColor;
 	final Color contentColor;
 	final Color? shadowColor;
 	final double elevation;
 	final double radius;
+	final double? height;
 	final TextDecoration? titleDecoration;
   final VoidCallback? onTap;
 	final BorderSide border;
@@ -24,9 +28,13 @@ class UIButton extends StatelessWidget {
     this.title,
     this.prefixIcon,
     this.suffixIcon,
+    this.customPrefixIcon,
+    this.customSuffixIcon,
     this.disabled = false,
     this.isBusy = false,
     this.fullWidth = false,
+    this.height,
+    this.bgGradient,
     Color? backgroundColor,
     double? customRadius,
     this.onTap,
@@ -47,10 +55,15 @@ class UIButton extends StatelessWidget {
     this.title,
     this.prefixIcon,
     this.suffixIcon,
+    this.customPrefixIcon,
+    this.customSuffixIcon,
     this.disabled = false,
     this.isBusy = false,
     this.fullWidth = false,
+    this.height,
+    this.bgGradient,
     double? customRadius,
+    BorderSide? customBorder,
     this.onTap,
 	}) : bgColor = UIColorsToken.black,
 			 fgColor = UIColorsToken.pri400,
@@ -59,7 +72,7 @@ class UIButton extends StatelessWidget {
        elevation = 4,
        radius = customRadius ?? 18,
        titleDecoration = null,
-			 border = BorderSide(
+			 border = customBorder ?? BorderSide(
         width: 0.5,
         color: UIColorsToken.pri500.withValues(alpha: 0.6)
       );
@@ -99,7 +112,7 @@ class UIButton extends StatelessWidget {
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
             constraints: BoxConstraints(
-              minHeight: 65,
+              minHeight: height ?? 65,
               minWidth: fullWidth ? double.infinity : 0,
             ),
             padding: EdgeInsets.symmetric(
@@ -107,6 +120,7 @@ class UIButton extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: bgColor,
+              gradient: bgGradient,
               borderRadius: borderRadius,
               border: Border.fromBorderSide(border),
               boxShadow: boxShadows,
@@ -114,8 +128,7 @@ class UIButton extends StatelessWidget {
             child: Center(
               child: AnimatedCrossFade(
                 duration: const Duration(milliseconds: 200),
-                crossFadeState:
-                    isBusy ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                crossFadeState: isBusy ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                 firstChild: Padding(
                   padding: const EdgeInsets.all(2),
                   child: UICircularProgressBar(color: contentColor),
@@ -125,12 +138,14 @@ class UIButton extends StatelessWidget {
                   spacing: 16,
                   children: [
                     if (prefixIcon != null) _buildIcon(prefixIcon!),
+                    ?customPrefixIcon,
+
                     if (title != null)
                       Flexible(
                         flex: 4,
                         child: Text(
                           title!,
-                          style: theme.typo.textSm.medium.copyWith(
+                          style: theme.typo.textSm.semibold.copyWith(
                             color: contentColor,
                             overflow: TextOverflow.ellipsis,
                             decoration: titleDecoration,
@@ -138,6 +153,8 @@ class UIButton extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       ),
+
+                    ?customSuffixIcon,
                     if (suffixIcon != null) _buildIcon(suffixIcon!),
                   ],
                 ),
@@ -151,14 +168,10 @@ class UIButton extends StatelessWidget {
 
 	Widget _buildIcon(IconData icon) {
 	  return Flexible(
-	    child: Padding(
-	    	padding: EdgeInsets.symmetric(
-	    	),
-	    	child: UIIcon(
-	    		icon,
-	    		color: contentColor,
-	    		size: 24,
-	    	),
+	    child: UIIcon(
+	    	icon,
+	    	color: contentColor,
+	    	size: 24,
 	    ),
 	  );
 	}
