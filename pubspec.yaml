@@ -30,10 +30,14 @@ dependencies:
   percent_indicator: ^4.2.5
   flutter_confetti: ^0.5.1
   animated_flip_counter: ^0.3.4
+  cupertino_native: ^0.1.1
 
   # Database
   sqflite_sqlcipher: ^3.4.0
   flutter_secure_storage: ^10.0.0
+
+  # Network
+  internet_connection_checker_plus: ^2.7.1
 
   # Server
   supabase_flutter: ^2.12.0
@@ -47,15 +51,12 @@ dependencies:
 
 
   # Notifications
-  flutter_local_notifications: ^19.5.0
-  timezone: ^0.10.0
   app_settings: ^7.0.0
   permission_handler: ^12.0.1
-  flutter_timezone: ^5.0.1
 
 
   # Utils
-  font_awesome_flutter: ^10.12.0
+  iconic: ^0.1.0
   flutter_inappwebview: ^6.1.5
   url_launcher: ^6.3.2
   webview_flutter: ^4.13.0
