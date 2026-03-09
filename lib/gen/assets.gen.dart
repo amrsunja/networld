@@ -11,20 +11,37 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/apple.svg
+  String get apple => 'assets/icons/apple.svg';
+
+  /// File path: assets/icons/google.svg
+  String get google => 'assets/icons/google.svg';
+
+  /// List of all assets
+  List<String> get values => [apple, google];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   /// File path: assets/images/earth_1.png
   AssetGenImage get earth1 => const AssetGenImage('assets/images/earth_1.png');
 
+  /// File path: assets/images/earth_2.png
+  AssetGenImage get earth2 => const AssetGenImage('assets/images/earth_2.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [earth1];
+  List<AssetGenImage> get values => [earth1, earth2];
 }
 
 class Assets {
   const Assets._();
 
   static const String aEnv = '.env';
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 
   /// List of all assets
