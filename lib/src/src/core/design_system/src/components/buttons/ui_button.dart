@@ -103,7 +103,7 @@ class UIButton extends StatelessWidget {
               minWidth: fullWidth ? double.infinity : 0,
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: title == null ? 28 : 40,
+              horizontal: 20,
             ),
             decoration: BoxDecoration(
               color: bgColor,
