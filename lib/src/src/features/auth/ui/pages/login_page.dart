@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:iconic/iconic.dart';
 import 'package:networld/gen/assets.gen.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/features/auth/ui/state_management/auth_provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:blur/blur.dart';
 
 
 @RoutePage()
@@ -65,7 +65,7 @@ class LoginPage extends HookConsumerWidget {
                     spacing: 10,
                     children: [
                       UIIcon(
-                        FontAwesomeIcons.globe,
+                        Iconic.globe,
                         color: UIColorsToken.pri400,
                       ),
                       UISpace.vert(5),
@@ -85,23 +85,8 @@ class LoginPage extends HookConsumerWidget {
                     ],
                   ),
             
-                  Container(
+                  UITransparentBluredCard(
                     padding: EdgeInsets.all(40),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Color(0xff1D1D1D) 
-                      ),
-                      borderRadius: BorderRadius.circular(30),
-                      //color: UIColorsToken.black,
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xff181818).withValues(alpha: 0.4),
-                          UIColorsToken.black.withValues(alpha: 0.2),
-                        ]
-                      )
-                    ),
                     child: Column(
                       children: [
                         Column(
@@ -125,7 +110,7 @@ class LoginPage extends HookConsumerWidget {
             
                         UIButton.secondary(
                           title: 'Continue with Google',
-                          prefixIcon: FontAwesomeIcons.google,
+                          customPrefixIcon: Flexible(child: UIIconsToken.toIcon(Assets.icons.google)),
                           isBusy: authState.isGoogleLoading,
                           disabled: authState.isGoogleLoading,
                           fullWidth: true,
@@ -136,7 +121,7 @@ class LoginPage extends HookConsumerWidget {
                         UISpace.vert(10),
                         UIButton.primary(
                           title: 'Continue with Apple',
-                          prefixIcon: FontAwesomeIcons.apple,
+                          customPrefixIcon: Flexible(child: UIIconsToken.toIcon(Assets.icons.apple)),
                           isBusy: authState.isAppleLoading,
                           disabled: authState.isAppleLoading,
                           customRadius: 18,
@@ -158,10 +143,6 @@ class LoginPage extends HookConsumerWidget {
                         )
                       ],
                     ),
-                  ).frosted(
-                    blur: 5,
-                    frostColor: UIColorsToken.black,
-                    borderRadius: BorderRadius.circular(20),
                   ),
             
             
@@ -175,15 +156,15 @@ class LoginPage extends HookConsumerWidget {
                           mainAxisAlignment: .spaceBetween,
                           children: [
                             VertIconTextWidget(
-                              icon: FontAwesomeIcons.circleCheck,
+                              icon: Iconic.cloud_check,
                               label: 'Verified',
                             ),
                             VertIconTextWidget(
-                              icon: FontAwesomeIcons.shieldHalved,
+                              icon: Iconic.shield,
                               label: 'Secured',
                             ),
                             VertIconTextWidget(
-                              icon: FontAwesomeIcons.circleCheck,
+                              icon: Iconic.check,
                               label: 'Private',
                             ),
                           ],
@@ -199,15 +180,13 @@ class LoginPage extends HookConsumerWidget {
                       ],
                     ),
                   ),
-            
-            
                 ],
               ),
             ),
           ],
         ),
       ),
-    );
+    ).animate(effects: [FadeEffect()]);
   }
 }
 
