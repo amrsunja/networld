@@ -90,6 +90,12 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
 			child: MaterialApp.router(
 				theme: ThemeData(
 					scaffoldBackgroundColor: theme.colors.bgColor,
+          sliderTheme: SliderThemeData(
+            padding: EdgeInsets.zero,
+            activeTrackColor: UIColorsToken.neu50,
+            inactiveTrackColor: UIColorsToken.black,
+            thumbColor: UIColorsToken.white,
+          ),
 					appBarTheme: AppBarTheme(
 						backgroundColor: Colors.transparent,
 						shadowColor: Colors.transparent,
