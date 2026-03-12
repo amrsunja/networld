@@ -156,15 +156,15 @@ class LoginPage extends HookConsumerWidget {
                           mainAxisAlignment: .spaceBetween,
                           children: [
                             VertIconTextWidget(
-                              icon: Iconic.cloud_check,
+                              icon: Iconic.checkbox_bold,
                               label: 'Verified',
                             ),
                             VertIconTextWidget(
-                              icon: Iconic.shield,
+                              icon: Iconic.shield_bold,
                               label: 'Secured',
                             ),
                             VertIconTextWidget(
-                              icon: Iconic.check,
+                              icon: Iconic.lock_alt_bold,
                               label: 'Private',
                             ),
                           ],
