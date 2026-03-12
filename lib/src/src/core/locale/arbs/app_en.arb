@@ -1,15 +1,22 @@
 {
-	"appLanguage": "English",
-
+  "appLanguage": "English",
 
   "l10nSuccess": "☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠ SUCCESS ☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠",
   "success_internet_connection": "Internet connection established",
-
 
   "l10nErrors": "☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠ ERRORS ☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠☠",
   "error_server_failure": "Something went wrong. Please check your internet connection",
   "error_db_failure": "Something went wrong. Please try again or contact us",
   "error_internet_connection_lost": "Internet connection is lost",
+  "errorUnauthorized": "You are not authorized. Please log in again.",
+  "errorInsufficientCredits": "You do not have enough credits to perform this action.",
+  "errorNetWorthRequired": "Please enter your net worth to continue.",
+  "errorManualLimitUsePowens": "Manual entry is limited to 25,000 €. Connect your bank with Powens to go further.",
+  "errorPowensSession": "We could not start the secure Powens session. Please try again.",
+  "errorPowensPermanentTokenRequired": "Your bank connection has expired. Please reconnect your bank with Powens.",
+  "errorProfileNotFound": "We could not find your profile. Please try again.",
+  "errorUnknown": "An unknown error occurred. Please try again.",
 
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
+

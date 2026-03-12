@@ -140,6 +140,54 @@ abstract class AppLocalizations {
   /// **'Internet connection is lost'**
   String get error_internet_connection_lost;
 
+  /// No description provided for @errorUnauthorized.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous n\'êtes pas autorisé. Veuillez vous reconnecter.'**
+  String get errorUnauthorized;
+
+  /// No description provided for @errorInsufficientCredits.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous n\'avez pas assez de crédits pour effectuer cette action.'**
+  String get errorInsufficientCredits;
+
+  /// No description provided for @errorNetWorthRequired.
+  ///
+  /// In fr, this message translates to:
+  /// **'Merci d\'indiquer votre patrimoine pour continuer.'**
+  String get errorNetWorthRequired;
+
+  /// No description provided for @errorManualLimitUsePowens.
+  ///
+  /// In fr, this message translates to:
+  /// **'La saisie manuelle est limitée à 25 000 €. Connectez votre banque avec Powens pour aller plus loin.'**
+  String get errorManualLimitUsePowens;
+
+  /// No description provided for @errorPowensSession.
+  ///
+  /// In fr, this message translates to:
+  /// **'Impossible de démarrer la session sécurisée Powens. Veuillez réessayer.'**
+  String get errorPowensSession;
+
+  /// No description provided for @errorPowensPermanentTokenRequired.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre connexion bancaire a expiré. Veuillez reconnecter votre banque avec Powens.'**
+  String get errorPowensPermanentTokenRequired;
+
+  /// No description provided for @errorProfileNotFound.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nous n\'avons pas trouvé votre profil. Veuillez réessayer.'**
+  String get errorProfileNotFound;
+
+  /// No description provided for @errorUnknown.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une erreur inconnue s\'est produite. Veuillez réessayer.'**
+  String get errorUnknown;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:

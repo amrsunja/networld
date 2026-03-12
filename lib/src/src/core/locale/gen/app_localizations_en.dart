@@ -34,6 +34,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_internet_connection_lost => 'Internet connection is lost';
 
   @override
+  String get errorUnauthorized =>
+      'You are not authorized. Please log in again.';
+
+  @override
+  String get errorInsufficientCredits =>
+      'You do not have enough credits to perform this action.';
+
+  @override
+  String get errorNetWorthRequired =>
+      'Please enter your net worth to continue.';
+
+  @override
+  String get errorManualLimitUsePowens =>
+      'Manual entry is limited to 25,000 €. Connect your bank with Powens to go further.';
+
+  @override
+  String get errorPowensSession =>
+      'We could not start the secure Powens session. Please try again.';
+
+  @override
+  String get errorPowensPermanentTokenRequired =>
+      'Your bank connection has expired. Please reconnect your bank with Powens.';
+
+  @override
+  String get errorProfileNotFound =>
+      'We could not find your profile. Please try again.';
+
+  @override
+  String get errorUnknown => 'An unknown error occurred. Please try again.';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }
