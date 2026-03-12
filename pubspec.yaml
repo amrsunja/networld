@@ -31,6 +31,7 @@ dependencies:
   flutter_confetti: ^0.5.1
   animated_flip_counter: ^0.3.4
   cupertino_native: ^0.1.1
+  crystal_navigation_bar: ^1.1.0
 
   # Database
   sqflite_sqlcipher: ^3.4.0
@@ -70,6 +71,7 @@ dependencies:
   flutter_dotenv: ^5.2.1
   simple_gradient_text: ^1.4.0
   blur: ^4.0.2
+
 
 
 

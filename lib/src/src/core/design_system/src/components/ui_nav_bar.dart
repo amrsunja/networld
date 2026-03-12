@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:cupertino_native/cupertino_native.dart';
 import 'package:flutter/material.dart';
 import 'package:iconic/iconic.dart';
@@ -26,13 +27,6 @@ class UINavBar extends StatefulWidget {
 
 class _UINavBarState extends State<UINavBar> {
 
-	Widget _buildIcon(IconData icon, {bool isActive = false}) {
-		return UIIcon(
-			icon,
-			color: isActive ? UIColorsToken.sec100 : UIColorsToken.grey,
-		);
-	}
-
 	@override
 	Widget build(BuildContext context) {
 		final theme = AppTheme.of(context);
@@ -43,7 +37,7 @@ class _UINavBarState extends State<UINavBar> {
         iconSize: 24,
         items: [
           CNTabBarItem(label: 'Home', icon: CNSymbol('house.fill')),
-          CNTabBarItem(label: 'Social', icon: CNSymbol('line.3.horizontal')),
+          CNTabBarItem(label: 'Social', icon: CNSymbol('line.3.horizontal.decrease')),
           CNTabBarItem(label: 'Profile', icon: CNSymbol('person.crop.circle')),
         ],
         //currentIndex: currentIndex,
@@ -51,32 +45,29 @@ class _UINavBarState extends State<UINavBar> {
         onTap: widget.onPageChange,
       );
     }
-		return ClipRRect(
-		  child: BottomNavigationBar(
-		  	backgroundColor: theme.colors.fgColor,
-		  	type: BottomNavigationBarType.fixed,
-		  	unselectedItemColor: UIColorsToken.grey,
-		  	iconSize: 24,
-		  	onTap: widget.onPageChange,
-		  	currentIndex: widget.currentPage,
-		  	//selectedLabelStyle: UITextStyleToken.bodyM2,
-		  	//unselectedLabelStyle: UITextStyleToken.bodyM2,
-		  	selectedItemColor: UIColorsToken.sec100,
-		  	items: [
-		  		BottomNavigationBarItem(
-		  			label: '',
-		  			icon: _buildIcon(Iconic.home, isActive: widget.currentPage == 0),
-		  		),
-		  		BottomNavigationBarItem(
-		  			label: '',
-		  			icon: _buildIcon(Iconic.list, isActive: widget.currentPage == 1),
-		  		),
-		  		BottomNavigationBarItem(
-		  			label: '',
-		  			icon: _buildIcon(Iconic.user, isActive: widget.currentPage == 2),
-		  		),
-		  	],
-		  ),
-		);
+
+    return CrystalNavigationBar(
+      currentIndex: widget.currentPage,
+      onTap: widget.onPageChange,
+      borderWidth: .5,
+      marginR: .symmetric(horizontal: 70, vertical: 20),
+      selectedItemColor: UIColorsToken.pri500,
+      unselectedItemColor: UIColorsToken.neu400,
+      outlineBorderColor: UIColorsToken.neu400,
+      indicatorColor: UIColorsToken.pri500,
+      // enableFloatingNavBar: false
+      items: [
+        CrystalNavigationBarItem(
+		  		icon: Iconic.home, 
+        ),
+        CrystalNavigationBarItem(
+		  		icon: Iconic.globe, 
+        ),
+        CrystalNavigationBarItem(
+		  		icon: Iconic.user,
+        )
+        
+      ],
+    );
 	}
 }
