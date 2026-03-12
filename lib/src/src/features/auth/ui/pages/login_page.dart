@@ -68,13 +68,23 @@ class LoginPage extends HookConsumerWidget {
                         Iconic.globe,
                         color: UIColorsToken.pri400,
                       ),
-                      UISpace.vert(5),
-                      Text(
-                        kAppName.toUpperCase(),
-                        style: theme.typo.displaySm.bold.copyWith(
-                          letterSpacing: 3,
-                          color: UIColorsToken.white.withValues(alpha: 0.8)
-                        ),
+                      Row(
+                        mainAxisAlignment: .center,
+                        children: [
+                          SizedBox(
+                            height: 40,
+                            child: UIImage.asset(
+                              image: Assets.images.logoPng.path,
+                            ),
+                          ),
+                          Text(
+                            'etworld'.toUpperCase(),
+                            style: theme.typo.displaySm.bold.copyWith(
+                              letterSpacing: 3,
+                              color: UIColorsToken.white
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         width: 60,

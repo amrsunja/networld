@@ -30,11 +30,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/earth_1.png
   AssetGenImage get earth1 => const AssetGenImage('assets/images/earth_1.png');
 
-  /// File path: assets/images/earth_2.png
-  AssetGenImage get earth2 => const AssetGenImage('assets/images/earth_2.png');
+  /// File path: assets/images/logo.jpg
+  AssetGenImage get logoJpg => const AssetGenImage('assets/images/logo.jpg');
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logoPng => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [earth1, earth2];
+  List<AssetGenImage> get values => [earth1, logoJpg, logoPng];
 }
 
 class Assets {
