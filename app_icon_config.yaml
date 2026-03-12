@@ -2,7 +2,7 @@
 # run this command to generate spash screen
 # 1. flutter pub run flutter_launcher_icons_maker:main
 icons_launcher:
-  image_path: "assets/images/app_logo_bg.png"
+  image_path: "assets/images/logo.jpg"
   platforms:
     android:
       enable: true
