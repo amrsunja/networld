@@ -27,6 +27,12 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/earth2.png
+  AssetGenImage get earth2 => const AssetGenImage('assets/images/earth2.png');
+
+  /// File path: assets/images/earth3.png
+  AssetGenImage get earth3 => const AssetGenImage('assets/images/earth3.png');
+
   /// File path: assets/images/earth_1.png
   AssetGenImage get earth1 => const AssetGenImage('assets/images/earth_1.png');
 
@@ -37,7 +43,7 @@ class $AssetsImagesGen {
   AssetGenImage get logoPng => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [earth1, logoJpg, logoPng];
+  List<AssetGenImage> get values => [earth2, earth3, earth1, logoJpg, logoPng];
 }
 
 class Assets {
