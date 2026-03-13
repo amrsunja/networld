@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:networld/src/src/core/utils/enums/networth_input_method_enum.dart';
+import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/utils/typedefs.dart';
 
@@ -7,6 +8,7 @@ class ProfileModel extends Equatable {
   final String id;
   final String username;
   final num netWorth;
+  final CurrencyType currency;
   final NetworthInputMethodEnum netWorthInputMethod;
   final int credits;
   final int xp;
@@ -28,6 +30,7 @@ class ProfileModel extends Equatable {
     required this.id,
     required this.username,
     required this.netWorth,
+    required this.currency,
     required this.netWorthInputMethod,
     required this.credits,
     required this.xp,
@@ -51,6 +54,9 @@ class ProfileModel extends Equatable {
       id: json['id'] as String,
       username: json['username'] as String,
       netWorth: _parseNum(json['net_worth']),
+      currency: CurrencyType.fromString(
+        (json['currency'] as String?) ?? 'USD',
+      ),
       netWorthInputMethod: NetworthInputMethodEnum.fromString(
         (json['net_worth_input_method'] as String?) ?? 'manual',
       ),
@@ -92,6 +98,7 @@ class ProfileModel extends Equatable {
         'id': id,
         'username': username,
         'net_worth': netWorth,
+        'currency': currency.dbValue,
         'net_worth_input_method': netWorthInputMethod.dbValue,
         'credits': credits,
         'xp': xp,
@@ -115,6 +122,7 @@ class ProfileModel extends Equatable {
         id,
         username,
         netWorth,
+        currency,
         netWorthInputMethod,
         credits,
         xp,

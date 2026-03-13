@@ -1,6 +1,7 @@
 export 'app_theme_type.dart';
 export 'claim_type_enum.dart';
 export 'credit_reason_enum.dart';
+export 'currency_type_enum.dart';
 export 'networth_input_method_enum.dart';
 export 'notification_type_enum.dart';
 export 'post_status_enum.dart';
