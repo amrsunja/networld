@@ -20,12 +20,14 @@ class UIButton extends StatelessWidget {
 	final double radius;
 	final double? height;
 	final TextDecoration? titleDecoration;
+	final TextStyle? titleStyle;
   final VoidCallback? onTap;
 	final BorderSide border;
 
   UIButton.primary({
     super.key,
     this.title,
+    this.titleStyle,
     this.prefixIcon,
     this.suffixIcon,
     this.customPrefixIcon,
@@ -53,6 +55,7 @@ class UIButton extends StatelessWidget {
   UIButton.secondary({
     super.key,
     this.title,
+    this.titleStyle,
     this.prefixIcon,
     this.suffixIcon,
     this.customPrefixIcon,
@@ -102,12 +105,10 @@ class UIButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: borderRadius,
-          onTap: enabled
-            ? () {
-                AppVibrations.buttonClick();
-                onTap?.call();
-              }
-            : null,
+          onTap: enabled ? () {
+            AppVibrations.buttonClick();
+            onTap?.call();
+          } : null,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
@@ -135,7 +136,7 @@ class UIButton extends StatelessWidget {
                 ),
                 secondChild: Row(
                   mainAxisSize: MainAxisSize.min,
-                  spacing: 16,
+                  spacing: 12,
                   children: [
                     if (prefixIcon != null) _buildIcon(prefixIcon!),
                     ?customPrefixIcon,
@@ -145,7 +146,7 @@ class UIButton extends StatelessWidget {
                         flex: 4,
                         child: Text(
                           title!,
-                          style: theme.typo.textSm.semibold.copyWith(
+                          style: titleStyle ?? theme.typo.textSm.semibold.copyWith(
                             color: contentColor,
                             overflow: TextOverflow.ellipsis,
                             decoration: titleDecoration,
@@ -171,7 +172,7 @@ class UIButton extends StatelessWidget {
 	    child: UIIcon(
 	    	icon,
 	    	color: contentColor,
-	    	size: 24,
+	    	size: 14,
 	    ),
 	  );
 	}
