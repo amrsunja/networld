@@ -1,5 +1,6 @@
 // powens_webview_screen.dart
 import 'package:flutter/material.dart' hide debugPrint;
+import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/utils/debug_print.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -47,8 +48,15 @@ class _PowensWebviewScreenState extends State<PowensWebviewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AppTheme.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Connecter ma banque')),
+      appBar: AppBar(
+        foregroundColor: UIColorsToken.pri500,
+        title: Text(
+          'Connecter ma banque',
+          style: theme.typo.textSm.medium ,
+        )
+      ),
       body: WebViewWidget(controller: _controller),
     );
   }
