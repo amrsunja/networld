@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
 import 'package:networld/src/src/core/locale/l10n.dart';
 import 'package:networld/src/src/core/utils/state_management/app_events.dart';

@@ -6,16 +6,22 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconic/iconic.dart';
 import 'package:networld/gen/assets.gen.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/app_vibrations.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
+import 'package:networld/src/src/core/utils/enums/enums.dart';
 import 'package:networld/src/src/features/core/powens/ui/pages/powens_webview_page.dart';
 import 'package:networld/src/src/features/core/powens/ui/state_management/powens_provider.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 @RoutePage()
 class SetNetWorthPage extends HookConsumerWidget {
-  const SetNetWorthPage({super.key});
+  const SetNetWorthPage({
+    super.key,
+    this.onFinish
+  });
+
+  final VoidCallback? onFinish;
+
 
   static const double _minNetWorth = -25000;
   static const double _maxNetWorth = 25000;
@@ -31,7 +37,7 @@ class SetNetWorthPage extends HookConsumerWidget {
     final onNetWorthSuccess = useCallback(() async {
       await ref.read(profileProvider.notifier).loadProfile();
       if (context.mounted) {
-        context.router.replaceAll([const HomeRouterRoute()]);
+        onFinish?.call();
       }
     }, const []);
 
@@ -81,8 +87,8 @@ class SetNetWorthPage extends HookConsumerWidget {
                     image: Assets.images.earth1.path,
                   ),
                 ).animate().scale(
-                  duration: Duration(seconds: 15),
-                  curve: Curves.fastOutSlowIn
+                  duration: Duration(seconds: 8),
+                  curve: Curves.fastOutSlowIn,
                 ),
               ),
             ),
@@ -93,16 +99,39 @@ class SetNetWorthPage extends HookConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(height: 12),
-                  _buildHeader(theme),
-                  const SizedBox(height: 80),
+                  _buildHeader(theme)
+                    .animate()
+                    .fade(
+                      delay: Duration(milliseconds: 800),
+                      duration: Duration(seconds: 1),
+                      curve: Curves.fastOutSlowIn
+                    )
+                    .moveY(
+                      delay: Duration(milliseconds: 800),
+                      duration: Duration(seconds: 1),
+                      begin: 50,
+                      curve: Curves.fastOutSlowIn
+                    ),
+                  const Spacer(),
                   _buildNetWorthCard(
                     theme: theme,
                     currentNetWorth: currentNetWorth.value,
                     onChanged: (value) {
                       currentNetWorth.value = value;
                     },
+                  ).animate()
+                  .fade(
+                    delay: Duration(milliseconds: 1600),
+                    duration: Duration(seconds: 1),
+                    curve: Curves.fastOutSlowIn
+                  )
+                  .moveY(
+                    delay: Duration(milliseconds: 1600),
+                    duration: Duration(seconds: 1),
+                    begin: 50,
+                    curve: Curves.fastOutSlowIn
                   ),
-                  const Spacer(),
+                  const Spacer(flex: 2),
                   UIButton.secondary(
                     title: 'Continuer',
                     height: 50,
@@ -113,8 +142,7 @@ class SetNetWorthPage extends HookConsumerWidget {
                       color: UIColorsToken.neu200
                     ),
                     fullWidth: true,
-                    onTap:
-                        powensState.isLoading ? null : () => submitManual(),
+                    onTap: powensState.isLoading ? null : () => submitManual(),
                   ),
                   const SizedBox(height: 8),
                   UIButton.primary(
@@ -170,9 +198,10 @@ class SetNetWorthPage extends HookConsumerWidget {
         ),
         const SizedBox(height: 16),
         Text(
-          'Connecte tes comptes bancaires de manière sécurisée via Powens ou entre manuellement ta valeur nette (jusqu\'à 25 000 €).',
+          'Connecte tes comptes bancaires de manière sécurisée via Powens ou entre manuellement ta valeur nette \n(jusqu\'à 25 000 €).',
           textAlign: TextAlign.center,
           style: theme.typo.textSm.regular.copyWith(
+            fontSize: 12,
             color: UIColorsToken.onboardingDescription,
           ),
         ),
@@ -214,7 +243,7 @@ class SetNetWorthPage extends HookConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                currentNetWorth.toStringAsFixed(0),
+                currentNetWorth.toString(),
                 style: theme.typo.displaySm.bold.copyWith(
                   color: UIColorsToken.pri350,
                   shadows: UIShadowToken.kTextShadow,
@@ -223,7 +252,7 @@ class SetNetWorthPage extends HookConsumerWidget {
               ),
               const SizedBox(width: 6),
               Text(
-                '€',
+                CurrencyType.usd.symbol,
                 style: theme.typo.displayXs.bold.copyWith(
                   color: UIColorsToken.pri350,
                   shadows: UIShadowToken.kTextShadow,
