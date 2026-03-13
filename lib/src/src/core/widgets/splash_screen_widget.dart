@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:networld/gen/assets.gen.dart';
 
 import '../design_system/app_ui.dart';
 
@@ -19,12 +20,7 @@ class SplashScreenWidget extends HookConsumerWidget {
       body: Center(
         child:SizedBox(
           height: screen.width * 0.3,
-          //child: UIImage.asset(image: Assets.medias.logo.path),
-          child: Container(
-            height: 100,
-            width: 100,
-            color: UIColorsToken.pri200,
-          ),
+          child: UIImage.asset(image: Assets.images.logoPng.path),
         )
       )
     );
