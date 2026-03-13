@@ -166,7 +166,7 @@ class LoginPage extends HookConsumerWidget {
                           mainAxisAlignment: .spaceBetween,
                           children: [
                             VertIconTextWidget(
-                              icon: Iconic.checkbox_bold,
+                              icon: Icons.verified_outlined,
                               label: 'Verified',
                             ),
                             VertIconTextWidget(
