@@ -7,12 +7,15 @@ class DailyPollModel extends Equatable {
   final String question;
   final String? imageUrl;
   final List<PollOptionModel>? options;
+  /// `admin_polls.scheduled_for` (UTC date).
+  final DateTime? scheduledFor;
 
   const DailyPollModel({
     required this.id,
     required this.question,
     this.imageUrl,
     required this.options,
+    this.scheduledFor,
   });
 
   factory DailyPollModel.fromJson(Json json) {
@@ -23,7 +26,14 @@ class DailyPollModel extends Equatable {
       question: json['question'] as String,
       imageUrl: json['image_url'] as String?,
       options: optionsRaw?.map((e) => PollOptionModel.fromJson(e)).toList(),
+      scheduledFor: _parseScheduledFor(json['scheduled_for']),
     );
+  }
+
+  static DateTime? _parseScheduledFor(dynamic v) {
+    if (v == null) return null;
+    if (v is DateTime) return v;
+    return DateTime.tryParse(v.toString());
   }
 
   Json toJson() => {
@@ -31,8 +41,9 @@ class DailyPollModel extends Equatable {
     'question': question,
     'image_url': imageUrl,
     'options': options?.map((e) => e.toJson()).toList(),
+    if (scheduledFor != null) 'scheduled_for': scheduledFor!.toIso8601String().split('T').first,
   };
 
   @override
-  List<Object?> get props => [id, question, imageUrl, options];
+  List<Object?> get props => [id, question, imageUrl, options, scheduledFor];
 }

@@ -72,6 +72,23 @@ class DailyRemoteDatasource {
     });
   }
 
+  /// Past polls (`scheduled_for` before today), newest first.
+  Future<List<DailyPollModel>> getPreviousPolls({int limit = 20}) async {
+    final today = _todayIsoDate();
+    final rows = await supabase
+        .from(_adminPollsTable)
+        .select('id, question, image_url, options, scheduled_for')
+        .eq('is_active', true)
+        .lt('scheduled_for', today)
+        .order('scheduled_for', ascending: false)
+        .limit(limit);
+
+    if (rows is! List) return [];
+    return rows
+        .map((e) => DailyPollModel.fromJson(Map<String, dynamic>.from(e as Map)))
+        .toList();
+  }
+
   /// Calls get_poll_results RPC. Returns list of results per option_id.
   Future<List<DailyPollResultModel>> getPollResults(String pollId) async {
     final results = await supabase.rpc(

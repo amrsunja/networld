@@ -7,6 +7,7 @@ import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/features/core/daily/ui/state_management/daily_provider.dart';
 import 'package:networld/src/src/features/core/daily/ui/widgets/daily_missions_section.dart';
 import 'package:networld/src/src/features/core/daily/ui/widgets/daily_poll_card.dart';
+import 'package:networld/src/src/features/core/daily/ui/widgets/previous_pulses_section.dart';
 
 @RoutePage()
 class DailyPage extends HookConsumerWidget {
@@ -51,6 +52,7 @@ class DailyPage extends HookConsumerWidget {
                     ),
                   const DailyPollCard(),
                   const DailyMissionsSection(),
+                  const PreviousPulsesSection(),
                 ],
               ),
             ),
