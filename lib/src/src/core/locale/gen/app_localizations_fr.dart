@@ -88,6 +88,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get dailyVoteFirst => 'Vote d\'abord';
 
   @override
+  String get dailyTodaysPulse => 'Pulse du jour';
+
+  @override
+  String get dailyPreviousPulses => 'Pulses précédents';
+
+  @override
   String get dailyMissions => 'Daily Missions';
 
   @override

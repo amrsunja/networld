@@ -230,6 +230,18 @@ abstract class AppLocalizations {
   /// **'Vote d\'abord'**
   String get dailyVoteFirst;
 
+  /// No description provided for @dailyTodaysPulse.
+  ///
+  /// In fr, this message translates to:
+  /// **'Pulse du jour'**
+  String get dailyTodaysPulse;
+
+  /// No description provided for @dailyPreviousPulses.
+  ///
+  /// In fr, this message translates to:
+  /// **'Pulses précédents'**
+  String get dailyPreviousPulses;
+
   /// No description provided for @dailyMissions.
   ///
   /// In fr, this message translates to:

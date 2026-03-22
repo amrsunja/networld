@@ -24,6 +24,8 @@
   "dailyClaim": "Claim",
   "dailyClaimed": "Claimed ✓",
   "dailyVoteFirst": "Vote first",
+  "dailyTodaysPulse": "Today's Pulse",
+  "dailyPreviousPulses": "Previous Pulses",
   "dailyMissions": "Daily Missions",
   "dailyCollect": "Collect",
   "dailyOpenLink": "Open",
