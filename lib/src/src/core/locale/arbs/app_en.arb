@@ -15,7 +15,28 @@
   "errorPowensSession": "We could not start the secure Powens session. Please try again.",
   "errorPowensPermanentTokenRequired": "Your bank connection has expired. Please reconnect your bank with Powens.",
   "errorProfileNotFound": "We could not find your profile. Please try again.",
+  "errorAlreadyClaimedToday": "You already claimed this reward today.",
+  "errorMissionNotFound": "This mission is no longer available.",
   "errorUnknown": "An unknown error occurred. Please try again.",
+
+  "dailySurveyOfTheDay": "Survey of the day",
+  "dailySurveyGiftClaimed": "Daily reward claimed",
+  "dailyClaim": "Claim",
+  "dailyClaimed": "Claimed ✓",
+  "dailyVoteFirst": "Vote first",
+  "dailyMissions": "Daily Missions",
+  "dailyCollect": "Collect",
+  "dailyOpenLink": "Open",
+  "dailyMissionStart": "Start",
+  "dailyInProgress": "In progress...",
+  "dailyCreditsAdded": "+{count} credits added!",
+  "@dailyCreditsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
 
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }

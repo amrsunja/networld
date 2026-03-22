@@ -62,7 +62,49 @@ class AppLocalizationsEn extends AppLocalizations {
       'We could not find your profile. Please try again.';
 
   @override
+  String get errorAlreadyClaimedToday =>
+      'You already claimed this reward today.';
+
+  @override
+  String get errorMissionNotFound => 'This mission is no longer available.';
+
+  @override
   String get errorUnknown => 'An unknown error occurred. Please try again.';
+
+  @override
+  String get dailySurveyOfTheDay => 'Survey of the day';
+
+  @override
+  String get dailySurveyGiftClaimed => 'Daily reward claimed';
+
+  @override
+  String get dailyClaim => 'Claim';
+
+  @override
+  String get dailyClaimed => 'Claimed ✓';
+
+  @override
+  String get dailyVoteFirst => 'Vote first';
+
+  @override
+  String get dailyMissions => 'Daily Missions';
+
+  @override
+  String get dailyCollect => 'Collect';
+
+  @override
+  String get dailyOpenLink => 'Open';
+
+  @override
+  String get dailyMissionStart => 'Start';
+
+  @override
+  String get dailyInProgress => 'In progress...';
+
+  @override
+  String dailyCreditsAdded(int count) {
+    return '+$count credits added!';
+  }
 
   @override
   String get l10nStopLineDontTouch =>

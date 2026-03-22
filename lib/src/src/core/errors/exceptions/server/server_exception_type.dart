@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
+import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 
 enum ServerExceptionType {
   unauthorized,
@@ -9,6 +9,8 @@ enum ServerExceptionType {
   powensCreateSessionFailed,
   powensPermanentTokenRequired,
   profileNotFound,
+  alreadyClaimedToday,
+  missionNotFound,
   unknown;
 
   static ServerExceptionType fromString(String? code) {
@@ -20,12 +22,19 @@ enum ServerExceptionType {
       'powens_permanent_token_required'   => ServerExceptionType.powensPermanentTokenRequired,
       'powens_create_session_failed'      => ServerExceptionType.powensCreateSessionFailed,
       'profile_not_found'                 => ServerExceptionType.profileNotFound,
+      'already_claimed_today'             => ServerExceptionType.alreadyClaimedToday,
+      'mission_not_found'                 => ServerExceptionType.missionNotFound,
+      'ref_id_required_for_mission'       => ServerExceptionType.unknown,
       _                                   => ServerExceptionType.unknown,
     };
   }
 
   String message(BuildContext context) {
-    final l10n = AppLocale.of(context); // ton système i18n
+    final l10n = AppLocalizations.of(context);
+    return messageWith(l10n);
+  }
+
+  String messageWith(AppLocalizations l10n) {
     return switch (this) {
       ServerExceptionType.unauthorized                  => l10n.errorUnauthorized,
       ServerExceptionType.insufficientCredits           => l10n.errorInsufficientCredits,
@@ -34,8 +43,9 @@ enum ServerExceptionType {
       ServerExceptionType.powensCreateSessionFailed     => l10n.errorPowensSession,
       ServerExceptionType.powensPermanentTokenRequired  => l10n.errorPowensPermanentTokenRequired,
       ServerExceptionType.profileNotFound               => l10n.errorProfileNotFound,
+      ServerExceptionType.alreadyClaimedToday           => l10n.errorAlreadyClaimedToday,
+      ServerExceptionType.missionNotFound               => l10n.errorMissionNotFound,
       ServerExceptionType.unknown                       => l10n.errorUnknown,
-      _                                                 => l10n.errorUnknown,
     };
   }
 }

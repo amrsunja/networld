@@ -5,6 +5,7 @@ import '../../locale/l10n.dart';
 import '../../utils/typedefs.dart';
 import '../exceptions/cache/cache_exception.dart';
 import '../exceptions/database/database_exception.dart';
+import '../exceptions/server/server_exception.dart';
 
 abstract class Failure {
   static Future<SuccessOrError<T>> exceptionsCatcher<T>(
@@ -16,6 +17,8 @@ abstract class Failure {
       return Result.error(CacheFailure(exception: e));
     } on DatabaseException catch (e) {
       return Result.error(DatabaseFailure(exception: e));
+    } on ServerException catch (e) {
+      return Result.error(ServerFailure(exception: e));
     } catch (e) {
       debugPrint(e.toString());
       return Result.error(UnknownFailure(exception: e));
@@ -23,6 +26,16 @@ abstract class Failure {
   }
 
   String toMessage(AppLocale locale);
+}
+
+class ServerFailure extends Failure {
+  final ServerException exception;
+  ServerFailure({required this.exception});
+
+  @override
+  String toMessage(AppLocale locale) {
+    return exception.type.messageWith(locale);
+  }
 }
 
 class CacheFailure extends Failure {

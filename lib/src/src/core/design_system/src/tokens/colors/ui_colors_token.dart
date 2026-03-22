@@ -58,6 +58,7 @@ class UIColorsToken {
 	static const Color shadow = pri500;
 
 	// PRIMARY (Gold / brand)
+  static final Color pri550 = Color(0xffFFC107).withValues(alpha: 0.2);
   static const Color pri500 = Color(0xffFFC107);
   static const Color pri400 = Color(0xffFFCA28);
   static const Color pri350 = Color(0xffFFD700);

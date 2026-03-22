@@ -182,11 +182,89 @@ abstract class AppLocalizations {
   /// **'Nous n\'avons pas trouvé votre profil. Veuillez réessayer.'**
   String get errorProfileNotFound;
 
+  /// No description provided for @errorAlreadyClaimedToday.
+  ///
+  /// In fr, this message translates to:
+  /// **'Tu as déjà réclamé cette récompense aujourd\'hui.'**
+  String get errorAlreadyClaimedToday;
+
+  /// No description provided for @errorMissionNotFound.
+  ///
+  /// In fr, this message translates to:
+  /// **'Cette mission n\'est plus disponible.'**
+  String get errorMissionNotFound;
+
   /// No description provided for @errorUnknown.
   ///
   /// In fr, this message translates to:
   /// **'Une erreur inconnue s\'est produite. Veuillez réessayer.'**
   String get errorUnknown;
+
+  /// No description provided for @dailySurveyOfTheDay.
+  ///
+  /// In fr, this message translates to:
+  /// **'Sondage du jour'**
+  String get dailySurveyOfTheDay;
+
+  /// No description provided for @dailySurveyGiftClaimed.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompense du jour réclamée'**
+  String get dailySurveyGiftClaimed;
+
+  /// No description provided for @dailyClaim.
+  ///
+  /// In fr, this message translates to:
+  /// **'Claim'**
+  String get dailyClaim;
+
+  /// No description provided for @dailyClaimed.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réclamé ✓'**
+  String get dailyClaimed;
+
+  /// No description provided for @dailyVoteFirst.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vote d\'abord'**
+  String get dailyVoteFirst;
+
+  /// No description provided for @dailyMissions.
+  ///
+  /// In fr, this message translates to:
+  /// **'Daily Missions'**
+  String get dailyMissions;
+
+  /// No description provided for @dailyCollect.
+  ///
+  /// In fr, this message translates to:
+  /// **'Collect'**
+  String get dailyCollect;
+
+  /// No description provided for @dailyOpenLink.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ouvrir'**
+  String get dailyOpenLink;
+
+  /// No description provided for @dailyMissionStart.
+  ///
+  /// In fr, this message translates to:
+  /// **'Commencer'**
+  String get dailyMissionStart;
+
+  /// No description provided for @dailyInProgress.
+  ///
+  /// In fr, this message translates to:
+  /// **'En cours...'**
+  String get dailyInProgress;
+
+  /// No description provided for @dailyCreditsAdded.
+  ///
+  /// In fr, this message translates to:
+  /// **'+{count} crédits ajoutés !'**
+  String dailyCreditsAdded(int count);
 
   /// No description provided for @l10nStopLineDontTouch.
   ///

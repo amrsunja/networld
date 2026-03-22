@@ -62,8 +62,50 @@ class AppLocalizationsFr extends AppLocalizations {
       'Nous n\'avons pas trouvé votre profil. Veuillez réessayer.';
 
   @override
+  String get errorAlreadyClaimedToday =>
+      'Tu as déjà réclamé cette récompense aujourd\'hui.';
+
+  @override
+  String get errorMissionNotFound => 'Cette mission n\'est plus disponible.';
+
+  @override
   String get errorUnknown =>
       'Une erreur inconnue s\'est produite. Veuillez réessayer.';
+
+  @override
+  String get dailySurveyOfTheDay => 'Sondage du jour';
+
+  @override
+  String get dailySurveyGiftClaimed => 'Récompense du jour réclamée';
+
+  @override
+  String get dailyClaim => 'Claim';
+
+  @override
+  String get dailyClaimed => 'Réclamé ✓';
+
+  @override
+  String get dailyVoteFirst => 'Vote d\'abord';
+
+  @override
+  String get dailyMissions => 'Daily Missions';
+
+  @override
+  String get dailyCollect => 'Collect';
+
+  @override
+  String get dailyOpenLink => 'Ouvrir';
+
+  @override
+  String get dailyMissionStart => 'Commencer';
+
+  @override
+  String get dailyInProgress => 'En cours...';
+
+  @override
+  String dailyCreditsAdded(int count) {
+    return '+$count crédits ajoutés !';
+  }
 
   @override
   String get l10nStopLineDontTouch =>

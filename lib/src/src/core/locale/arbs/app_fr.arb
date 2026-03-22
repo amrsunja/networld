@@ -15,7 +15,28 @@
   "errorPowensSession": "Impossible de démarrer la session sécurisée Powens. Veuillez réessayer.",
   "errorPowensPermanentTokenRequired": "Votre connexion bancaire a expiré. Veuillez reconnecter votre banque avec Powens.",
   "errorProfileNotFound": "Nous n'avons pas trouvé votre profil. Veuillez réessayer.",
+  "errorAlreadyClaimedToday": "Tu as déjà réclamé cette récompense aujourd'hui.",
+  "errorMissionNotFound": "Cette mission n'est plus disponible.",
   "errorUnknown": "Une erreur inconnue s'est produite. Veuillez réessayer.",
+
+  "dailySurveyOfTheDay": "Sondage du jour",
+  "dailySurveyGiftClaimed": "Récompense du jour réclamée",
+  "dailyClaim": "Claim",
+  "dailyClaimed": "Réclamé ✓",
+  "dailyVoteFirst": "Vote d'abord",
+  "dailyMissions": "Daily Missions",
+  "dailyCollect": "Collect",
+  "dailyOpenLink": "Ouvrir",
+  "dailyMissionStart": "Commencer",
+  "dailyInProgress": "En cours...",
+  "dailyCreditsAdded": "+{count} crédits ajoutés !",
+  "@dailyCreditsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
 
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
