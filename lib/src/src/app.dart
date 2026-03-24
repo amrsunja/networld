@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/l10n.dart';
@@ -77,10 +78,13 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
 
       switch (appSettings.themeMode) {
         case AppThemeType.system:
+          FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
           return systemTheme;
         case AppThemeType.dark:
+          FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
           return UIThemeData.dark();
         case AppThemeType.light:
+          FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
           return UIThemeData.dark();
       }
     }, [appSettings?.themeMode]);

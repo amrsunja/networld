@@ -60,6 +60,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 							//child: ,
 						),*/
 						body: SafeArea(
+            top: false,
 						  child: Stack(
                 alignment: .bottomCenter,
 						    children: [
