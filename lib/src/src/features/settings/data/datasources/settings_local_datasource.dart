@@ -27,7 +27,7 @@ class SettingsLocalDatasource {
   }
 
   Future<AppSettingsModel> getLocalSettings() async {
-    //throw UnimplementedError();
+    await services.initDatabase();
     final dbInstance = services.db;
 
     final result = await dbInstance.query(
@@ -48,6 +48,7 @@ class SettingsLocalDatasource {
   }
 
   Future<void> changeAppLanguage(Locale locale) async {
+    await services.initDatabase();
     final dbInstance = services.db;
 
     await dbInstance.update(
@@ -62,6 +63,7 @@ class SettingsLocalDatasource {
   }
 
 	Future<void> changeAppThemeMode(AppThemeType type) async {
+    await services.initDatabase();
     final dbInstance = services.db;
 
     await dbInstance.update(

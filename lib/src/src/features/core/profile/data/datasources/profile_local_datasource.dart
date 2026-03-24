@@ -51,4 +51,14 @@ class ProfileLocalDatasource {
     final json = jsonDecode(data) as Json;
     return ProfileModel.fromJson(json);
   }
+
+  Future<void> deleteProfileForUser(String userId) async {
+    await services.initDatabase();
+    final db = services.db;
+    await db.delete(
+      SQLiteConfig.profilesTableName,
+      where: '${SQLiteConfig.profileUserIdKey} = ?',
+      whereArgs: [userId],
+    );
+  }
 }

@@ -14,13 +14,20 @@ class AppSettingsModel extends Equatable {
 		required this.themeMode,
 	});
 
-	factory AppSettingsModel.fromJson(Json json) => AppSettingsModel(
-		locale: json[SQLiteConfig.languageCodeKey] == null ? null : Locale(
-			json[SQLiteConfig.languageCodeKey],
-			json[SQLiteConfig.countryCodeKey]
-		),
-		themeMode: AppThemeType.fromJson(json[SQLiteConfig.themeModeKey]),
-	);
+	factory AppSettingsModel.fromJson(Json json) {
+		final langRaw = json[SQLiteConfig.languageCodeKey];
+		final countryRaw = json[SQLiteConfig.countryCodeKey];
+		final Locale? locale = langRaw == null
+				? null
+				: Locale(
+						'$langRaw',
+						countryRaw == null ? null : '$countryRaw',
+					);
+		return AppSettingsModel(
+			locale: locale,
+			themeMode: AppThemeType.fromJson(json[SQLiteConfig.themeModeKey]),
+		);
+	}
 
 	Json toJson() => {
 		SQLiteConfig.languageCodeKey: locale?.languageCode,

@@ -53,16 +53,19 @@ class SettingsPresenter extends Presenter<SettingsState> {
 		);
 	}
 
-	Future<void> changeAppLanguage(Locale locale) async {
+	/// Persists [locale] and returns `true` when the change succeeded.
+	Future<bool> changeAppLanguage(Locale locale) async {
 		final response = await repo.changeAppLanguage(locale);
 
-		response.when(
+		return response.when(
 			(success) {
 				state = state.copyWith(data: success);
+				return true;
 			},
 			(error) {
 				appEvents.send(ShowErrorEvent(error));
-			}
+				return false;
+			},
 		);
 	}
 

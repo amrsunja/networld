@@ -7,6 +7,7 @@ part 'profile_state.freezed.dart';
 abstract class ProfileState with _$ProfileState {
   const factory ProfileState({
     @Default(false) bool isLoading,
+    @Default(false) bool isSavingProfile,
     ProfileModel? profile,
     String? errorMessage,
   }) = _ProfileState;
