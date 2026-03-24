@@ -113,6 +113,158 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get dailyAppBarRankPrefix => 'Rank:';
+
+  @override
+  String get dailyAppBarNotificationsTooltip => 'Notifications';
+
+  @override
+  String get profileLogout => 'Log out';
+
+  @override
+  String get profileUnavailable => 'Profile unavailable';
+
+  @override
+  String get profileNetWorthLabel => 'NET WORTH';
+
+  @override
+  String get profileVerifiedNetWorthLabel => 'VERIFIED NET WORTH';
+
+  @override
+  String get profileStatRank => 'RANK';
+
+  @override
+  String get profileStatFollowers => 'FOLLOWERS';
+
+  @override
+  String get profileStatPosts => 'POSTS';
+
+  @override
+  String get rankTierStarter => 'Starter';
+
+  @override
+  String get rankTierBuilder => 'Builder';
+
+  @override
+  String get rankTierScaler => 'Scaler';
+
+  @override
+  String get rankTierElite => 'Elite';
+
+  @override
+  String get rankTierWhale => 'Whale';
+
+  @override
+  String get settingsAccountSectionTitle => 'Account settings';
+
+  @override
+  String get settingsPersonalInformationTitle => 'Personal Information';
+
+  @override
+  String get settingsPersonalInformationSubtitle =>
+      'Update your profile details';
+
+  @override
+  String get settingsPrivacyPolicyTitle => 'Privacy Policy';
+
+  @override
+  String get settingsPrivacyPolicySubtitle => 'Control your visibility';
+
+  @override
+  String get settingsTermsOfUseTitle => 'Terms of Use';
+
+  @override
+  String get settingsTermsOfUseSubtitle => 'Legal agreements';
+
+  @override
+  String get settingsDeleteAccountTitle => 'Delete Account';
+
+  @override
+  String get settingsDeleteAccountSubtitle => 'Permanently remove your data';
+
+  @override
+  String get settingsBrandFooter => 'NETWORLD';
+
+  @override
+  String get settingsCouldNotOpenLink => 'Could not open link';
+
+  @override
+  String get settingsLogout => 'Logout';
+
+  @override
+  String get settingsTooltip => 'Settings';
+
+  @override
+  String get settingsAppLanguageTitle => 'App language';
+
+  @override
+  String get settingsAppLanguageCardTitle => 'App language';
+
+  @override
+  String get settingsAppLanguageCardSubtitle => 'Choose display language';
+
+  @override
+  String get settingsLanguageFrenchLabel => 'Français';
+
+  @override
+  String get settingsLanguageEnglishLabel => 'English';
+
+  @override
+  String get editProfileDescription =>
+      'You can update how others see your name on Networld.';
+
+  @override
+  String get editProfileUsernameLabel => 'Username';
+
+  @override
+  String get editProfileUsernameHint => 'Enter your username';
+
+  @override
+  String get editProfileSaveChanges => 'Save changes';
+
+  @override
+  String get deleteAccountWarningTitle => 'This action is permanent';
+
+  @override
+  String get deleteAccountWarningBody =>
+      'Deleting your account will permanently remove your profile, content and progress from Networld.';
+
+  @override
+  String get deleteAccountDialogTitle => 'Delete account?';
+
+  @override
+  String get deleteAccountDialogMessage =>
+      'This cannot be undone. Your profile and data will be removed.';
+
+  @override
+  String get deleteAccountDialogConfirm => 'Delete forever';
+
+  @override
+  String get deleteAccountDialogAbort => 'Not now';
+
+  @override
+  String get deleteAccountConfirm => 'Delete account permanently';
+
+  @override
+  String get deleteAccountCancel => 'Cancel';
+
+  @override
+  String get profileUsernameRequired => 'Username is required';
+
+  @override
+  String get profileUsernameMinLength => 'Use at least 3 characters';
+
+  @override
+  String get profileUsernameMaxLength => 'Use at most 30 characters';
+
+  @override
+  String get profileUsernameInvalidChars =>
+      'Only letters, numbers and underscores';
+
+  @override
+  String get profileUpdatedMessage => 'Profile updated';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

@@ -114,6 +114,160 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get dailyAppBarRankPrefix => 'Rang :';
+
+  @override
+  String get dailyAppBarNotificationsTooltip => 'Notifications';
+
+  @override
+  String get profileLogout => 'Se déconnecter';
+
+  @override
+  String get profileUnavailable => 'Profil indisponible';
+
+  @override
+  String get profileNetWorthLabel => 'PATRIMOINE NET';
+
+  @override
+  String get profileVerifiedNetWorthLabel => 'PATRIMOINE NET VÉRIFIÉ';
+
+  @override
+  String get profileStatRank => 'RANG';
+
+  @override
+  String get profileStatFollowers => 'ABONNÉS';
+
+  @override
+  String get profileStatPosts => 'PUBLICATIONS';
+
+  @override
+  String get rankTierStarter => 'Débutant';
+
+  @override
+  String get rankTierBuilder => 'Bâtisseur';
+
+  @override
+  String get rankTierScaler => 'Accélérateur';
+
+  @override
+  String get rankTierElite => 'Élite';
+
+  @override
+  String get rankTierWhale => 'Baleine';
+
+  @override
+  String get settingsAccountSectionTitle => 'Paramètres du compte';
+
+  @override
+  String get settingsPersonalInformationTitle => 'Informations personnelles';
+
+  @override
+  String get settingsPersonalInformationSubtitle =>
+      'Mettre à jour les détails du profil';
+
+  @override
+  String get settingsPrivacyPolicyTitle => 'Politique de confidentialité';
+
+  @override
+  String get settingsPrivacyPolicySubtitle => 'Contrôler votre visibilité';
+
+  @override
+  String get settingsTermsOfUseTitle => 'Conditions d\'utilisation';
+
+  @override
+  String get settingsTermsOfUseSubtitle => 'Accords juridiques';
+
+  @override
+  String get settingsDeleteAccountTitle => 'Supprimer le compte';
+
+  @override
+  String get settingsDeleteAccountSubtitle =>
+      'Supprimer définitivement vos données';
+
+  @override
+  String get settingsBrandFooter => 'NETWORLD';
+
+  @override
+  String get settingsCouldNotOpenLink => 'Impossible d\'ouvrir le lien';
+
+  @override
+  String get settingsLogout => 'Déconnexion';
+
+  @override
+  String get settingsTooltip => 'Paramètres';
+
+  @override
+  String get settingsAppLanguageTitle => 'Langue de l\'application';
+
+  @override
+  String get settingsAppLanguageCardTitle => 'Langue de l\'application';
+
+  @override
+  String get settingsAppLanguageCardSubtitle =>
+      'Choisir la langue d\'affichage';
+
+  @override
+  String get settingsLanguageFrenchLabel => 'Français';
+
+  @override
+  String get settingsLanguageEnglishLabel => 'Anglais';
+
+  @override
+  String get editProfileDescription =>
+      'Vous pouvez modifier la façon dont les autres vous voient sur Networld.';
+
+  @override
+  String get editProfileUsernameLabel => 'Nom d\'utilisateur';
+
+  @override
+  String get editProfileUsernameHint => 'Saisissez votre nom d\'utilisateur';
+
+  @override
+  String get editProfileSaveChanges => 'Enregistrer';
+
+  @override
+  String get deleteAccountWarningTitle => 'Cette action est irréversible';
+
+  @override
+  String get deleteAccountWarningBody =>
+      'La suppression de votre compte effacera définitivement votre profil, votre contenu et votre progression sur Networld.';
+
+  @override
+  String get deleteAccountDialogTitle => 'Supprimer le compte ?';
+
+  @override
+  String get deleteAccountDialogMessage =>
+      'Cette action est irréversible. Votre profil et vos données seront supprimés.';
+
+  @override
+  String get deleteAccountDialogConfirm => 'Supprimer définitivement';
+
+  @override
+  String get deleteAccountDialogAbort => 'Pas maintenant';
+
+  @override
+  String get deleteAccountConfirm => 'Supprimer définitivement le compte';
+
+  @override
+  String get deleteAccountCancel => 'Annuler';
+
+  @override
+  String get profileUsernameRequired => 'Le nom d\'utilisateur est obligatoire';
+
+  @override
+  String get profileUsernameMinLength => 'Au moins 3 caractères';
+
+  @override
+  String get profileUsernameMaxLength => 'Au plus 30 caractères';
+
+  @override
+  String get profileUsernameInvalidChars =>
+      'Lettres, chiffres et tirets bas uniquement';
+
+  @override
+  String get profileUpdatedMessage => 'Profil mis à jour';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

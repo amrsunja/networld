@@ -278,6 +278,300 @@ abstract class AppLocalizations {
   /// **'+{count} crédits ajoutés !'**
   String dailyCreditsAdded(int count);
 
+  /// No description provided for @dailyAppBarRankPrefix.
+  ///
+  /// In fr, this message translates to:
+  /// **'Rang :'**
+  String get dailyAppBarRankPrefix;
+
+  /// No description provided for @dailyAppBarNotificationsTooltip.
+  ///
+  /// In fr, this message translates to:
+  /// **'Notifications'**
+  String get dailyAppBarNotificationsTooltip;
+
+  /// No description provided for @profileLogout.
+  ///
+  /// In fr, this message translates to:
+  /// **'Se déconnecter'**
+  String get profileLogout;
+
+  /// No description provided for @profileUnavailable.
+  ///
+  /// In fr, this message translates to:
+  /// **'Profil indisponible'**
+  String get profileUnavailable;
+
+  /// No description provided for @profileNetWorthLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'PATRIMOINE NET'**
+  String get profileNetWorthLabel;
+
+  /// No description provided for @profileVerifiedNetWorthLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'PATRIMOINE NET VÉRIFIÉ'**
+  String get profileVerifiedNetWorthLabel;
+
+  /// No description provided for @profileStatRank.
+  ///
+  /// In fr, this message translates to:
+  /// **'RANG'**
+  String get profileStatRank;
+
+  /// No description provided for @profileStatFollowers.
+  ///
+  /// In fr, this message translates to:
+  /// **'ABONNÉS'**
+  String get profileStatFollowers;
+
+  /// No description provided for @profileStatPosts.
+  ///
+  /// In fr, this message translates to:
+  /// **'PUBLICATIONS'**
+  String get profileStatPosts;
+
+  /// No description provided for @rankTierStarter.
+  ///
+  /// In fr, this message translates to:
+  /// **'Débutant'**
+  String get rankTierStarter;
+
+  /// No description provided for @rankTierBuilder.
+  ///
+  /// In fr, this message translates to:
+  /// **'Bâtisseur'**
+  String get rankTierBuilder;
+
+  /// No description provided for @rankTierScaler.
+  ///
+  /// In fr, this message translates to:
+  /// **'Accélérateur'**
+  String get rankTierScaler;
+
+  /// No description provided for @rankTierElite.
+  ///
+  /// In fr, this message translates to:
+  /// **'Élite'**
+  String get rankTierElite;
+
+  /// No description provided for @rankTierWhale.
+  ///
+  /// In fr, this message translates to:
+  /// **'Baleine'**
+  String get rankTierWhale;
+
+  /// No description provided for @settingsAccountSectionTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Paramètres du compte'**
+  String get settingsAccountSectionTitle;
+
+  /// No description provided for @settingsPersonalInformationTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Informations personnelles'**
+  String get settingsPersonalInformationTitle;
+
+  /// No description provided for @settingsPersonalInformationSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mettre à jour les détails du profil'**
+  String get settingsPersonalInformationSubtitle;
+
+  /// No description provided for @settingsPrivacyPolicyTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Politique de confidentialité'**
+  String get settingsPrivacyPolicyTitle;
+
+  /// No description provided for @settingsPrivacyPolicySubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Contrôler votre visibilité'**
+  String get settingsPrivacyPolicySubtitle;
+
+  /// No description provided for @settingsTermsOfUseTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Conditions d\'utilisation'**
+  String get settingsTermsOfUseTitle;
+
+  /// No description provided for @settingsTermsOfUseSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Accords juridiques'**
+  String get settingsTermsOfUseSubtitle;
+
+  /// No description provided for @settingsDeleteAccountTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer le compte'**
+  String get settingsDeleteAccountTitle;
+
+  /// No description provided for @settingsDeleteAccountSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer définitivement vos données'**
+  String get settingsDeleteAccountSubtitle;
+
+  /// No description provided for @settingsBrandFooter.
+  ///
+  /// In fr, this message translates to:
+  /// **'NETWORLD'**
+  String get settingsBrandFooter;
+
+  /// No description provided for @settingsCouldNotOpenLink.
+  ///
+  /// In fr, this message translates to:
+  /// **'Impossible d\'ouvrir le lien'**
+  String get settingsCouldNotOpenLink;
+
+  /// No description provided for @settingsLogout.
+  ///
+  /// In fr, this message translates to:
+  /// **'Déconnexion'**
+  String get settingsLogout;
+
+  /// No description provided for @settingsTooltip.
+  ///
+  /// In fr, this message translates to:
+  /// **'Paramètres'**
+  String get settingsTooltip;
+
+  /// No description provided for @settingsAppLanguageTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Langue de l\'application'**
+  String get settingsAppLanguageTitle;
+
+  /// No description provided for @settingsAppLanguageCardTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Langue de l\'application'**
+  String get settingsAppLanguageCardTitle;
+
+  /// No description provided for @settingsAppLanguageCardSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Choisir la langue d\'affichage'**
+  String get settingsAppLanguageCardSubtitle;
+
+  /// No description provided for @settingsLanguageFrenchLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Français'**
+  String get settingsLanguageFrenchLabel;
+
+  /// No description provided for @settingsLanguageEnglishLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Anglais'**
+  String get settingsLanguageEnglishLabel;
+
+  /// No description provided for @editProfileDescription.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous pouvez modifier la façon dont les autres vous voient sur Networld.'**
+  String get editProfileDescription;
+
+  /// No description provided for @editProfileUsernameLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nom d\'utilisateur'**
+  String get editProfileUsernameLabel;
+
+  /// No description provided for @editProfileUsernameHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Saisissez votre nom d\'utilisateur'**
+  String get editProfileUsernameHint;
+
+  /// No description provided for @editProfileSaveChanges.
+  ///
+  /// In fr, this message translates to:
+  /// **'Enregistrer'**
+  String get editProfileSaveChanges;
+
+  /// No description provided for @deleteAccountWarningTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Cette action est irréversible'**
+  String get deleteAccountWarningTitle;
+
+  /// No description provided for @deleteAccountWarningBody.
+  ///
+  /// In fr, this message translates to:
+  /// **'La suppression de votre compte effacera définitivement votre profil, votre contenu et votre progression sur Networld.'**
+  String get deleteAccountWarningBody;
+
+  /// No description provided for @deleteAccountDialogTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer le compte ?'**
+  String get deleteAccountDialogTitle;
+
+  /// No description provided for @deleteAccountDialogMessage.
+  ///
+  /// In fr, this message translates to:
+  /// **'Cette action est irréversible. Votre profil et vos données seront supprimés.'**
+  String get deleteAccountDialogMessage;
+
+  /// No description provided for @deleteAccountDialogConfirm.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer définitivement'**
+  String get deleteAccountDialogConfirm;
+
+  /// No description provided for @deleteAccountDialogAbort.
+  ///
+  /// In fr, this message translates to:
+  /// **'Pas maintenant'**
+  String get deleteAccountDialogAbort;
+
+  /// No description provided for @deleteAccountConfirm.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer définitivement le compte'**
+  String get deleteAccountConfirm;
+
+  /// No description provided for @deleteAccountCancel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Annuler'**
+  String get deleteAccountCancel;
+
+  /// No description provided for @profileUsernameRequired.
+  ///
+  /// In fr, this message translates to:
+  /// **'Le nom d\'utilisateur est obligatoire'**
+  String get profileUsernameRequired;
+
+  /// No description provided for @profileUsernameMinLength.
+  ///
+  /// In fr, this message translates to:
+  /// **'Au moins 3 caractères'**
+  String get profileUsernameMinLength;
+
+  /// No description provided for @profileUsernameMaxLength.
+  ///
+  /// In fr, this message translates to:
+  /// **'Au plus 30 caractères'**
+  String get profileUsernameMaxLength;
+
+  /// No description provided for @profileUsernameInvalidChars.
+  ///
+  /// In fr, this message translates to:
+  /// **'Lettres, chiffres et tirets bas uniquement'**
+  String get profileUsernameInvalidChars;
+
+  /// No description provided for @profileUpdatedMessage.
+  ///
+  /// In fr, this message translates to:
+  /// **'Profil mis à jour'**
+  String get profileUpdatedMessage;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:
