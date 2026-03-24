@@ -158,13 +158,13 @@ class PollOptionRow extends StatelessWidget {
   static String _formatAvgNetWorth(num value) {
     if (value >= 1000000) {
       final m = value / 1000000;
-      return 'Avg Voter NW: \$${m.toStringAsFixed(m >= 10 ? 0 : 1)}M';
+      return 'Avg Voter NW: €${m.toStringAsFixed(m >= 10 ? 0 : 1)}M';
     }
     if (value >= 1000) {
       final k = value / 1000;
-      return 'Avg Voter NW: \$${k.toStringAsFixed(1)}K';
+      return 'Avg Voter NW: €${k.toStringAsFixed(1)}K';
     }
-    return 'Avg Voter NW: \$${value.toStringAsFixed(0)}';
+    return 'Avg Voter NW: €${value.toStringAsFixed(0)}';
   }
 }
 
