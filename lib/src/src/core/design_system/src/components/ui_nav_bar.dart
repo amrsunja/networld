@@ -51,10 +51,10 @@ class _UINavBarState extends State<UINavBar> {
       onTap: widget.onPageChange,
       borderWidth: .5,
       marginR: .symmetric(horizontal: 70, vertical: 20),
-      selectedItemColor: UIColorsToken.pri500,
+      selectedItemColor: UIColorsToken.pri300,
       unselectedItemColor: UIColorsToken.neu400,
       outlineBorderColor: UIColorsToken.neu400,
-      indicatorColor: UIColorsToken.pri500,
+      indicatorColor: UIColorsToken.pri350,
       // enableFloatingNavBar: false
       items: [
         CrystalNavigationBarItem(

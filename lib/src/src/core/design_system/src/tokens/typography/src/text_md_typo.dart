@@ -1,4 +1,4 @@
-part of '../ui_typography_token.dart';
+part of '../envola_typography_token.dart';
 
 class TextMdTypo {
   final Color color;
