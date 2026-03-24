@@ -11,6 +11,10 @@ abstract class RoutePaths {
   static const daily = 'daily';
   static const social = 'social';
   static const profile = 'profile';
+  static const settings = 'settings';
+  static const appLanguage = 'app-language';
+  static const editProfileInformations = 'edit-profile-informations';
+  static const deleteAccount = 'delete-account';
 
   static const shop = 'shop';
 

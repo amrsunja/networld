@@ -89,6 +89,22 @@ class AppRouter extends RootStackRouter {
                   page: ProfileRouterRoute.page,
                   children: [
                     AutoRoute(path: '', page: ProfileRoute.page),
+                    AutoRoute(
+                      path: RoutePaths.settings,
+                      page: SettingsRoute.page,
+                    ),
+                    AutoRoute(
+                      path: RoutePaths.appLanguage,
+                      page: AppLanguageRoute.page,
+                    ),
+                    AutoRoute(
+                      path: RoutePaths.editProfileInformations,
+                      page: EditProfileInformationsRoute.page,
+                    ),
+                    AutoRoute(
+                      path: RoutePaths.deleteAccount,
+                      page: DeleteAccountRoute.page,
+                    ),
                     ...generalSubPages
                   ]
                 ),
