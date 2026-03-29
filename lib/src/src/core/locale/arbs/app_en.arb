@@ -18,6 +18,35 @@
   "errorAlreadyClaimedToday": "You already claimed this reward today.",
   "errorMissionNotFound": "This mission is no longer available.",
   "errorUnknown": "An unknown error occurred. Please try again.",
+  "errorInvalidPostType": "This post type is not valid.",
+  "errorPollRequiresTwoOptions": "A poll needs at least two options.",
+
+  "createPostTitle": "New post",
+  "createPostHint": "What do you want to share?",
+  "createPostAttachImage": "Add photo",
+  "createPostRemoveImage": "Remove photo",
+  "createPostPollToggle": "Add a poll",
+  "createPostBoostToggle": "Boost post (×3 cost, 24h)",
+  "createPostPollOptionHint": "Option {n}",
+  "@createPostPollOptionHint": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "createPostAddPollOption": "Add option",
+  "createPostSubmit": "Publish",
+  "createPostCost": "Cost: {credits} credits",
+  "@createPostCost": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
+  "createPostValidationNeedBody": "Add some text or a photo.",
+  "createPostValidationPoll": "Enter at least two poll options.",
+  "createPostSuccessPublished": "Your post is live.",
+  "createPostSuccessReview": "Post sent for review.",
+  "createPostErrorGeneric": "Could not create the post.",
+  "socialCreatePost": "Create post",
 
   "dailySurveyOfTheDay": "Survey of the day",
   "dailySurveyGiftClaimed": "Daily reward claimed",

@@ -33,6 +33,12 @@ dependencies:
   cupertino_native: ^0.1.1
   crystal_navigation_bar: ^1.1.0
 
+  # Media picker
+  photo_manager: ^3.7.1
+  image_picker: ^1.1.2
+  sliding_up_panel: ^2.0.0+1
+  audio_waveforms: ^1.3.0
+
   # Database
   sqflite_sqlcipher: ^3.4.0
   flutter_secure_storage: ^10.0.0

@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+		<!-- Media picker permissions -->
+		<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+		<uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+		<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+		<uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:label="Networld"
         android:name="${applicationName}"

@@ -18,6 +18,35 @@
   "errorAlreadyClaimedToday": "Tu as déjà réclamé cette récompense aujourd'hui.",
   "errorMissionNotFound": "Cette mission n'est plus disponible.",
   "errorUnknown": "Une erreur inconnue s'est produite. Veuillez réessayer.",
+  "errorInvalidPostType": "Ce type de publication n'est pas valide.",
+  "errorPollRequiresTwoOptions": "Un sondage nécessite au moins deux options.",
+
+  "createPostTitle": "Nouvelle publication",
+  "createPostHint": "Que voulez-vous partager ?",
+  "createPostAttachImage": "Ajouter une photo",
+  "createPostRemoveImage": "Retirer la photo",
+  "createPostPollToggle": "Ajouter un sondage",
+  "createPostBoostToggle": "Booster la publication (coût ×3, 24h)",
+  "createPostPollOptionHint": "Option {n}",
+  "@createPostPollOptionHint": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "createPostAddPollOption": "Ajouter une option",
+  "createPostSubmit": "Publier",
+  "createPostCost": "Coût : {credits} crédits",
+  "@createPostCost": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
+  "createPostValidationNeedBody": "Ajoutez du texte ou une photo.",
+  "createPostValidationPoll": "Saisissez au moins deux options de sondage.",
+  "createPostSuccessPublished": "Votre publication est en ligne.",
+  "createPostSuccessReview": "Publication envoyée en modération.",
+  "createPostErrorGeneric": "Impossible de créer la publication.",
+  "socialCreatePost": "Créer une publication",
 
   "dailySurveyOfTheDay": "Sondage du jour",
   "dailySurveyGiftClaimed": "Récompense du jour réclamée",

@@ -200,6 +200,114 @@ abstract class AppLocalizations {
   /// **'Une erreur inconnue s\'est produite. Veuillez réessayer.'**
   String get errorUnknown;
 
+  /// No description provided for @errorInvalidPostType.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ce type de publication n\'est pas valide.'**
+  String get errorInvalidPostType;
+
+  /// No description provided for @errorPollRequiresTwoOptions.
+  ///
+  /// In fr, this message translates to:
+  /// **'Un sondage nécessite au moins deux options.'**
+  String get errorPollRequiresTwoOptions;
+
+  /// No description provided for @createPostTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nouvelle publication'**
+  String get createPostTitle;
+
+  /// No description provided for @createPostHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Que voulez-vous partager ?'**
+  String get createPostHint;
+
+  /// No description provided for @createPostAttachImage.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ajouter une photo'**
+  String get createPostAttachImage;
+
+  /// No description provided for @createPostRemoveImage.
+  ///
+  /// In fr, this message translates to:
+  /// **'Retirer la photo'**
+  String get createPostRemoveImage;
+
+  /// No description provided for @createPostPollToggle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ajouter un sondage'**
+  String get createPostPollToggle;
+
+  /// No description provided for @createPostBoostToggle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Booster la publication (coût ×3, 24h)'**
+  String get createPostBoostToggle;
+
+  /// No description provided for @createPostPollOptionHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Option {n}'**
+  String createPostPollOptionHint(int n);
+
+  /// No description provided for @createPostAddPollOption.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ajouter une option'**
+  String get createPostAddPollOption;
+
+  /// No description provided for @createPostSubmit.
+  ///
+  /// In fr, this message translates to:
+  /// **'Publier'**
+  String get createPostSubmit;
+
+  /// No description provided for @createPostCost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Coût : {credits} crédits'**
+  String createPostCost(int credits);
+
+  /// No description provided for @createPostValidationNeedBody.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ajoutez du texte ou une photo.'**
+  String get createPostValidationNeedBody;
+
+  /// No description provided for @createPostValidationPoll.
+  ///
+  /// In fr, this message translates to:
+  /// **'Saisissez au moins deux options de sondage.'**
+  String get createPostValidationPoll;
+
+  /// No description provided for @createPostSuccessPublished.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre publication est en ligne.'**
+  String get createPostSuccessPublished;
+
+  /// No description provided for @createPostSuccessReview.
+  ///
+  /// In fr, this message translates to:
+  /// **'Publication envoyée en modération.'**
+  String get createPostSuccessReview;
+
+  /// No description provided for @createPostErrorGeneric.
+  ///
+  /// In fr, this message translates to:
+  /// **'Impossible de créer la publication.'**
+  String get createPostErrorGeneric;
+
+  /// No description provided for @socialCreatePost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Créer une publication'**
+  String get socialCreatePost;
+
   /// No description provided for @dailySurveyOfTheDay.
   ///
   /// In fr, this message translates to:

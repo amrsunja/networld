@@ -72,6 +72,65 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorUnknown => 'An unknown error occurred. Please try again.';
 
   @override
+  String get errorInvalidPostType => 'This post type is not valid.';
+
+  @override
+  String get errorPollRequiresTwoOptions =>
+      'A poll needs at least two options.';
+
+  @override
+  String get createPostTitle => 'New post';
+
+  @override
+  String get createPostHint => 'What do you want to share?';
+
+  @override
+  String get createPostAttachImage => 'Add photo';
+
+  @override
+  String get createPostRemoveImage => 'Remove photo';
+
+  @override
+  String get createPostPollToggle => 'Add a poll';
+
+  @override
+  String get createPostBoostToggle => 'Boost post (×3 cost, 24h)';
+
+  @override
+  String createPostPollOptionHint(int n) {
+    return 'Option $n';
+  }
+
+  @override
+  String get createPostAddPollOption => 'Add option';
+
+  @override
+  String get createPostSubmit => 'Publish';
+
+  @override
+  String createPostCost(int credits) {
+    return 'Cost: $credits credits';
+  }
+
+  @override
+  String get createPostValidationNeedBody => 'Add some text or a photo.';
+
+  @override
+  String get createPostValidationPoll => 'Enter at least two poll options.';
+
+  @override
+  String get createPostSuccessPublished => 'Your post is live.';
+
+  @override
+  String get createPostSuccessReview => 'Post sent for review.';
+
+  @override
+  String get createPostErrorGeneric => 'Could not create the post.';
+
+  @override
+  String get socialCreatePost => 'Create post';
+
+  @override
   String get dailySurveyOfTheDay => 'Survey of the day';
 
   @override

@@ -10,6 +10,7 @@ abstract class RoutePaths {
 
   static const daily = 'daily';
   static const social = 'social';
+  static const createPost = 'create-post';
   static const profile = 'profile';
   static const settings = 'settings';
   static const appLanguage = 'app-language';

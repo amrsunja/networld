@@ -11,6 +11,8 @@ enum ServerExceptionType {
   profileNotFound,
   alreadyClaimedToday,
   missionNotFound,
+  invalidPostType,
+  pollRequiresTwoOptions,
   unknown;
 
   static ServerExceptionType fromString(String? code) {
@@ -24,6 +26,8 @@ enum ServerExceptionType {
       'profile_not_found'                 => ServerExceptionType.profileNotFound,
       'already_claimed_today'             => ServerExceptionType.alreadyClaimedToday,
       'mission_not_found'                 => ServerExceptionType.missionNotFound,
+      'invalid_post_type'                 => ServerExceptionType.invalidPostType,
+      'poll_requires_at_least_2_options'  => ServerExceptionType.pollRequiresTwoOptions,
       'ref_id_required_for_mission'       => ServerExceptionType.unknown,
       _                                   => ServerExceptionType.unknown,
     };
@@ -45,6 +49,8 @@ enum ServerExceptionType {
       ServerExceptionType.profileNotFound               => l10n.errorProfileNotFound,
       ServerExceptionType.alreadyClaimedToday           => l10n.errorAlreadyClaimedToday,
       ServerExceptionType.missionNotFound               => l10n.errorMissionNotFound,
+      ServerExceptionType.invalidPostType               => l10n.errorInvalidPostType,
+      ServerExceptionType.pollRequiresTwoOptions        => l10n.errorPollRequiresTwoOptions,
       ServerExceptionType.unknown                       => l10n.errorUnknown,
     };
   }

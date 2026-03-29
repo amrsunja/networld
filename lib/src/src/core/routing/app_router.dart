@@ -115,7 +115,10 @@ class AppRouter extends RootStackRouter {
               path: RoutePaths.post(),
               page: PostDetailsRoute.page,
             ),*/
-
+            AutoRoute(
+              path: RoutePaths.createPost,
+              page: CreatePostRoute.page,
+            ),
           ],
         ),
       ],

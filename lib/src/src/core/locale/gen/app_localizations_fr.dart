@@ -73,6 +73,67 @@ class AppLocalizationsFr extends AppLocalizations {
       'Une erreur inconnue s\'est produite. Veuillez réessayer.';
 
   @override
+  String get errorInvalidPostType =>
+      'Ce type de publication n\'est pas valide.';
+
+  @override
+  String get errorPollRequiresTwoOptions =>
+      'Un sondage nécessite au moins deux options.';
+
+  @override
+  String get createPostTitle => 'Nouvelle publication';
+
+  @override
+  String get createPostHint => 'Que voulez-vous partager ?';
+
+  @override
+  String get createPostAttachImage => 'Ajouter une photo';
+
+  @override
+  String get createPostRemoveImage => 'Retirer la photo';
+
+  @override
+  String get createPostPollToggle => 'Ajouter un sondage';
+
+  @override
+  String get createPostBoostToggle => 'Booster la publication (coût ×3, 24h)';
+
+  @override
+  String createPostPollOptionHint(int n) {
+    return 'Option $n';
+  }
+
+  @override
+  String get createPostAddPollOption => 'Ajouter une option';
+
+  @override
+  String get createPostSubmit => 'Publier';
+
+  @override
+  String createPostCost(int credits) {
+    return 'Coût : $credits crédits';
+  }
+
+  @override
+  String get createPostValidationNeedBody => 'Ajoutez du texte ou une photo.';
+
+  @override
+  String get createPostValidationPoll =>
+      'Saisissez au moins deux options de sondage.';
+
+  @override
+  String get createPostSuccessPublished => 'Votre publication est en ligne.';
+
+  @override
+  String get createPostSuccessReview => 'Publication envoyée en modération.';
+
+  @override
+  String get createPostErrorGeneric => 'Impossible de créer la publication.';
+
+  @override
+  String get socialCreatePost => 'Créer une publication';
+
+  @override
   String get dailySurveyOfTheDay => 'Sondage du jour';
 
   @override

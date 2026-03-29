@@ -112,6 +112,7 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
 					splashColor: UIColorsToken.pri100,
 					highlightColor: UIColorsToken.pri100,
 					hoverColor: UIColorsToken.pri100,
+					focusColor: UIColorsToken.pri100,
 				),
 				title: kAppName,
 			  debugShowCheckedModeBanner: false,

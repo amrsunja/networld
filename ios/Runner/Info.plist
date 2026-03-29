@@ -77,5 +77,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+  <key>NSAppleMusicUsageDescription</key>
+  <string>Giving us permission to the music will allow you to create posts with the audio content</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Give us permission to the camera will allow you to create posts with the media content</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Giving us permission to Photos will allow you to create posts with media content</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>Giving us permission to Photos will allow you to create posts with media content</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Giving us permission to microphone will allow you to send voice messages</string>
 </dict>
 </plist>
