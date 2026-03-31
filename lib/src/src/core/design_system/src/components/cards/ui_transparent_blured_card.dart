@@ -8,6 +8,7 @@ class UITransparentBluredCard extends StatelessWidget {
   final List<Color>? customShadowColors;
   final Alignment? shadowBegin;
   final Alignment? shadowEnd;
+  final BorderRadius? borderRadius;
 
   const UITransparentBluredCard({
     super.key,
@@ -15,7 +16,8 @@ class UITransparentBluredCard extends StatelessWidget {
     this.padding,
     this.customShadowColors,
     this.shadowBegin,
-    this.shadowEnd
+    this.shadowEnd,
+    this.borderRadius
   });
 
   @override
@@ -26,7 +28,7 @@ class UITransparentBluredCard extends StatelessWidget {
         border: Border.all(
           color: Color(0xff1D1D1D) 
         ),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: borderRadius ?? BorderRadius.circular(30),
         //color: UIColorsToken.black,
         gradient: LinearGradient(
           begin: shadowBegin ?? Alignment.topLeft,
@@ -41,7 +43,7 @@ class UITransparentBluredCard extends StatelessWidget {
     ).frosted(
       blur: 5,
       frostColor: UIColorsToken.black,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: borderRadius ?? BorderRadius.circular(20),
     );
   }
 }

@@ -30,7 +30,6 @@ class UINetWorthWidget extends StatelessWidget {
     Color(0xFFFFD700),
     Color(0xFFFDB931),
     Color(0xFFFFED86),
-    Color(0xFFDAA520),
   ];
 
   @override
@@ -57,7 +56,7 @@ class UINetWorthWidget extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: _gradientColors,
-        stops: [0.0, 0.33, 0.66, 1.0],
+        stops: [0.0, 0.33, 1.0],
       ).createShader(bounds),
       child: Text(
         formatted,
