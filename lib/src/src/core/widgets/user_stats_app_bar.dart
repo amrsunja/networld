@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
+import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 
 const Color _kRankLabelColor = Color(0xFF8E9AAF);
@@ -17,6 +19,7 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.rankLabel,
     required this.rankPrefixLabel,
     required this.credits,
+    this.avatarId = 1,
     this.username,
     this.isVerified = false,
     this.onNotificationTap,
@@ -30,6 +33,7 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Localized label shown before the rank name, e.g. "Rank:" / "Rang :".
   final String rankPrefixLabel;
   final int credits;
+  final int avatarId;
   final String? username;
   final bool isVerified;
   final VoidCallback? onNotificationTap;
@@ -52,56 +56,67 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 12,
       title: Row(
         children: [
-          _AppBarAvatar(
-            username: username ?? '',
-            isVerified: isVerified,
-          ),
-          const SizedBox(width: 10),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: UINetWorthWidget(
-                    netWorth: netWorth,
-                    currency: currency,
-                    textAlign: TextAlign.start,
-                    textStyle: GoogleFonts.inter(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.2,
-                    ),
+            child: GestureDetector(
+              onTap: () => context.router.navigate(const ProfileRouterRoute()),
+              child: Row(
+                children: [
+                  UIAvatar(
+                    avatarId: avatarId,
+                    size: avatarSize,
+                    username: username ?? '',
+                    borderWidth: 2,
+                    borderColor: UIColorsToken.pri500.withValues(alpha: 0.3),
+                    isVerified: isVerified,
                   ),
-                ),
-                const SizedBox(height: 2),
-                Text.rich(
-                  TextSpan(
+                  const SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      TextSpan(
-                        text: rankPrefixLabel,
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: _kRankLabelColor,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: UINetWorthWidget(
+                          netWorth: netWorth,
+                          currency: currency,
+                          textAlign: TextAlign.start,
+                          textStyle: GoogleFonts.inter(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 0.2,
+                          ),
                         ),
                       ),
-                      TextSpan(
-                        text: ' $rankLabel',
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: UIColorsToken.pri350,
+                      const SizedBox(height: 2),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: rankPrefixLabel,
+                              style: GoogleFonts.inter(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: _kRankLabelColor,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' $rankLabel',
+                              style: GoogleFonts.inter(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: UIColorsToken.pri350,
+                              ),
+                            ),
+                          ],
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           const SizedBox(width: 6),
@@ -211,89 +226,3 @@ class _NotificationBell extends StatelessWidget {
   }
 }
 
-class _AppBarAvatar extends StatelessWidget {
-  const _AppBarAvatar({
-    required this.username,
-    required this.isVerified,
-  });
-
-  final String username;
-  final bool isVerified;
-
-  @override
-  Widget build(BuildContext context) {
-    final initials = _initialsFromUsername(username);
-    const gold = UIColorsToken.pri350;
-
-    return SizedBox(
-      width: UserStatsAppBar.avatarSize + 6,
-      height: UserStatsAppBar.avatarSize + 6,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: UserStatsAppBar.avatarSize,
-            height: UserStatsAppBar.avatarSize,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: UIColorsToken.pri500.withValues(alpha: 0.3), width: 2),
-              color: UIColorsToken.black.withValues(alpha: 0.8),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              initials,
-              style: GoogleFonts.inter(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: UIColorsToken.white.withValues(alpha: 0.92),
-              ),
-            ),
-          ),
-          if (isVerified)
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Container(
-                width: 18,
-                height: 18,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: gold,
-                  border: Border.all(
-                    width: 1.5,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: gold.withValues(alpha: 0.35),
-                      blurRadius: 6,
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.verified_rounded,
-                  size: 11,
-                  color: UIColorsToken.black,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-String _initialsFromUsername(String username) {
-  final t = username.trim();
-  if (t.isEmpty) return '?';
-  final parts = t.split(RegExp(r'\s+'));
-  if (parts.length >= 2) {
-    final a = parts[0].isNotEmpty ? parts[0][0] : '';
-    final b = parts[1].isNotEmpty ? parts[1][0] : '';
-    return ('$a$b').toUpperCase();
-  }
-  final s = parts[0];
-  return s.length >= 2
-      ? s.substring(0, 2).toUpperCase()
-      : s.toUpperCase();
-}

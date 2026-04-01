@@ -105,6 +105,10 @@ class AppRouter extends RootStackRouter {
                       path: RoutePaths.deleteAccount,
                       page: DeleteAccountRoute.page,
                     ),
+                    AutoRoute(
+                      path: RoutePaths.avatars,
+                      page: ProfileAvatarsRoute.page,
+                    ),
                     ...generalSubPages
                   ]
                 ),

@@ -43,7 +43,6 @@ class FeedPostCard extends StatelessWidget {
 
     final author = post.author;
     final isGoldCard = author.netWorth >= 1000000;
-    final initials = _initialsFromUsername(author.username);
     final meta = _buildMetaLine(l10n);
     final accent = gold;
     final likeColor = post.isLiked ? gold : _kMetaGrey;
@@ -67,11 +66,15 @@ class FeedPostCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _FeedAvatar(
-                  initials: initials,
-                  isVerified: author.isVerified,
-                  gold: gold,
+                UIAvatar(
+                  avatarId: author.avatarId,
                   size: _avatarSize,
+                  username: author.username,
+                  borderWidth: 2,
+                  borderColor: author.isVerified
+                      ? gold
+                      : UIColorsToken.sec400,
+                  isVerified: author.isVerified,
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -334,88 +337,6 @@ List<InlineSpan> _hashtagSpans(
     );
   }
   return spans;
-}
-
-String _initialsFromUsername(String username) {
-  final t = username.trim();
-  if (t.isEmpty) return '?';
-  final parts = t.split(RegExp(r'\s+'));
-  if (parts.length >= 2) {
-    final a = parts[0].isNotEmpty ? parts[0][0] : '';
-    final b = parts[1].isNotEmpty ? parts[1][0] : '';
-    return ('$a$b').toUpperCase();
-  }
-  final s = parts[0];
-  return s.length >= 2
-      ? s.substring(0, 2).toUpperCase()
-      : s.toUpperCase();
-}
-
-class _FeedAvatar extends StatelessWidget {
-  const _FeedAvatar({
-    required this.initials,
-    required this.isVerified,
-    required this.gold,
-    required this.size,
-  });
-
-  final String initials;
-  final bool isVerified;
-  final Color gold;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    final borderColor = isVerified ? gold : UIColorsToken.sec400;
-
-    return SizedBox(
-      width: size + 4,
-      height: size + 4,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: size,
-            height: size,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: borderColor, width: 2),
-              color: UIColorsToken.black.withValues(alpha: 0.85),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              initials,
-              style: GoogleFonts.inter(
-                fontSize: size * 0.28,
-                fontWeight: FontWeight.w600,
-                color: UIColorsToken.white.withValues(alpha: 0.92),
-              ),
-            ),
-          ),
-          if (isVerified)
-            Positioned(
-              right: -1,
-              bottom: -1,
-              child: Container(
-                width: 20,
-                height: 20,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: gold,
-                  border: Border.all(color: UIColorsToken.neu500, width: 1.5),
-                ),
-                child: const Icon(
-                  Icons.verified_rounded,
-                  size: 12,
-                  color: UIColorsToken.black,
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
 }
 
 class _WhaleBadge extends StatelessWidget {

@@ -13,6 +13,8 @@ enum ServerExceptionType {
   missionNotFound,
   invalidPostType,
   pollRequiresTwoOptions,
+  avatarNotFound,
+  alreadyOwned,
   unknown;
 
   static ServerExceptionType fromString(String? code) {
@@ -28,6 +30,8 @@ enum ServerExceptionType {
       'mission_not_found'                 => ServerExceptionType.missionNotFound,
       'invalid_post_type'                 => ServerExceptionType.invalidPostType,
       'poll_requires_at_least_2_options'  => ServerExceptionType.pollRequiresTwoOptions,
+      'avatar_not_found'                  => ServerExceptionType.avatarNotFound,
+      'already_owned'                     => ServerExceptionType.alreadyOwned,
       'ref_id_required_for_mission'       => ServerExceptionType.unknown,
       _                                   => ServerExceptionType.unknown,
     };
@@ -51,6 +55,8 @@ enum ServerExceptionType {
       ServerExceptionType.missionNotFound               => l10n.errorMissionNotFound,
       ServerExceptionType.invalidPostType               => l10n.errorInvalidPostType,
       ServerExceptionType.pollRequiresTwoOptions        => l10n.errorPollRequiresTwoOptions,
+      ServerExceptionType.avatarNotFound                => l10n.errorAvatarNotFound,
+      ServerExceptionType.alreadyOwned                  => l10n.errorAlreadyOwned,
       ServerExceptionType.unknown                       => l10n.errorUnknown,
     };
   }

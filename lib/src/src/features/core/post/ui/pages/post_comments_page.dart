@@ -6,7 +6,6 @@ import 'package:iconic/iconic.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/widgets/pagination/infinity_data_scroll.dart';
 import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
 import 'package:networld/src/src/features/core/post/ui/state_management/post_comments_provider.dart';
@@ -322,7 +321,6 @@ class _CommentTile extends StatelessWidget {
         : theme.colors.secondContentColor;
 
     final avatarSize = isChild ? _childAvatarSize : _parentAvatarSize;
-    final initials = _initialsFromUsername(comment.author.username);
 
     final nwFontSize = isChild ? 13.0 : 15.0;
     final usernameFontSize = isChild ? 10.0 : 11.0;
@@ -341,23 +339,10 @@ class _CommentTile extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: avatarSize,
-                  height: avatarSize,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: UIColorsToken.neu400.withValues(alpha: 0.5),
-                  ),
-                  child: Center(
-                    child: Text(
-                      initials,
-                      style: GoogleFonts.inter(
-                        fontSize: avatarSize * 0.36,
-                        fontWeight: FontWeight.w700,
-                        color: UIColorsToken.white,
-                      ),
-                    ),
-                  ),
+                UIAvatar(
+                  avatarId: comment.author.avatarId,
+                  size: avatarSize,
+                  username: comment.author.username,
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -367,7 +352,7 @@ class _CommentTile extends StatelessWidget {
                     children: [
                       UINetWorthWidget(
                         netWorth: comment.author.netWorth,
-                        currency: CurrencyType.usd,
+                        currency: comment.author.currency,
                         textAlign: TextAlign.left,
                         textStyle: GoogleFonts.inter(
                           fontSize: nwFontSize,
@@ -475,11 +460,3 @@ String _relative(DateTime dt, AppLocalizations l10n) {
   return l10n.socialRelativeCommentDays(diff.inDays);
 }
 
-String _initialsFromUsername(String username) {
-  if (username.isEmpty) return '?';
-  final parts = username.split(RegExp(r'[\s_\-]+'));
-  if (parts.length >= 2) {
-    return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
-  }
-  return username.substring(0, username.length >= 2 ? 2 : 1).toUpperCase();
-}

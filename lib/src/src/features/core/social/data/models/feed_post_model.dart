@@ -11,6 +11,7 @@ class FeedAuthorModel extends Equatable {
   final RankTierEnum rankTier;
   final bool isVerified;
   final num netWorth;
+  final CurrencyType currency;
 
   const FeedAuthorModel({
     required this.username,
@@ -18,6 +19,7 @@ class FeedAuthorModel extends Equatable {
     required this.rankTier,
     required this.isVerified,
     required this.netWorth,
+    required this.currency,
   });
 
   factory FeedAuthorModel.fromJson(Json? json) {
@@ -28,6 +30,7 @@ class FeedAuthorModel extends Equatable {
         rankTier: RankTierEnum.Starter,
         isVerified: false,
         netWorth: 0,
+        currency: CurrencyType.usd,
       );
     }
     return FeedAuthorModel(
@@ -38,6 +41,9 @@ class FeedAuthorModel extends Equatable {
       ),
       isVerified: (json['is_verified'] as bool?) ?? false,
       netWorth: _parseNum(json['net_worth']),
+      currency: CurrencyType.fromString(
+        (json['currency'] as String?) ?? CurrencyType.usd.dbValue,
+      ),
     );
   }
 
@@ -50,7 +56,7 @@ class FeedAuthorModel extends Equatable {
 
   @override
   List<Object?> get props =>
-      [username, avatarId, rankTier, isVerified, netWorth];
+      [username, avatarId, rankTier, isVerified, netWorth, currency];
 }
 
 /// Single post row from Edge Function `get-feed`.
@@ -180,8 +186,8 @@ class FeedPostModel extends Equatable {
     );
   }
 
-  /// Display net worth in feed cards (USD if currency not on author).
-  CurrencyType get displayCurrency => CurrencyType.usd;
+  /// Display net worth in feed cards using author profile currency.
+  CurrencyType get displayCurrency => author.currency;
 
   @override
   List<Object?> get props => [

@@ -58,70 +58,70 @@ class ProfilePage extends HookConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: profileState.isLoading && profileState.profile == null
-            ? const Center(child: UICircularProgressBar())
-            : SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: kPageHorzPadding,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _profileEnter(
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            tooltip: l10n.settingsTooltip,
-                            icon: Icon(
-                              Icons.settings_outlined,
-                              color: theme.colors.contentColor.withValues(
-                                alpha: 0.85,
-                              ),
-                            ),
-                            onPressed: () => context.router.push(
-                              const SettingsRoute(),
-                            ),
-                          ),
-                        ],
-                      ),
-                      0,
-                    ),
-                    if (profileState.errorMessage != null)
-                      _profileEnter(
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 12),
-                          child: Text(
-                            profileState.errorMessage!,
-                            style: theme.typo.textSm.regular.copyWith(
-                              color: UIColorsToken.neg500,
-                            ),
-                          ),
-                        ),
-                        1,
-                      ),
-                    if (profileState.profile != null)
-                      _ProfileHeader(profile: profileState.profile!)
-                    else if (!profileState.isLoading)
-                      _profileEnter(
-                        Padding(
-                          padding: const EdgeInsets.only(top: 24),
-                          child: Text(
-                            l10n.profileUnavailable,
-                            textAlign: TextAlign.center,
-                            style: theme.typo.textMd.regular,
-                          ),
-                        ),
-                        1,
-                      ),
-                    // Reserved for tabs, feed, settings, etc.
-                    const SizedBox(height: 24),
-                    const SizedBox(
-                      width: double.infinity,
-                      height: 200,
-                    ),
-                  ],
-                ),
+          ? const Center(child: UICircularProgressBar())
+          : SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(
+                horizontal: kPageHorzPadding,
               ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _profileEnter(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          tooltip: l10n.settingsTooltip,
+                          icon: Icon(
+                            Icons.settings_outlined,
+                            color: theme.colors.contentColor.withValues(
+                              alpha: 0.85,
+                            ),
+                          ),
+                          onPressed: () => context.router.push(
+                            const SettingsRoute(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    0,
+                  ),
+                  if (profileState.errorMessage != null)
+                    _profileEnter(
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: Text(
+                          profileState.errorMessage!,
+                          style: theme.typo.textSm.regular.copyWith(
+                            color: UIColorsToken.neg500,
+                          ),
+                        ),
+                      ),
+                      1,
+                    ),
+                  if (profileState.profile != null)
+                    _ProfileHeader(profile: profileState.profile!)
+                  else if (!profileState.isLoading)
+                    _profileEnter(
+                      Padding(
+                        padding: const EdgeInsets.only(top: 24),
+                        child: Text(
+                          l10n.profileUnavailable,
+                          textAlign: TextAlign.center,
+                          style: theme.typo.textMd.regular,
+                        ),
+                      ),
+                      1,
+                    ),
+                  // Reserved for tabs, feed, settings, etc.
+                  const SizedBox(height: 24),
+                  const SizedBox(
+                    width: double.infinity,
+                    height: 200,
+                  ),
+                ],
+              ),
+            ),
       ),
     );
   }
@@ -154,10 +154,20 @@ class _ProfileHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _profileEnter(
-            _AvatarBlock(
-              username: profile.username,
-              isVerified: profile.isVerified,
-              gold: gold,
+            GestureDetector(
+              onTap: () => context.router.push(
+                const ProfileAvatarsRoute(),
+              ),
+              child: UIAvatar(
+                avatarId: profile.avatarId,
+                size: _avatarSize,
+                username: profile.username,
+                borderWidth: 3,
+                borderColor: UIColorsToken.sec400,
+                isVerified: profile.isVerified,
+                glowColor: UIColorsToken.pri350.withValues(alpha: 0.6),
+                glowRadius: 12,
+              ),
             ),
             0,
           ),
@@ -229,94 +239,6 @@ class _ProfileHeader extends StatelessWidget {
             ),
             4,
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _AvatarBlock extends StatelessWidget {
-  const _AvatarBlock({
-    required this.username,
-    required this.isVerified,
-    required this.gold,
-  });
-
-  final String username;
-  final bool isVerified;
-  final Color gold;
-
-  static const double _avatarSize = _ProfileHeader._avatarSize;
-
-  @override
-  Widget build(BuildContext context) {
-    final initials = _initialsFromUsername(username);
-
-    return SizedBox(
-      width: _avatarSize + 8,
-      height: _avatarSize + 8,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: _avatarSize + 8,
-            height: _avatarSize + 8,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: UIColorsToken.pri350.withValues(alpha: 0.6),
-                  blurRadius: 12,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: _avatarSize,
-            height: _avatarSize,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: UIColorsToken.sec400, width: 3),
-              color: UIColorsToken.black.withValues(alpha: 0.8),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              initials,
-              style: GoogleFonts.inter(
-                fontSize: 32,
-                fontWeight: FontWeight.w600,
-                color: UIColorsToken.white.withValues(alpha: 0.92),
-              ),
-            ),
-          ),
-          if (isVerified)
-            Positioned(
-              right: 2,
-              bottom: 2,
-              child: Container(
-                width: 28,
-                height: 28,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: gold,
-                  border: Border.all(
-                    width: 2,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: gold.withValues(alpha: 0.35),
-                      blurRadius: 8,
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.verified_rounded,
-                  size: 16,
-                  color: UIColorsToken.black,
-                ),
-              ),
-            ),
         ],
       ),
     );
@@ -440,17 +362,3 @@ String _localizedRankTier(RankTierEnum tier, AppLocalizations l10n) {
   }
 }
 
-String _initialsFromUsername(String username) {
-  final t = username.trim();
-  if (t.isEmpty) return '?';
-  final parts = t.split(RegExp(r'\s+'));
-  if (parts.length >= 2) {
-    final a = parts[0].isNotEmpty ? parts[0][0] : '';
-    final b = parts[1].isNotEmpty ? parts[1][0] : '';
-    return ('$a$b').toUpperCase();
-  }
-  final s = parts[0];
-  return s.length >= 2
-      ? s.substring(0, 2).toUpperCase()
-      : s.toUpperCase();
-}

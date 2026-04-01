@@ -78,6 +78,7 @@ class SocialPage extends HookConsumerWidget {
           rankLabel: rankLabel,
           rankPrefixLabel: l10n.dailyAppBarRankPrefix,
           credits: credits,
+          avatarId: profile?.avatarId ?? 1,
           username: profile?.username,
           isVerified: profile?.isVerified ?? false,
           notificationTooltip: l10n.dailyAppBarNotificationsTooltip,

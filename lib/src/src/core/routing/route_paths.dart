@@ -16,6 +16,7 @@ abstract class RoutePaths {
   static const appLanguage = 'app-language';
   static const editProfileInformations = 'edit-profile-informations';
   static const deleteAccount = 'delete-account';
+  static const avatars = 'avatars';
 
   static const shop = 'shop';
 

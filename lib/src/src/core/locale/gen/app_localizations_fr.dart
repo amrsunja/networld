@@ -443,6 +443,36 @@ class AppLocalizationsFr extends AppLocalizations {
   String get socialSnackbarPostDeleted => 'Publication supprimée';
 
   @override
+  String get avatarsPageTitle => 'Avatars';
+
+  @override
+  String get avatarsCollectionTitle => 'Collection';
+
+  @override
+  String get avatarsCurrentLabel => 'AVATAR ACTUEL';
+
+  @override
+  String get avatarsResetButton => 'Réinitialiser';
+
+  @override
+  String get avatarsSelectedLabel => 'Sélectionné';
+
+  @override
+  String get avatarsSelectButton => 'Choisir';
+
+  @override
+  String get avatarsBuyButton => 'Acheter';
+
+  @override
+  String get avatarsGetFreeButton => 'Obtenir';
+
+  @override
+  String get errorAvatarNotFound => 'Avatar introuvable.';
+
+  @override
+  String get errorAlreadyOwned => 'Vous possédez déjà cet avatar.';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

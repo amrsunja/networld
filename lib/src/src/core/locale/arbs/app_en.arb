@@ -203,6 +203,17 @@
   "socialSnackbarCommentDeleted": "Comment deleted",
   "socialSnackbarPostDeleted": "Post deleted",
 
+  "avatarsPageTitle": "Avatars",
+  "avatarsCollectionTitle": "Collection",
+  "avatarsCurrentLabel": "CURRENT AVATAR",
+  "avatarsResetButton": "Reset to default",
+  "avatarsSelectedLabel": "Selected",
+  "avatarsSelectButton": "Select",
+  "avatarsBuyButton": "Buy",
+  "avatarsGetFreeButton": "Get",
+  "errorAvatarNotFound": "Avatar not found.",
+  "errorAlreadyOwned": "You already own this avatar.",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

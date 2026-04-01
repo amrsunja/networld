@@ -872,6 +872,66 @@ abstract class AppLocalizations {
   /// **'Publication supprimée'**
   String get socialSnackbarPostDeleted;
 
+  /// No description provided for @avatarsPageTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Avatars'**
+  String get avatarsPageTitle;
+
+  /// No description provided for @avatarsCollectionTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Collection'**
+  String get avatarsCollectionTitle;
+
+  /// No description provided for @avatarsCurrentLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'AVATAR ACTUEL'**
+  String get avatarsCurrentLabel;
+
+  /// No description provided for @avatarsResetButton.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réinitialiser'**
+  String get avatarsResetButton;
+
+  /// No description provided for @avatarsSelectedLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Sélectionné'**
+  String get avatarsSelectedLabel;
+
+  /// No description provided for @avatarsSelectButton.
+  ///
+  /// In fr, this message translates to:
+  /// **'Choisir'**
+  String get avatarsSelectButton;
+
+  /// No description provided for @avatarsBuyButton.
+  ///
+  /// In fr, this message translates to:
+  /// **'Acheter'**
+  String get avatarsBuyButton;
+
+  /// No description provided for @avatarsGetFreeButton.
+  ///
+  /// In fr, this message translates to:
+  /// **'Obtenir'**
+  String get avatarsGetFreeButton;
+
+  /// No description provided for @errorAvatarNotFound.
+  ///
+  /// In fr, this message translates to:
+  /// **'Avatar introuvable.'**
+  String get errorAvatarNotFound;
+
+  /// No description provided for @errorAlreadyOwned.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous possédez déjà cet avatar.'**
+  String get errorAlreadyOwned;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:

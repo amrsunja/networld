@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/utils/typedefs.dart';
 
@@ -10,6 +11,7 @@ class PostCommentAuthorModel extends Equatable {
     required this.isVerified,
     required this.rankTier,
     required this.netWorth,
+    required this.currency,
   });
 
   final String id;
@@ -18,6 +20,7 @@ class PostCommentAuthorModel extends Equatable {
   final bool isVerified;
   final RankTierEnum rankTier;
   final num netWorth;
+  final CurrencyType currency;
 
   factory PostCommentAuthorModel.fromJson(Json json) {
     return PostCommentAuthorModel(
@@ -29,6 +32,9 @@ class PostCommentAuthorModel extends Equatable {
         (json['rank_tier'] as String?) ?? 'Starter',
       ),
       netWorth: _parseNum(json['net_worth']),
+      currency: CurrencyType.fromString(
+        (json['currency'] as String?) ?? CurrencyType.usd.dbValue,
+      ),
     );
   }
 
@@ -41,7 +47,7 @@ class PostCommentAuthorModel extends Equatable {
 
   @override
   List<Object?> get props =>
-      [id, username, avatarId, isVerified, rankTier, netWorth];
+      [id, username, avatarId, isVerified, rankTier, netWorth, currency];
 }
 
 class PostCommentModel extends Equatable {
