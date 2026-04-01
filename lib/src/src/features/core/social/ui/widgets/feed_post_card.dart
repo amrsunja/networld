@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconic/iconic.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:networld/src/src/core/widgets/snackbar_widget.dart';
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 import 'package:networld/src/src/features/core/social/ui/widgets/post_poll_card_view.dart';
 
@@ -17,14 +19,21 @@ class FeedPostCard extends StatelessWidget {
     required this.onLikeTap,
     this.onCommentTap,
     this.onShareTap,
+    this.onMoreTap,
   });
 
   final FeedPostModel post;
   final VoidCallback onLikeTap;
   final VoidCallback? onCommentTap;
+  /// If null, share copies [postShareUrl] to the clipboard.
   final VoidCallback? onShareTap;
+  /// Overflow menu (report / delete own post). If null, the ⋯ control is hidden.
+  final VoidCallback? onMoreTap;
 
   static const double _avatarSize = 52;
+  static const String postShareBaseUrl = 'https://networld.app/post';
+
+  String get postShareUrl => '$postShareBaseUrl/${post.id}';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +44,7 @@ class FeedPostCard extends StatelessWidget {
     final author = post.author;
     final isGoldCard = author.netWorth >= 1000000;
     final initials = _initialsFromUsername(author.username);
-    final meta = _buildMetaLine();
+    final meta = _buildMetaLine(l10n);
     final accent = gold;
     final likeColor = post.isLiked ? gold : _kMetaGrey;
     final heartIcon = post.isLiked ? Iconic.heart_solid : Iconic.heart_bold;
@@ -94,7 +103,7 @@ class FeedPostCard extends StatelessWidget {
                           ],
                           if (post.isBoosted && post.feedSlot == 'boosted') ...[
                             const SizedBox(width: 8),
-                            _BoostBadge(),
+                            _BoostBadge(label: l10n.socialPostBoostBadge),
                           ],
                         ],
                       ),
@@ -113,16 +122,18 @@ class FeedPostCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                IconButton(
-                  visualDensity: VisualDensity.compact,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
-                  icon: Icon(
-                    Icons.more_horiz_rounded,
-                    color: theme.colors.secondContentColor,
+                if (onMoreTap != null)
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    padding: EdgeInsets.zero,
+                    constraints:
+                        const BoxConstraints(minWidth: 36, minHeight: 36),
+                    icon: Icon(
+                      Icons.more_horiz_rounded,
+                      color: theme.colors.secondContentColor,
+                    ),
+                    onPressed: onMoreTap,
                   ),
-                  onPressed: () {},
-                ),
               ],
             ),
             if (post.imageUrl != null && post.imageUrl!.isNotEmpty) ...[
@@ -225,7 +236,7 @@ class FeedPostCard extends StatelessWidget {
                     size: 22,
                     color: _kMetaGrey,
                   ),
-                  onPressed: onShareTap ?? () {},
+                  onPressed: () => _onSharePressed(context),
                 ),
               ],
             ),
@@ -235,33 +246,55 @@ class FeedPostCard extends StatelessWidget {
     );
   }
 
-  String _buildMetaLine() {
-    final time = _formatRelativeTime(post.createdAt);
-    final category = _postTypeLabel(post.postType);
-    final name = post.author.username.trim().isEmpty ? '—' : post.author.username;
+  String _buildMetaLine(AppLocalizations l10n) {
+    final time = _formatRelativeTime(post.createdAt, l10n);
+    final category = _postTypeLabel(post.postType, l10n);
+    final name = post.author.username.trim().isEmpty
+        ? l10n.socialAuthorPlaceholder
+        : post.author.username;
     return '$time • $name • $category';
+  }
+
+  void _onSharePressed(BuildContext context) {
+    if (onShareTap != null) {
+      onShareTap!();
+      return;
+    }
+    final l10n = AppLocalizations.of(context);
+    Clipboard.setData(ClipboardData(text: postShareUrl));
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(AppSnackbarWidget.info(l10n.socialPostShareLinkCopied));
   }
 }
 
 bool _isWhale(RankTierEnum tier) => tier == RankTierEnum.Whale;
 
-String _postTypeLabel(String postType) {
+String _postTypeLabel(String postType, AppLocalizations l10n) {
   switch (postType) {
     case 'poll':
-      return 'Poll';
+      return l10n.socialPostTypePoll;
     case 'standard':
     default:
-      return 'Post';
+      return l10n.socialPostTypePost;
   }
 }
 
-String _formatRelativeTime(DateTime dt) {
+String _formatRelativeTime(DateTime dt, AppLocalizations l10n) {
   final diff = DateTime.now().difference(dt);
-  if (diff.inSeconds < 60) return '${diff.inSeconds}s ago';
-  if (diff.inMinutes < 60) return '${diff.inMinutes}m ago';
-  if (diff.inHours < 24) return '${diff.inHours}h ago';
-  if (diff.inDays < 7) return '${diff.inDays}d ago';
-  return '${dt.day}/${dt.month}/${dt.year}';
+  if (diff.inSeconds < 60) {
+    return l10n.socialRelativeFeedSecondsAgo(diff.inSeconds);
+  }
+  if (diff.inMinutes < 60) {
+    return l10n.socialRelativeFeedMinutesAgo(diff.inMinutes);
+  }
+  if (diff.inHours < 24) {
+    return l10n.socialRelativeFeedHoursAgo(diff.inHours);
+  }
+  if (diff.inDays < 7) {
+    return l10n.socialRelativeFeedDaysAgo(diff.inDays);
+  }
+  return l10n.socialRelativeFeedDate(dt.day, dt.month, dt.year);
 }
 
 List<InlineSpan> _hashtagSpans(
@@ -412,6 +445,10 @@ class _WhaleBadge extends StatelessWidget {
 }
 
 class _BoostBadge extends StatelessWidget {
+  const _BoostBadge({required this.label});
+
+  final String label;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -422,7 +459,7 @@ class _BoostBadge extends StatelessWidget {
         color: UIColorsToken.pri350.withValues(alpha: 0.12),
       ),
       child: Text(
-        'BOOST',
+        label,
         style: GoogleFonts.inter(
           fontSize: 9,
           fontWeight: FontWeight.w700,

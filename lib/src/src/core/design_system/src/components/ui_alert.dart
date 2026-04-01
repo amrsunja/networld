@@ -16,7 +16,7 @@ class UIAlert extends StatelessWidget {
 	const UIAlert.info({
 		super.key,
 		required this.label
-	}) : color = UIColorsToken.pri300,
+	}) : color = UIColorsToken.pri350,
 			 contentColor = UIColorsToken.black;
 
 	const UIAlert.error({

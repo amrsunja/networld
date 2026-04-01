@@ -208,6 +208,8 @@ class _InfinityListViewState extends State<InfinityListView> {
     return widget.doNotRefresh
         ? _build()
         : RefreshIndicator(
+            color: UIColorsToken.pri350,
+            backgroundColor: UIColorsToken.black,
             onRefresh: widget.onRefresh,
             child: _build(),
           );

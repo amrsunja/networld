@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/legacy.dart';
 import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
 import 'package:networld/src/src/core/errors/failures/failures.dart';
 import 'package:networld/src/src/core/locale/l10n.dart';
+import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
 import 'package:networld/src/src/core/utils/state_management/app_events.dart';
 import 'package:networld/src/src/core/utils/state_management/single_events.dart';
 import 'package:networld/src/src/features/core/social/data/datasources/social_feed_remote_datasource.dart';
@@ -126,5 +127,72 @@ class SocialFeedNotifier extends StateNotifier<SocialFeedState> {
       state = state.copyWith(posts: list);
       appEvents.send(ShowErrorEvent(null, defaultMessage: e.toString()));
     }
+  }
+
+  /// Optimistic UI: increment cached comment count for a post (e.g. after create-comment).
+  void bumpCommentsCountForPost(String postId) {
+    final i = state.posts.indexWhere((p) => p.id == postId);
+    if (i < 0) return;
+    final post = state.posts[i];
+    final next = (post.commentsCount + 1).clamp(0, 1 << 30) as int;
+    final list = List<FeedPostModel>.from(state.posts);
+    list[i] = post.copyWith(commentsCount: next);
+    state = state.copyWith(posts: list);
+  }
+
+  /// Optimistic UI: adjust cached comment count (e.g. after delete with cascade).
+  void adjustCommentsCountForPost(String postId, int delta) {
+    if (delta == 0) return;
+    final i = state.posts.indexWhere((p) => p.id == postId);
+    if (i < 0) return;
+    final post = state.posts[i];
+    final next = (post.commentsCount + delta).clamp(0, 1 << 30) as int;
+    final list = List<FeedPostModel>.from(state.posts);
+    list[i] = post.copyWith(commentsCount: next);
+    state = state.copyWith(posts: list);
+  }
+
+  Future<void> reportPost(
+    String postId,
+    ReportCategoryEnum category,
+  ) async {
+    final res = await Failure.exceptionsCatcher(
+      () => datasource.reportPost(postId: postId, category: category),
+    );
+    res.when(
+      (_) {
+        appEvents.send(
+          ShowSuccessMessageEvent(locale.socialSnackbarReportSubmitted),
+        );
+      },
+      (err) {
+        appEvents.send(
+          ShowErrorEvent(err, defaultMessage: err.toMessage(locale)),
+        );
+      },
+    );
+  }
+
+  Future<void> deletePost(String postId) async {
+    final res = await Failure.exceptionsCatcher(() => datasource.deletePost(postId));
+    res.when(
+      (_) {
+        removePostFromFeed(postId);
+        appEvents.send(
+          ShowSuccessMessageEvent(locale.socialSnackbarPostDeleted),
+        );
+      },
+      (err) {
+        appEvents.send(
+          ShowErrorEvent(err, defaultMessage: err.toMessage(locale)),
+        );
+      },
+    );
+  }
+
+  void removePostFromFeed(String postId) {
+    state = state.copyWith(
+      posts: state.posts.where((p) => p.id != postId).toList(),
+    );
   }
 }

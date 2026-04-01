@@ -123,6 +123,86 @@
   "profileUsernameInvalidChars": "Only letters, numbers and underscores",
   "profileUpdatedMessage": "Profile updated",
 
+  "socialFeedRetry": "Retry",
+  "socialFeedEmpty": "No posts yet",
+  "socialPostShareLinkCopied": "Link copied",
+  "socialPostTypePoll": "Poll",
+  "socialPostTypePost": "Post",
+  "socialPostBoostBadge": "BOOST",
+  "socialAuthorPlaceholder": "—",
+  "socialRelativeCommentSeconds": "{count}s",
+  "@socialRelativeCommentSeconds": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentMinutes": "{count}m",
+  "@socialRelativeCommentMinutes": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentHours": "{count}h",
+  "@socialRelativeCommentHours": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentDays": "{count}d",
+  "@socialRelativeCommentDays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedSecondsAgo": "{count}s ago",
+  "@socialRelativeFeedSecondsAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedMinutesAgo": "{count}m ago",
+  "@socialRelativeFeedMinutesAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedHoursAgo": "{count}h ago",
+  "@socialRelativeFeedHoursAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedDaysAgo": "{count}d ago",
+  "@socialRelativeFeedDaysAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedDate": "{day}/{month}/{year}",
+  "@socialRelativeFeedDate": {
+    "placeholders": {
+      "day": { "type": "int" },
+      "month": { "type": "int" },
+      "year": { "type": "int" }
+    }
+  },
+  "socialCommentsTitle": "Comments",
+  "socialCommentHint": "Write a comment...",
+  "socialCommentReplyingToPrefix": "Replying to @",
+  "socialCommentReplyAction": "Reply",
+  "socialActionReport": "Report",
+  "socialActionDelete": "Delete",
+  "socialDeleteCommentTitle": "Delete comment?",
+  "socialDeletePostTitle": "Delete post?",
+  "socialDeleteCannotUndoBody": "This cannot be undone.",
+  "socialReportCategorySpam": "Spam",
+  "socialReportCategoryHarassment": "Harassment",
+  "socialReportCategoryInappropriate": "Inappropriate",
+  "socialReportCategoryOther": "Other",
+  "socialSnackbarReportSubmitted": "Report submitted",
+  "socialSnackbarCommentDeleted": "Comment deleted",
+  "socialSnackbarPostDeleted": "Post deleted",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

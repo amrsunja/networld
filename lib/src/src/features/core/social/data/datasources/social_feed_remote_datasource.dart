@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
 import 'package:networld/src/src/core/network/supabase.dart';
+import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
 import 'package:networld/src/src/core/utils/typedefs.dart';
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' show FunctionException;
@@ -25,6 +26,8 @@ class FeedPageResult {
 class SocialFeedRemoteDatasource {
   static const _getFeedFn = 'get-feed';
   static const _likesTable = 'post_likes';
+  static const _postsTable = 'posts';
+  static const _createPostReportRpc = 'create_post_report';
 
   Future<FeedPageResult> fetchFeedPage({
     required int limit,
@@ -94,5 +97,32 @@ class SocialFeedRemoteDatasource {
           .delete()
           .match({'post_id': postId, 'user_id': user.id});
     }
+  }
+
+  Future<void> reportPost({
+    required String postId,
+    required ReportCategoryEnum category,
+  }) async {
+    if (supabase.auth.currentUser == null) {
+      throw ServerException.fromErrorCode('unauthorized');
+    }
+    if (postId.isEmpty) {
+      throw ServerException.fromErrorCode('unknown');
+    }
+
+    await supabase.rpc(
+      _createPostReportRpc,
+      params: {
+        'p_post_id': postId,
+        'p_category': category.dbValue,
+      },
+    );
+  }
+
+  Future<void> deletePost(String postId) async {
+    if (supabase.auth.currentUser == null) {
+      throw ServerException.fromErrorCode('unauthorized');
+    }
+    await supabase.from(_postsTable).delete().eq('id', postId);
   }
 }

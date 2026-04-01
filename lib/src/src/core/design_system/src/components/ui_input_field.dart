@@ -25,6 +25,7 @@ class UIInputField extends StatelessWidget {
     this.maxLines = 1,
     this.focusNode,
     this.autofillHints,
+    this.suffixIcon,
   });
 
   final String? label;
@@ -44,6 +45,7 @@ class UIInputField extends StatelessWidget {
   final int maxLines;
   final FocusNode? focusNode;
   final Iterable<String>? autofillHints;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +82,7 @@ class UIInputField extends StatelessWidget {
         TextFormField(
           controller: controller,
           initialValue: controller == null ? initialValue : null,
+          onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
           onChanged: onChanged,
           onFieldSubmitted: onSubmitted,
           keyboardType: keyboardType,
@@ -106,6 +109,7 @@ class UIInputField extends StatelessWidget {
               vertical: 16,
             ),
             isDense: false,
+            suffixIcon: suffixIcon,
             errorText: hasError ? errorText : null,
             errorStyle: typo.textXs.regular.copyWith(color: errorBorderColor),
             errorMaxLines: 2,

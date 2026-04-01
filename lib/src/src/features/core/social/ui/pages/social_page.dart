@@ -11,9 +11,12 @@ import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/widgets/user_stats_app_bar.dart';
+import 'package:networld/src/src/features/core/post/ui/pages/post_comments_page.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
+import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_state.dart';
+import 'package:networld/src/src/features/core/social/ui/widgets/feed_post_actions_bottom_sheet.dart';
 import 'package:networld/src/src/features/core/social/ui/widgets/feed_post_card.dart';
 
 @RoutePage()
@@ -119,6 +122,21 @@ class SocialPage extends HookConsumerWidget {
                     onRetry: () =>
                         ref.read(socialFeedProvider.notifier).loadFeed(refresh: true),
                     onLike: ref.read(socialFeedProvider.notifier).toggleLike,
+                    onOpenComments: (postId) => showModalBottomSheet<void>(
+                      context: context,
+                      isScrollControlled: true,
+                      useRootNavigator: true,
+                      backgroundColor: theme.colors.bgColor,
+                      builder: (_) => FractionallySizedBox(
+                        heightFactor: 0.9,
+                        child: PostCommentsPage(postId: postId),
+                      ),
+                    ),
+                    onPostMenu: (post) => showFeedPostActionsBottomSheet(
+                      context: context,
+                      ref: ref,
+                      post: post,
+                    ),
                   ),
                 ),
               ),
@@ -137,6 +155,8 @@ class _FeedBody extends StatelessWidget {
     required this.feedState,
     required this.onRetry,
     required this.onLike,
+    required this.onOpenComments,
+    required this.onPostMenu,
   });
 
   final UIThemeData theme;
@@ -144,9 +164,12 @@ class _FeedBody extends StatelessWidget {
   final SocialFeedState feedState;
   final VoidCallback onRetry;
   final void Function(String postId) onLike;
+  final void Function(String postId) onOpenComments;
+  final void Function(FeedPostModel post) onPostMenu;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     if (feedState.isRefreshing && feedState.posts.isEmpty) {
       return ListView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -173,7 +196,7 @@ class _FeedBody extends StatelessWidget {
           const SizedBox(height: 16),
           Center(
             child: UIButton.primary(
-              title: 'Retry',
+              title: l10n.socialFeedRetry,
               onTap: onRetry,
             ),
           ),
@@ -188,7 +211,7 @@ class _FeedBody extends StatelessWidget {
         children: [
           SizedBox(height: MediaQuery.sizeOf(context).height * 0.22),
           Text(
-            'No posts yet',
+            l10n.socialFeedEmpty,
             textAlign: TextAlign.center,
             style: theme.typo.textMd.medium.copyWith(
               color: theme.colors.secondContentColor,
@@ -223,6 +246,8 @@ class _FeedBody extends StatelessWidget {
         return FeedPostCard(
           post: post,
           onLikeTap: () => onLike(post.id),
+          onCommentTap: () => onOpenComments(post.id),
+          onMoreTap: () => onPostMenu(post),
         );
       },
     );

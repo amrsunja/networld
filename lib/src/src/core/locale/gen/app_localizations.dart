@@ -680,6 +680,198 @@ abstract class AppLocalizations {
   /// **'Profil mis à jour'**
   String get profileUpdatedMessage;
 
+  /// No description provided for @socialFeedRetry.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réessayer'**
+  String get socialFeedRetry;
+
+  /// No description provided for @socialFeedEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucune publication pour l\'instant'**
+  String get socialFeedEmpty;
+
+  /// No description provided for @socialPostShareLinkCopied.
+  ///
+  /// In fr, this message translates to:
+  /// **'Lien copié'**
+  String get socialPostShareLinkCopied;
+
+  /// No description provided for @socialPostTypePoll.
+  ///
+  /// In fr, this message translates to:
+  /// **'Sondage'**
+  String get socialPostTypePoll;
+
+  /// No description provided for @socialPostTypePost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Publication'**
+  String get socialPostTypePost;
+
+  /// No description provided for @socialPostBoostBadge.
+  ///
+  /// In fr, this message translates to:
+  /// **'BOOST'**
+  String get socialPostBoostBadge;
+
+  /// No description provided for @socialAuthorPlaceholder.
+  ///
+  /// In fr, this message translates to:
+  /// **'—'**
+  String get socialAuthorPlaceholder;
+
+  /// No description provided for @socialRelativeCommentSeconds.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count}s'**
+  String socialRelativeCommentSeconds(int count);
+
+  /// No description provided for @socialRelativeCommentMinutes.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count}min'**
+  String socialRelativeCommentMinutes(int count);
+
+  /// No description provided for @socialRelativeCommentHours.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count}h'**
+  String socialRelativeCommentHours(int count);
+
+  /// No description provided for @socialRelativeCommentDays.
+  ///
+  /// In fr, this message translates to:
+  /// **'{count}j'**
+  String socialRelativeCommentDays(int count);
+
+  /// No description provided for @socialRelativeFeedSecondsAgo.
+  ///
+  /// In fr, this message translates to:
+  /// **'il y a {count}s'**
+  String socialRelativeFeedSecondsAgo(int count);
+
+  /// No description provided for @socialRelativeFeedMinutesAgo.
+  ///
+  /// In fr, this message translates to:
+  /// **'il y a {count}min'**
+  String socialRelativeFeedMinutesAgo(int count);
+
+  /// No description provided for @socialRelativeFeedHoursAgo.
+  ///
+  /// In fr, this message translates to:
+  /// **'il y a {count}h'**
+  String socialRelativeFeedHoursAgo(int count);
+
+  /// No description provided for @socialRelativeFeedDaysAgo.
+  ///
+  /// In fr, this message translates to:
+  /// **'il y a {count}j'**
+  String socialRelativeFeedDaysAgo(int count);
+
+  /// No description provided for @socialRelativeFeedDate.
+  ///
+  /// In fr, this message translates to:
+  /// **'{day}/{month}/{year}'**
+  String socialRelativeFeedDate(int day, int month, int year);
+
+  /// No description provided for @socialCommentsTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Commentaires'**
+  String get socialCommentsTitle;
+
+  /// No description provided for @socialCommentHint.
+  ///
+  /// In fr, this message translates to:
+  /// **'Écrire un commentaire…'**
+  String get socialCommentHint;
+
+  /// No description provided for @socialCommentReplyingToPrefix.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réponse à @'**
+  String get socialCommentReplyingToPrefix;
+
+  /// No description provided for @socialCommentReplyAction.
+  ///
+  /// In fr, this message translates to:
+  /// **'Répondre'**
+  String get socialCommentReplyAction;
+
+  /// No description provided for @socialActionReport.
+  ///
+  /// In fr, this message translates to:
+  /// **'Signaler'**
+  String get socialActionReport;
+
+  /// No description provided for @socialActionDelete.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer'**
+  String get socialActionDelete;
+
+  /// No description provided for @socialDeleteCommentTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer le commentaire ?'**
+  String get socialDeleteCommentTitle;
+
+  /// No description provided for @socialDeletePostTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer la publication ?'**
+  String get socialDeletePostTitle;
+
+  /// No description provided for @socialDeleteCannotUndoBody.
+  ///
+  /// In fr, this message translates to:
+  /// **'Cette action est irréversible.'**
+  String get socialDeleteCannotUndoBody;
+
+  /// No description provided for @socialReportCategorySpam.
+  ///
+  /// In fr, this message translates to:
+  /// **'Spam'**
+  String get socialReportCategorySpam;
+
+  /// No description provided for @socialReportCategoryHarassment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Harcèlement'**
+  String get socialReportCategoryHarassment;
+
+  /// No description provided for @socialReportCategoryInappropriate.
+  ///
+  /// In fr, this message translates to:
+  /// **'Contenu inapproprié'**
+  String get socialReportCategoryInappropriate;
+
+  /// No description provided for @socialReportCategoryOther.
+  ///
+  /// In fr, this message translates to:
+  /// **'Autre'**
+  String get socialReportCategoryOther;
+
+  /// No description provided for @socialSnackbarReportSubmitted.
+  ///
+  /// In fr, this message translates to:
+  /// **'Signalement envoyé'**
+  String get socialSnackbarReportSubmitted;
+
+  /// No description provided for @socialSnackbarCommentDeleted.
+  ///
+  /// In fr, this message translates to:
+  /// **'Commentaire supprimé'**
+  String get socialSnackbarCommentDeleted;
+
+  /// No description provided for @socialSnackbarPostDeleted.
+  ///
+  /// In fr, this message translates to:
+  /// **'Publication supprimée'**
+  String get socialSnackbarPostDeleted;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:

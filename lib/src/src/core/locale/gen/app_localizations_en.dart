@@ -324,6 +324,120 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileUpdatedMessage => 'Profile updated';
 
   @override
+  String get socialFeedRetry => 'Retry';
+
+  @override
+  String get socialFeedEmpty => 'No posts yet';
+
+  @override
+  String get socialPostShareLinkCopied => 'Link copied';
+
+  @override
+  String get socialPostTypePoll => 'Poll';
+
+  @override
+  String get socialPostTypePost => 'Post';
+
+  @override
+  String get socialPostBoostBadge => 'BOOST';
+
+  @override
+  String get socialAuthorPlaceholder => '—';
+
+  @override
+  String socialRelativeCommentSeconds(int count) {
+    return '${count}s';
+  }
+
+  @override
+  String socialRelativeCommentMinutes(int count) {
+    return '${count}m';
+  }
+
+  @override
+  String socialRelativeCommentHours(int count) {
+    return '${count}h';
+  }
+
+  @override
+  String socialRelativeCommentDays(int count) {
+    return '${count}d';
+  }
+
+  @override
+  String socialRelativeFeedSecondsAgo(int count) {
+    return '${count}s ago';
+  }
+
+  @override
+  String socialRelativeFeedMinutesAgo(int count) {
+    return '${count}m ago';
+  }
+
+  @override
+  String socialRelativeFeedHoursAgo(int count) {
+    return '${count}h ago';
+  }
+
+  @override
+  String socialRelativeFeedDaysAgo(int count) {
+    return '${count}d ago';
+  }
+
+  @override
+  String socialRelativeFeedDate(int day, int month, int year) {
+    return '$day/$month/$year';
+  }
+
+  @override
+  String get socialCommentsTitle => 'Comments';
+
+  @override
+  String get socialCommentHint => 'Write a comment...';
+
+  @override
+  String get socialCommentReplyingToPrefix => 'Replying to @';
+
+  @override
+  String get socialCommentReplyAction => 'Reply';
+
+  @override
+  String get socialActionReport => 'Report';
+
+  @override
+  String get socialActionDelete => 'Delete';
+
+  @override
+  String get socialDeleteCommentTitle => 'Delete comment?';
+
+  @override
+  String get socialDeletePostTitle => 'Delete post?';
+
+  @override
+  String get socialDeleteCannotUndoBody => 'This cannot be undone.';
+
+  @override
+  String get socialReportCategorySpam => 'Spam';
+
+  @override
+  String get socialReportCategoryHarassment => 'Harassment';
+
+  @override
+  String get socialReportCategoryInappropriate => 'Inappropriate';
+
+  @override
+  String get socialReportCategoryOther => 'Other';
+
+  @override
+  String get socialSnackbarReportSubmitted => 'Report submitted';
+
+  @override
+  String get socialSnackbarCommentDeleted => 'Comment deleted';
+
+  @override
+  String get socialSnackbarPostDeleted => 'Post deleted';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

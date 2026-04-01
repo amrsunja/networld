@@ -329,6 +329,120 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profileUpdatedMessage => 'Profil mis à jour';
 
   @override
+  String get socialFeedRetry => 'Réessayer';
+
+  @override
+  String get socialFeedEmpty => 'Aucune publication pour l\'instant';
+
+  @override
+  String get socialPostShareLinkCopied => 'Lien copié';
+
+  @override
+  String get socialPostTypePoll => 'Sondage';
+
+  @override
+  String get socialPostTypePost => 'Publication';
+
+  @override
+  String get socialPostBoostBadge => 'BOOST';
+
+  @override
+  String get socialAuthorPlaceholder => '—';
+
+  @override
+  String socialRelativeCommentSeconds(int count) {
+    return '${count}s';
+  }
+
+  @override
+  String socialRelativeCommentMinutes(int count) {
+    return '${count}min';
+  }
+
+  @override
+  String socialRelativeCommentHours(int count) {
+    return '${count}h';
+  }
+
+  @override
+  String socialRelativeCommentDays(int count) {
+    return '${count}j';
+  }
+
+  @override
+  String socialRelativeFeedSecondsAgo(int count) {
+    return 'il y a ${count}s';
+  }
+
+  @override
+  String socialRelativeFeedMinutesAgo(int count) {
+    return 'il y a ${count}min';
+  }
+
+  @override
+  String socialRelativeFeedHoursAgo(int count) {
+    return 'il y a ${count}h';
+  }
+
+  @override
+  String socialRelativeFeedDaysAgo(int count) {
+    return 'il y a ${count}j';
+  }
+
+  @override
+  String socialRelativeFeedDate(int day, int month, int year) {
+    return '$day/$month/$year';
+  }
+
+  @override
+  String get socialCommentsTitle => 'Commentaires';
+
+  @override
+  String get socialCommentHint => 'Écrire un commentaire…';
+
+  @override
+  String get socialCommentReplyingToPrefix => 'Réponse à @';
+
+  @override
+  String get socialCommentReplyAction => 'Répondre';
+
+  @override
+  String get socialActionReport => 'Signaler';
+
+  @override
+  String get socialActionDelete => 'Supprimer';
+
+  @override
+  String get socialDeleteCommentTitle => 'Supprimer le commentaire ?';
+
+  @override
+  String get socialDeletePostTitle => 'Supprimer la publication ?';
+
+  @override
+  String get socialDeleteCannotUndoBody => 'Cette action est irréversible.';
+
+  @override
+  String get socialReportCategorySpam => 'Spam';
+
+  @override
+  String get socialReportCategoryHarassment => 'Harcèlement';
+
+  @override
+  String get socialReportCategoryInappropriate => 'Contenu inapproprié';
+
+  @override
+  String get socialReportCategoryOther => 'Autre';
+
+  @override
+  String get socialSnackbarReportSubmitted => 'Signalement envoyé';
+
+  @override
+  String get socialSnackbarCommentDeleted => 'Commentaire supprimé';
+
+  @override
+  String get socialSnackbarPostDeleted => 'Publication supprimée';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

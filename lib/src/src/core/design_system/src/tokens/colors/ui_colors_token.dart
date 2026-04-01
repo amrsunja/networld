@@ -36,9 +36,9 @@ class UIColorsToken {
     selectColor: pri500,
 	);
 
-	factory UIColorsToken.dark() => const UIColorsToken(
+	factory UIColorsToken.dark() => UIColorsToken(
 		bgColor: black,
-		fgColor: neu600,
+		fgColor: black,
 		contentColor: white,
 		secondContentColor: neu200,
 		disabledContentColor: neu400,

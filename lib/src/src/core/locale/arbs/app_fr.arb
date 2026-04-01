@@ -123,6 +123,86 @@
   "profileUsernameInvalidChars": "Lettres, chiffres et tirets bas uniquement",
   "profileUpdatedMessage": "Profil mis à jour",
 
+  "socialFeedRetry": "Réessayer",
+  "socialFeedEmpty": "Aucune publication pour l'instant",
+  "socialPostShareLinkCopied": "Lien copié",
+  "socialPostTypePoll": "Sondage",
+  "socialPostTypePost": "Publication",
+  "socialPostBoostBadge": "BOOST",
+  "socialAuthorPlaceholder": "—",
+  "socialRelativeCommentSeconds": "{count}s",
+  "@socialRelativeCommentSeconds": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentMinutes": "{count}min",
+  "@socialRelativeCommentMinutes": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentHours": "{count}h",
+  "@socialRelativeCommentHours": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeCommentDays": "{count}j",
+  "@socialRelativeCommentDays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedSecondsAgo": "il y a {count}s",
+  "@socialRelativeFeedSecondsAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedMinutesAgo": "il y a {count}min",
+  "@socialRelativeFeedMinutesAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedHoursAgo": "il y a {count}h",
+  "@socialRelativeFeedHoursAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedDaysAgo": "il y a {count}j",
+  "@socialRelativeFeedDaysAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "socialRelativeFeedDate": "{day}/{month}/{year}",
+  "@socialRelativeFeedDate": {
+    "placeholders": {
+      "day": { "type": "int" },
+      "month": { "type": "int" },
+      "year": { "type": "int" }
+    }
+  },
+  "socialCommentsTitle": "Commentaires",
+  "socialCommentHint": "Écrire un commentaire…",
+  "socialCommentReplyingToPrefix": "Réponse à @",
+  "socialCommentReplyAction": "Répondre",
+  "socialActionReport": "Signaler",
+  "socialActionDelete": "Supprimer",
+  "socialDeleteCommentTitle": "Supprimer le commentaire ?",
+  "socialDeletePostTitle": "Supprimer la publication ?",
+  "socialDeleteCannotUndoBody": "Cette action est irréversible.",
+  "socialReportCategorySpam": "Spam",
+  "socialReportCategoryHarassment": "Harcèlement",
+  "socialReportCategoryInappropriate": "Contenu inapproprié",
+  "socialReportCategoryOther": "Autre",
+  "socialSnackbarReportSubmitted": "Signalement envoyé",
+  "socialSnackbarCommentDeleted": "Commentaire supprimé",
+  "socialSnackbarPostDeleted": "Publication supprimée",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

@@ -27,9 +27,10 @@ class PostPollCardView extends HookConsumerWidget {
     final isMounted = useIsMounted();
 
     useEffect(() {
-      Future.microtask(
-        () => ref.read(postPollSummaryCacheProvider.notifier).syncWithCurrentUser(),
-      );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!isMounted()) return;
+        ref.read(postPollSummaryCacheProvider.notifier).syncWithCurrentUser();
+      });
       return null;
     }, [userId]);
 
