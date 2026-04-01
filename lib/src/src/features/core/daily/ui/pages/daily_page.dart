@@ -95,7 +95,12 @@ class DailyPage extends HookConsumerWidget {
         body: dailyState.isLoading && dailyState.poll == null
           ? const Center(child: UICircularProgressBar())
           : SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: kPageHorzPadding, vertical: 40),
+              padding: EdgeInsets.fromLTRB(
+                kPageHorzPadding,
+                20,
+                kPageHorzPadding,
+                80
+              ),
               child: Column(
                 children: [
                   if (hasErrorBanner)
