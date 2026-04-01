@@ -434,11 +434,41 @@ abstract class AppLocalizations {
   /// **'ABONNÉS'**
   String get profileStatFollowers;
 
+  /// No description provided for @profileStatFollowing.
+  ///
+  /// In fr, this message translates to:
+  /// **'ABONNEMENTS'**
+  String get profileStatFollowing;
+
   /// No description provided for @profileStatPosts.
   ///
   /// In fr, this message translates to:
   /// **'PUBLICATIONS'**
   String get profileStatPosts;
+
+  /// No description provided for @profileFollowAction.
+  ///
+  /// In fr, this message translates to:
+  /// **'S\'abonner'**
+  String get profileFollowAction;
+
+  /// No description provided for @profileUnfollowAction.
+  ///
+  /// In fr, this message translates to:
+  /// **'Abonné'**
+  String get profileUnfollowAction;
+
+  /// No description provided for @profileFollowersEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun abonné pour l\'instant'**
+  String get profileFollowersEmpty;
+
+  /// No description provided for @profileFollowingEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucun abonnement pour l\'instant'**
+  String get profileFollowingEmpty;
 
   /// No description provided for @rankTierStarter.
   ///

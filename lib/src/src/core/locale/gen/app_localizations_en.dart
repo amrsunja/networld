@@ -196,7 +196,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileStatFollowers => 'FOLLOWERS';
 
   @override
+  String get profileStatFollowing => 'FOLLOWING';
+
+  @override
   String get profileStatPosts => 'POSTS';
+
+  @override
+  String get profileFollowAction => 'Follow';
+
+  @override
+  String get profileUnfollowAction => 'Following';
+
+  @override
+  String get profileFollowersEmpty => 'No followers yet';
+
+  @override
+  String get profileFollowingEmpty => 'Not following anyone yet';
 
   @override
   String get rankTierStarter => 'Starter';

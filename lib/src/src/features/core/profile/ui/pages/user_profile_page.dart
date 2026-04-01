@@ -19,6 +19,9 @@ import 'package:networld/src/src/features/core/profile/ui/state_management/user_
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 import 'package:networld/src/src/features/core/social/ui/widgets/feed_post_card.dart';
 
+import 'profile_followers_page.dart';
+import 'profile_followings_page.dart';
+
 const Color _kMutedLabel = Color(0xFF808080);
 
 const Duration _kAnimDuration = Duration(milliseconds: 720);
@@ -61,9 +64,11 @@ class UserProfilePage extends HookConsumerWidget {
     final postsState = ref.watch(profilePostsProvider(userId));
 
     useEffect(() {
-      Future.microtask(
-        () => ref.read(userProfileProvider(userId).notifier).loadProfile(),
-      );
+      Future.microtask(() {
+        final notifier = ref.read(userProfileProvider(userId).notifier);
+        notifier.loadProfile();
+        notifier.checkFollowStatus();
+      });
       Future.microtask(
         () => ref
             .read(profilePostsProvider(userId).notifier)
@@ -73,7 +78,9 @@ class UserProfilePage extends HookConsumerWidget {
     }, [userId]);
 
     Future<void> onRefresh() async {
-      await ref.read(userProfileProvider(userId).notifier).loadProfile();
+      final notifier = ref.read(userProfileProvider(userId).notifier);
+      await notifier.loadProfile();
+      await notifier.checkFollowStatus();
       await ref
           .read(profilePostsProvider(userId).notifier)
           .loadPosts(refresh: true);
@@ -119,8 +126,7 @@ class UserProfilePage extends HookConsumerWidget {
                                             .withValues(alpha: 0.85),
                                         size: 20,
                                       ),
-                                      onPressed: () =>
-                                          context.router.maybePop(),
+                                      onPressed: () => context.router.maybePop(),
                                     ),
                                     const Spacer(),
                                     IconButton(
@@ -129,8 +135,7 @@ class UserProfilePage extends HookConsumerWidget {
                                         color: theme.colors.contentColor
                                             .withValues(alpha: 0.85),
                                       ),
-                                      onPressed: () =>
-                                          _showProfileActionsSheet(
+                                      onPressed: () => _showProfileActionsSheet(
                                         context: context,
                                         ref: ref,
                                         userId: userId,
@@ -158,6 +163,17 @@ class UserProfilePage extends HookConsumerWidget {
                                 _UserProfileHeader(
                                   profile: profileState.profile!,
                                   postsCount: postsState.posts.length,
+                                  isFollowing: profileState.isFollowing,
+                                  isFollowLoading:
+                                      profileState.isFollowLoading,
+                                  onFollowTap: () => ref
+                                      .read(userProfileProvider(userId)
+                                          .notifier)
+                                      .toggleFollow(),
+                                  onFollowersTap: () =>
+                                      _openFollowersPage(context, userId),
+                                  onFollowingTap: () =>
+                                      _openFollowingsPage(context, userId),
                                 )
                               else if (!profileState.isLoading)
                                 _staggerEnter(
@@ -314,6 +330,34 @@ class _UserPostsSliver extends StatelessWidget {
 }
 
 // ─── Post actions bottom sheet ──────────────────────────────────
+
+// ─── Navigation helpers ─────────────────────────────────────────
+
+void _openFollowersPage(BuildContext context, String userId) {
+  showModalBottomSheet<void>(
+    context: context,
+    useRootNavigator: true,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (_) => FractionallySizedBox(
+      heightFactor: 0.85,
+      child: ProfileFollowersPage(userId: userId),
+    ),
+  );
+}
+
+void _openFollowingsPage(BuildContext context, String userId) {
+  showModalBottomSheet<void>(
+    context: context,
+    useRootNavigator: true,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (_) => FractionallySizedBox(
+      heightFactor: 0.85,
+      child: ProfileFollowingsPage(userId: userId),
+    ),
+  );
+}
 
 // ─── Profile report bottom sheet ─────────────────────────────────
 
@@ -639,10 +683,20 @@ class _UserProfileHeader extends StatelessWidget {
   const _UserProfileHeader({
     required this.profile,
     required this.postsCount,
+    required this.isFollowing,
+    required this.isFollowLoading,
+    this.onFollowTap,
+    this.onFollowersTap,
+    this.onFollowingTap,
   });
 
   final ProfileModel profile;
   final int postsCount;
+  final bool isFollowing;
+  final bool isFollowLoading;
+  final VoidCallback? onFollowTap;
+  final VoidCallback? onFollowersTap;
+  final VoidCallback? onFollowingTap;
 
   static const double _avatarSize = 112;
 
@@ -683,6 +737,8 @@ class _UserProfileHeader extends StatelessWidget {
             Text(
               profile.username,
               textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: GoogleFonts.playfairDisplay(
                 fontSize: 28,
                 fontWeight: FontWeight.w600,
@@ -698,21 +754,43 @@ class _UserProfileHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  profile.isVerified
-                      ? l10n.profileVerifiedNetWorthLabel
-                      : l10n.profileNetWorthLabel,
-                  style: GoogleFonts.inter(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 1.2,
-                    color: _kMutedLabel,
+                Flexible(
+                  child: Text(
+                    profile.isVerified
+                        ? l10n.profileVerifiedNetWorthLabel
+                        : l10n.profileNetWorthLabel,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 1.2,
+                      color: _kMutedLabel,
+                    ),
                   ),
                 ),
                 if (profile.isVerified) ...[
                   const SizedBox(width: 6),
                   Icon(Icons.lock_rounded, size: 14, color: gold),
                 ],
+                const SizedBox(width: 8),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: gold.withValues(alpha: 0.15),
+                  ),
+                  child: Text(
+                    _localizedRankTier(profile.rankTier, l10n),
+                    style: GoogleFonts.inter(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.8,
+                      color: gold,
+                    ),
+                  ),
+                ),
               ],
             ),
             2,
@@ -739,10 +817,55 @@ class _UserProfileHeader extends StatelessWidget {
           _staggerEnter(
             _StatsRow(
               l10n: l10n,
-              rankTier: profile.rankTier,
-              followersValue: 0,
+              followersValue: profile.followersCount,
+              followingValue: profile.followingCount,
               postsValue: postsCount,
               theme: theme,
+              onFollowersTap: onFollowersTap,
+              onFollowingTap: onFollowingTap,
+            ),
+            5,
+          ),
+          const SizedBox(height: 16),
+          _staggerEnter(
+            SizedBox(
+              width: 160,
+              height: 40,
+              child: Material(
+                color: isFollowing
+                    ? theme.colors.fgColor
+                    : UIColorsToken.pri350,
+                borderRadius: BorderRadius.circular(999),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(999),
+                  onTap: isFollowLoading ? null : onFollowTap,
+                  child: Center(
+                    child: isFollowLoading
+                        ? SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: isFollowing
+                                  ? theme.colors.contentColor
+                                  : Colors.black,
+                            ),
+                          )
+                        : Text(
+                            isFollowing
+                                ? l10n.profileUnfollowAction
+                                : l10n.profileFollowAction,
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: isFollowing
+                                  ? theme.colors.contentColor
+                                  : Colors.black,
+                            ),
+                          ),
+                  ),
+                ),
+              ),
             ),
             4,
           ),
@@ -755,21 +878,24 @@ class _UserProfileHeader extends StatelessWidget {
 class _StatsRow extends StatelessWidget {
   const _StatsRow({
     required this.l10n,
-    required this.rankTier,
     required this.followersValue,
+    required this.followingValue,
     required this.postsValue,
     required this.theme,
+    this.onFollowersTap,
+    this.onFollowingTap,
   });
 
   final AppLocalizations l10n;
-  final RankTierEnum rankTier;
   final int followersValue;
+  final int followingValue;
   final int postsValue;
   final UIThemeData theme;
+  final VoidCallback? onFollowersTap;
+  final VoidCallback? onFollowingTap;
 
   @override
   Widget build(BuildContext context) {
-    final rankDisplay = _localizedRankTier(rankTier, l10n);
     final labelStyle = GoogleFonts.inter(
       fontSize: 10,
       fontWeight: FontWeight.w500,
@@ -781,39 +907,41 @@ class _StatsRow extends StatelessWidget {
       fontWeight: FontWeight.w600,
       color: theme.colors.contentColor,
     );
+    final divider = VerticalDivider(
+      width: 1,
+      thickness: 1,
+      color: UIColorsToken.neu400.withValues(alpha: 0.45),
+    );
 
     return IntrinsicHeight(
       child: Row(
         children: [
           Expanded(
-            child: _StatCell(
-              value: rankDisplay.toLowerCase(),
-              label: l10n.profileStatRank,
-              valueStyle: theme.typo.textMd.medium.copyWith(
-                color: Colors.white,
-                fontSize: 18,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onFollowersTap,
+              child: _StatCell(
+                value: '$followersValue',
+                label: l10n.profileStatFollowers,
+                valueStyle: valueStyle,
+                labelStyle: labelStyle,
               ),
-              labelStyle: labelStyle,
             ),
           ),
-          VerticalDivider(
-            width: 1,
-            thickness: 1,
-            color: UIColorsToken.neu400.withValues(alpha: 0.45),
-          ),
+          divider,
           Expanded(
-            child: _StatCell(
-              value: '$followersValue',
-              label: l10n.profileStatFollowers,
-              valueStyle: valueStyle,
-              labelStyle: labelStyle,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onFollowingTap,
+              child: _StatCell(
+                value: '$followingValue',
+                label: l10n.profileStatFollowing,
+                valueStyle: valueStyle,
+                labelStyle: labelStyle,
+              ),
             ),
           ),
-          VerticalDivider(
-            width: 1,
-            thickness: 1,
-            color: UIColorsToken.neu400.withValues(alpha: 0.45),
-          ),
+          divider,
           Expanded(
             child: _StatCell(
               value: '$postsValue',
@@ -846,9 +974,20 @@ class _StatCell extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(value, style: valueStyle),
+        Text(
+          value,
+          style: valueStyle,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
         const SizedBox(height: 4),
-        Text(label, style: labelStyle, textAlign: TextAlign.center),
+        Text(
+          label,
+          style: labelStyle,
+          textAlign: TextAlign.center,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
       ],
     );
   }

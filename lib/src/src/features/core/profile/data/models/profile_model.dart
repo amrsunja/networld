@@ -22,6 +22,8 @@ class ProfileModel extends Equatable {
   final bool showCity;
   final bool isVerified;
   final bool onboardingCompleted;
+  final int followersCount;
+  final int followingCount;
   final DateTime lastNetworthCalcAt;
   final DateTime nextFreeCalcAt;
   final DateTime createdAt;
@@ -44,6 +46,8 @@ class ProfileModel extends Equatable {
     required this.showCity,
     required this.isVerified,
     required this.onboardingCompleted,
+    this.followersCount = 0,
+    this.followingCount = 0,
     required this.lastNetworthCalcAt,
     required this.nextFreeCalcAt,
     required this.createdAt,
@@ -74,6 +78,8 @@ class ProfileModel extends Equatable {
       showCity: (json['show_city'] as bool?) ?? false,
       isVerified: (json['is_verified'] as bool?) ?? false,
       onboardingCompleted: (json['onboarding_completed'] as bool?) ?? false,
+      followersCount: (json['followers_count'] as int?) ?? 0,
+      followingCount: (json['following_count'] as int?) ?? 0,
       lastNetworthCalcAt: _parseDateTime(json['last_networth_calc_at']),
       nextFreeCalcAt: _parseDateTime(json['next_free_calc_at']),
       createdAt: _parseDateTime(json['created_at']),
@@ -112,10 +118,42 @@ class ProfileModel extends Equatable {
         'show_city': showCity,
         'is_verified': isVerified,
         'onboarding_completed': onboardingCompleted,
+        'followers_count': followersCount,
+        'following_count': followingCount,
         'last_networth_calc_at': lastNetworthCalcAt.toIso8601String(),
         'next_free_calc_at': nextFreeCalcAt.toIso8601String(),
         'created_at': createdAt.toIso8601String(),
       };
+
+  ProfileModel copyWith({
+    int? followersCount,
+    int? followingCount,
+  }) {
+    return ProfileModel(
+      id: id,
+      username: username,
+      netWorth: netWorth,
+      currency: currency,
+      netWorthInputMethod: netWorthInputMethod,
+      credits: credits,
+      xp: xp,
+      elo: elo,
+      rankTier: rankTier,
+      avatarId: avatarId,
+      bio: bio,
+      age: age,
+      city: city,
+      showAge: showAge,
+      showCity: showCity,
+      isVerified: isVerified,
+      onboardingCompleted: onboardingCompleted,
+      followersCount: followersCount ?? this.followersCount,
+      followingCount: followingCount ?? this.followingCount,
+      lastNetworthCalcAt: lastNetworthCalcAt,
+      nextFreeCalcAt: nextFreeCalcAt,
+      createdAt: createdAt,
+    );
+  }
 
   @override
   List<Object?> get props => [
@@ -136,6 +174,8 @@ class ProfileModel extends Equatable {
         showCity,
         isVerified,
         onboardingCompleted,
+        followersCount,
+        followingCount,
         lastNetworthCalcAt,
         nextFreeCalcAt,
         createdAt,

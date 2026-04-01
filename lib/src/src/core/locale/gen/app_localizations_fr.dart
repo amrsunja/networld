@@ -199,7 +199,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profileStatFollowers => 'ABONNÉS';
 
   @override
+  String get profileStatFollowing => 'ABONNEMENTS';
+
+  @override
   String get profileStatPosts => 'PUBLICATIONS';
+
+  @override
+  String get profileFollowAction => 'S\'abonner';
+
+  @override
+  String get profileUnfollowAction => 'Abonné';
+
+  @override
+  String get profileFollowersEmpty => 'Aucun abonné pour l\'instant';
+
+  @override
+  String get profileFollowingEmpty => 'Aucun abonnement pour l\'instant';
 
   @override
   String get rankTierStarter => 'Débutant';

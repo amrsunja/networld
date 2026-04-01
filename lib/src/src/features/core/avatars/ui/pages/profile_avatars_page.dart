@@ -30,9 +30,12 @@ class ProfileAvatarsPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const AutoLeadingButton(),
+        foregroundColor: UIColorsToken.white,
         title: Text(
           l10n.avatarsPageTitle,
-          style: theme.typo.textMd.medium,
+          style: theme.typo.textMd.semibold.copyWith(
+            color: theme.colors.contentColor,
+          ),
         ),
         centerTitle: true,
         elevation: 0,
@@ -104,7 +107,6 @@ class _CurrentAvatarSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme.of(context);
     final l10n = AppLocalizations.of(context);
     final gold = UIColorsToken.pri350;
 
