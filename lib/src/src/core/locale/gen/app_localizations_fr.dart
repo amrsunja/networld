@@ -329,6 +329,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profileUpdatedMessage => 'Profil mis à jour';
 
   @override
+  String get profilePostsEmpty => 'Aucune publication pour l\'instant';
+
+  @override
+  String get profileReportAction => 'Signaler ce profil';
+
+  @override
   String get socialFeedRetry => 'Réessayer';
 
   @override

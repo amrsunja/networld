@@ -122,6 +122,8 @@
   "profileUsernameMaxLength": "Use at most 30 characters",
   "profileUsernameInvalidChars": "Only letters, numbers and underscores",
   "profileUpdatedMessage": "Profile updated",
+  "profilePostsEmpty": "No posts yet",
+  "profileReportAction": "Report this profile",
 
   "socialFeedRetry": "Retry",
   "socialFeedEmpty": "No posts yet",

@@ -19,6 +19,7 @@ abstract class RoutePaths {
   static const avatars = 'avatars';
 
   static const shop = 'shop';
+  static String userProfile({String? id}) => 'user-profile/${id ?? ':userId'}';
 
   // Root dialog
   static String post({String? id}) => 'post/${id ?? ':id'}';

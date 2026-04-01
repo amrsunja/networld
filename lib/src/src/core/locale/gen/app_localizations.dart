@@ -680,6 +680,18 @@ abstract class AppLocalizations {
   /// **'Profil mis à jour'**
   String get profileUpdatedMessage;
 
+  /// No description provided for @profilePostsEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucune publication pour l\'instant'**
+  String get profilePostsEmpty;
+
+  /// No description provided for @profileReportAction.
+  ///
+  /// In fr, this message translates to:
+  /// **'Signaler ce profil'**
+  String get profileReportAction;
+
   /// No description provided for @socialFeedRetry.
   ///
   /// In fr, this message translates to:

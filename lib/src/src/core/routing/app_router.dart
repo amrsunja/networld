@@ -31,6 +31,10 @@ class AppRouter extends RootStackRouter {
   late final authGuard = AuthGuard(ref);
 
 	final generalSubPages = [
+		AutoRoute(
+			path: RoutePaths.userProfile(),
+			page: UserProfileRoute.page,
+		),
 	];
 
 

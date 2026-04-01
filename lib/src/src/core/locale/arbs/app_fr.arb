@@ -122,6 +122,8 @@
   "profileUsernameMaxLength": "Au plus 30 caractères",
   "profileUsernameInvalidChars": "Lettres, chiffres et tirets bas uniquement",
   "profileUpdatedMessage": "Profil mis à jour",
+  "profilePostsEmpty": "Aucune publication pour l'instant",
+  "profileReportAction": "Signaler ce profil",
 
   "socialFeedRetry": "Réessayer",
   "socialFeedEmpty": "Aucune publication pour l'instant",

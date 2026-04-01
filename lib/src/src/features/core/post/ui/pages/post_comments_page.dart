@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,6 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconic/iconic.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
+import 'package:networld/src/src/core/network/supabase.dart';
+import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/widgets/pagination/infinity_data_scroll.dart';
 import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
@@ -130,6 +133,22 @@ class PostCommentsPage extends HookConsumerWidget {
                                     postId: postId,
                                     comment: item.comment,
                                   ),
+                                  onAuthorTap: () {
+                                    final authorId = item.comment.authorId;
+                                    if (authorId.isEmpty) return;
+                                    final currentUid =
+                                        supabase.auth.currentUser?.id;
+                                    Navigator.of(context).pop();
+                                    if (authorId == currentUid) {
+                                      context.router.navigate(
+                                        const ProfileRouterRoute(),
+                                      );
+                                    } else {
+                                      context.router.push(
+                                        UserProfileRoute(userId: authorId),
+                                      );
+                                    }
+                                  },
                                 ),
                               );
                             },
@@ -301,6 +320,7 @@ class _CommentTile extends StatelessWidget {
     required this.onLike,
     required this.onReply,
     required this.onMore,
+    this.onAuthorTap,
   });
 
   final PostCommentModel comment;
@@ -309,6 +329,7 @@ class _CommentTile extends StatelessWidget {
   final VoidCallback onLike;
   final VoidCallback onReply;
   final VoidCallback onMore;
+  final VoidCallback? onAuthorTap;
 
   static const double _parentAvatarSize = 38;
   static const double _childAvatarSize = 26;
@@ -339,39 +360,47 @@ class _CommentTile extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                UIAvatar(
-                  avatarId: comment.author.avatarId,
-                  size: avatarSize,
-                  username: comment.author.username,
+                GestureDetector(
+                  onTap: onAuthorTap,
+                  behavior: HitTestBehavior.opaque,
+                  child: UIAvatar(
+                    avatarId: comment.author.avatarId,
+                    size: avatarSize,
+                    username: comment.author.username,
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      UINetWorthWidget(
-                        netWorth: comment.author.netWorth,
-                        currency: comment.author.currency,
-                        textAlign: TextAlign.left,
-                        textStyle: GoogleFonts.inter(
-                          fontSize: nwFontSize,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.2,
+                  child: GestureDetector(
+                    onTap: onAuthorTap,
+                    behavior: HitTestBehavior.opaque,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        UINetWorthWidget(
+                          netWorth: comment.author.netWorth,
+                          currency: comment.author.currency,
+                          textAlign: TextAlign.left,
+                          textStyle: GoogleFonts.inter(
+                            fontSize: nwFontSize,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: 0.2,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 1),
-                      Text(
-                        comment.author.username,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                          fontSize: usernameFontSize,
-                          fontWeight: FontWeight.w400,
-                          color: theme.colors.secondContentColor,
+                        const SizedBox(height: 1),
+                        Text(
+                          comment.author.username,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(
+                            fontSize: usernameFontSize,
+                            fontWeight: FontWeight.w400,
+                            color: theme.colors.secondContentColor,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 6),

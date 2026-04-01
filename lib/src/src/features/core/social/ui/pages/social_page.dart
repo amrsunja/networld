@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/design_system/src/tokens/colors/ui_colors_token.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
+import 'package:networld/src/src/core/network/supabase.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
@@ -138,6 +139,16 @@ class SocialPage extends HookConsumerWidget {
                       ref: ref,
                       post: post,
                     ),
+                    onAuthorTap: (authorId) {
+                      final currentUid = supabase.auth.currentUser?.id;
+                      if (authorId == currentUid) {
+                        context.router.navigate(const ProfileRouterRoute());
+                      } else {
+                        context.router.push(
+                          UserProfileRoute(userId: authorId),
+                        );
+                      }
+                    },
                   ),
                 ),
               ),
@@ -158,6 +169,7 @@ class _FeedBody extends StatelessWidget {
     required this.onLike,
     required this.onOpenComments,
     required this.onPostMenu,
+    this.onAuthorTap,
   });
 
   final UIThemeData theme;
@@ -167,6 +179,7 @@ class _FeedBody extends StatelessWidget {
   final void Function(String postId) onLike;
   final void Function(String postId) onOpenComments;
   final void Function(FeedPostModel post) onPostMenu;
+  final void Function(String authorId)? onAuthorTap;
 
   @override
   Widget build(BuildContext context) {
@@ -249,6 +262,9 @@ class _FeedBody extends StatelessWidget {
           onLikeTap: () => onLike(post.id),
           onCommentTap: () => onOpenComments(post.id),
           onMoreTap: () => onPostMenu(post),
+          onAuthorTap: onAuthorTap != null
+              ? () => onAuthorTap!(post.authorId)
+              : null,
         );
       },
     );

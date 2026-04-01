@@ -20,6 +20,7 @@ class FeedPostCard extends StatelessWidget {
     this.onCommentTap,
     this.onShareTap,
     this.onMoreTap,
+    this.onAuthorTap,
   });
 
   final FeedPostModel post;
@@ -29,6 +30,8 @@ class FeedPostCard extends StatelessWidget {
   final VoidCallback? onShareTap;
   /// Overflow menu (report / delete own post). If null, the ⋯ control is hidden.
   final VoidCallback? onMoreTap;
+  /// Tap on author avatar or info header. If null, area is not tappable.
+  final VoidCallback? onAuthorTap;
 
   static const double _avatarSize = 52;
   static const String postShareBaseUrl = 'https://networld.app/post';
@@ -66,63 +69,71 @@ class FeedPostCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                UIAvatar(
-                  avatarId: author.avatarId,
-                  size: _avatarSize,
-                  username: author.username,
-                  borderWidth: 2,
-                  borderColor: author.isVerified
-                      ? gold
-                      : UIColorsToken.sec400,
-                  isVerified: author.isVerified,
+                GestureDetector(
+                  onTap: onAuthorTap,
+                  behavior: HitTestBehavior.opaque,
+                  child: UIAvatar(
+                    avatarId: author.avatarId,
+                    size: _avatarSize,
+                    username: author.username,
+                    borderWidth: 2,
+                    borderColor: author.isVerified
+                        ? gold
+                        : UIColorsToken.sec400,
+                    isVerified: author.isVerified,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              alignment: Alignment.centerLeft,
-                              child: UINetWorthWidget(
-                                netWorth: author.netWorth,
-                                currency: post.displayCurrency,
-                                textAlign: TextAlign.left,
-                                textStyle: GoogleFonts.inter(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w800,
-                                  letterSpacing: 0.2,
+                  child: GestureDetector(
+                    onTap: onAuthorTap,
+                    behavior: HitTestBehavior.opaque,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                alignment: Alignment.centerLeft,
+                                child: UINetWorthWidget(
+                                  netWorth: author.netWorth,
+                                  currency: post.displayCurrency,
+                                  textAlign: TextAlign.left,
+                                  textStyle: GoogleFonts.inter(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w800,
+                                    letterSpacing: 0.2,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          if (_isWhale(author.rankTier)) ...[
-                            const SizedBox(width: 8),
-                            _WhaleBadge(label: l10n.rankTierWhale.toUpperCase()),
+                            if (_isWhale(author.rankTier)) ...[
+                              const SizedBox(width: 8),
+                              _WhaleBadge(label: l10n.rankTierWhale.toUpperCase()),
+                            ],
+                            if (post.isBoosted && post.feedSlot == 'boosted') ...[
+                              const SizedBox(width: 8),
+                              _BoostBadge(label: l10n.socialPostBoostBadge),
+                            ],
                           ],
-                          if (post.isBoosted && post.feedSlot == 'boosted') ...[
-                            const SizedBox(width: 8),
-                            _BoostBadge(label: l10n.socialPostBoostBadge),
-                          ],
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        meta,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          height: 1.25,
-                          color: _kMetaGrey,
-                          fontWeight: FontWeight.w400,
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 6),
+                        Text(
+                          meta,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            height: 1.25,
+                            color: _kMetaGrey,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 if (onMoreTap != null)
