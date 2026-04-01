@@ -117,7 +117,7 @@ class PulsePollCardView extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (dateLabel != null) ...[
