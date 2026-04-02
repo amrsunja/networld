@@ -135,7 +135,7 @@ class SocialPage extends HookConsumerWidget {
                       useRootNavigator: true,
                       backgroundColor: theme.colors.bgColor,
                       builder: (_) => FractionallySizedBox(
-                        heightFactor: 0.9,
+                        heightFactor: 0.7,
                         child: PostCommentsPage(postId: postId),
                       ),
                     ),

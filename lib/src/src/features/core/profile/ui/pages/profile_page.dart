@@ -296,7 +296,7 @@ class _ProfilePostsSliver extends StatelessWidget {
               useRootNavigator: true,
               backgroundColor: theme.colors.bgColor,
               builder: (_) => FractionallySizedBox(
-                heightFactor: 0.9,
+                heightFactor: 0.7,
                 child: PostCommentsPage(postId: post.id),
               ),
             ),
@@ -694,7 +694,7 @@ void _openFollowersSheet(BuildContext context, String userId) {
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (_) => FractionallySizedBox(
-      heightFactor: 0.85,
+      heightFactor: 0.7,
       child: ProfileFollowersPage(userId: userId),
     ),
   );
@@ -707,7 +707,7 @@ void _openFollowingsSheet(BuildContext context, String userId) {
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (_) => FractionallySizedBox(
-      heightFactor: 0.85,
+      heightFactor: 0.7,
       child: ProfileFollowingsPage(userId: userId),
     ),
   );
