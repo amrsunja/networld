@@ -119,7 +119,6 @@ class FeedPostCard extends StatelessWidget {
                               child: UIRankBadge(
                                 label: _localizedRankTier(author.rankTier, l10n),
                                 rankTier: author.rankTier,
-                                uppercase: true,
                               ),
                             ),
                             if (post.isBoosted && post.feedSlot == 'boosted') ...[
@@ -405,7 +404,7 @@ class _BoostBadge extends StatelessWidget {
       child: Text(
         label,
         style: GoogleFonts.inter(
-          fontSize: 9,
+          fontSize: 7,
           fontWeight: FontWeight.w700,
           letterSpacing: 0.8,
           color: UIColorsToken.pri350,
