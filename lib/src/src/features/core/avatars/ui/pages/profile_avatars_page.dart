@@ -82,7 +82,7 @@ class ProfileAvatarsPage extends HookConsumerWidget {
                   ),
                 ),
                 const SliverToBoxAdapter(
-                  child: SizedBox(height: 32),
+                  child: SizedBox(height: 100),
                 ),
               ],
             ),
@@ -285,7 +285,6 @@ class _AvatarGridItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 6),
               child: _buildBottomSection(context, l10n, gold, theme),
             ),
-            const SizedBox(height: 6),
           ],
         ),
       ),
