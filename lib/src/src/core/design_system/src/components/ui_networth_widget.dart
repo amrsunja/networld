@@ -68,7 +68,7 @@ class UINetWorthWidget extends StatelessWidget {
 }
 
 String _formatCurrency(num value, CurrencyType currency) {
-  final digits = currency == CurrencyType.jpy ? 0 : 2;
+  final digits = currency == CurrencyType.jpy ? 0 : 0;
   return NumberFormat.currency(
     symbol: currency.symbol,
     decimalDigits: digits,
