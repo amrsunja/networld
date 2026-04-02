@@ -33,6 +33,18 @@ class SocialFeedNotifier extends StateNotifier<SocialFeedState> {
   final AppEvents appEvents;
   final AppLocale locale;
 
+  void setFeedFilter(SocialFeedFilter filter) {
+    if (filter == state.filter) return;
+    state = state.copyWith(
+      filter: filter,
+      posts: const [],
+      cursor: null,
+      hasMore: true,
+      clearError: true,
+    );
+    loadFeed(refresh: true);
+  }
+
   Future<void> loadFeed({bool refresh = false}) async {
     if (!refresh) {
       if (!state.hasMore) return;
@@ -58,6 +70,7 @@ class SocialFeedNotifier extends StateNotifier<SocialFeedState> {
       final page = await datasource.fetchFeedPage(
         limit: _pageSize,
         cursor: cursorToUse,
+        filter: state.filter.apiValue,
       );
       final posts = refresh
           ? page.posts

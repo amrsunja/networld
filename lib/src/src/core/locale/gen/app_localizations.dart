@@ -758,6 +758,24 @@ abstract class AppLocalizations {
   /// **'Aucune publication pour l\'instant'**
   String get socialFeedEmpty;
 
+  /// No description provided for @socialFeedFilterRecents.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récent'**
+  String get socialFeedFilterRecents;
+
+  /// No description provided for @socialFeedFilterHot.
+  ///
+  /// In fr, this message translates to:
+  /// **'Tendance'**
+  String get socialFeedFilterHot;
+
+  /// No description provided for @socialFeedFilterFollowing.
+  ///
+  /// In fr, this message translates to:
+  /// **'Abonnements'**
+  String get socialFeedFilterFollowing;
+
   /// No description provided for @socialPostShareLinkCopied.
   ///
   /// In fr, this message translates to:

@@ -1,7 +1,16 @@
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 
+enum SocialFeedFilter {
+  recents,
+  hots,
+  followings;
+
+  String get apiValue => name;
+}
+
 class SocialFeedState {
   const SocialFeedState({
+    this.filter = SocialFeedFilter.recents,
     this.posts = const [],
     this.cursor,
     this.hasMore = true,
@@ -10,6 +19,7 @@ class SocialFeedState {
     this.errorMessage,
   });
 
+  final SocialFeedFilter filter;
   final List<FeedPostModel> posts;
   final String? cursor;
   final bool hasMore;
@@ -17,9 +27,12 @@ class SocialFeedState {
   final bool isLoadingMore;
   final String? errorMessage;
 
+  static const Object _cursorUnset = Object();
+
   SocialFeedState copyWith({
+    SocialFeedFilter? filter,
     List<FeedPostModel>? posts,
-    String? cursor,
+    Object? cursor = _cursorUnset,
     bool? hasMore,
     bool? isRefreshing,
     bool? isLoadingMore,
@@ -27,8 +40,9 @@ class SocialFeedState {
     bool clearError = false,
   }) {
     return SocialFeedState(
+      filter: filter ?? this.filter,
       posts: posts ?? this.posts,
-      cursor: cursor ?? this.cursor,
+      cursor: identical(cursor, _cursorUnset) ? this.cursor : cursor as String?,
       hasMore: hasMore ?? this.hasMore,
       isRefreshing: isRefreshing ?? this.isRefreshing,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,

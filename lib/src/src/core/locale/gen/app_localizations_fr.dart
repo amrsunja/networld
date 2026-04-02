@@ -375,6 +375,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get socialFeedEmpty => 'Aucune publication pour l\'instant';
 
   @override
+  String get socialFeedFilterRecents => 'Récent';
+
+  @override
+  String get socialFeedFilterHot => 'Tendance';
+
+  @override
+  String get socialFeedFilterFollowing => 'Abonnements';
+
+  @override
   String get socialPostShareLinkCopied => 'Lien copié';
 
   @override

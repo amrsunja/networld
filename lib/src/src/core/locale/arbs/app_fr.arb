@@ -151,6 +151,9 @@
 
   "socialFeedRetry": "Réessayer",
   "socialFeedEmpty": "Aucune publication pour l'instant",
+  "socialFeedFilterRecents": "Récent",
+  "socialFeedFilterHot": "Tendance",
+  "socialFeedFilterFollowing": "Abonnements",
   "socialPostShareLinkCopied": "Lien copié",
   "socialPostTypePoll": "Sondage",
   "socialPostTypePost": "Publication",

@@ -33,6 +33,7 @@ class SocialFeedRemoteDatasource {
   Future<FeedPageResult> fetchFeedPage({
     required int limit,
     String? cursor,
+    required String filter,
   }) async {
     try {
       final res = await supabase.functions.invoke(
@@ -40,6 +41,7 @@ class SocialFeedRemoteDatasource {
         body: <String, dynamic>{
           'limit': limit,
           'cursor': cursor,
+          'filter': filter,
         },
       );
 

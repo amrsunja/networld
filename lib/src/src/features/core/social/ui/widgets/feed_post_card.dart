@@ -23,6 +23,8 @@ class FeedPostCard extends StatelessWidget {
     this.onMoreTap,
     this.onAuthorTap,
     this.onQuickCommentSend,
+    /// When true (e.g. social feed “Hot” tab), show BOOST for actively boosted posts.
+    this.showBoostBadge = false,
   });
 
   final FeedPostModel post;
@@ -36,11 +38,20 @@ class FeedPostCard extends StatelessWidget {
   final VoidCallback? onAuthorTap;
   /// Inline comment submit from the feed card.
   final Future<bool> Function(String text)? onQuickCommentSend;
+  final bool showBoostBadge;
 
   static const double _avatarSize = 52;
   static const String postShareBaseUrl = 'https://networld.app/post';
 
   String get postShareUrl => '$postShareBaseUrl/${post.id}';
+
+  /// Matches server “active boost”: flag set and expiry missing or still in the future.
+  static bool _hasActiveBoost(FeedPostModel post) {
+    if (!post.isBoosted) return false;
+    final exp = post.boostExpiresAt;
+    if (exp == null) return true;
+    return exp.toUtc().isAfter(DateTime.now().toUtc());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +132,7 @@ class FeedPostCard extends StatelessWidget {
                                 rankTier: author.rankTier,
                               ),
                             ),
-                            if (post.isBoosted && post.feedSlot == 'boosted') ...[
+                            if (showBoostBadge && _hasActiveBoost(post)) ...[
                               const SizedBox(width: 8),
                               _BoostBadge(label: l10n.socialPostBoostBadge),
                             ],

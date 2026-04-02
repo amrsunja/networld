@@ -151,6 +151,9 @@
 
   "socialFeedRetry": "Retry",
   "socialFeedEmpty": "No posts yet",
+  "socialFeedFilterRecents": "Recent",
+  "socialFeedFilterHot": "Hot",
+  "socialFeedFilterFollowing": "Following",
   "socialPostShareLinkCopied": "Link copied",
   "socialPostTypePoll": "Poll",
   "socialPostTypePost": "Post",

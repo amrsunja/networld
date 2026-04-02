@@ -1,10 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/design_system/src/tokens/colors/ui_colors_token.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/network/supabase.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
@@ -32,6 +30,18 @@ class SocialPage extends HookConsumerWidget {
     final bottomLift = MediaQuery.paddingOf(context).bottom + 72;
     final feedState = ref.watch(socialFeedProvider);
     final scrollController = useScrollController();
+
+    ref.listen<SocialFeedFilter>(
+      socialFeedProvider.select((s) => s.filter),
+      (previous, next) {
+        if (previous != null &&
+            previous != next &&
+            scrollController.hasClients) {
+          scrollController.jumpTo(0);
+        }
+      },
+    );
+
     final profile = ref.watch(profileProvider).profile;
     final hasUnread = ref.watch(notificationsProvider).hasUnread;
 
@@ -116,6 +126,50 @@ class SocialPage extends HookConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  kPageHorzPadding,
+                  8,
+                  kPageHorzPadding,
+                  4,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _FeedFilterChip(
+                        theme: theme,
+                        label: l10n.socialFeedFilterRecents,
+                        selected: feedState.filter == SocialFeedFilter.recents,
+                        onTap: () => ref
+                            .read(socialFeedProvider.notifier)
+                            .setFeedFilter(SocialFeedFilter.recents),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _FeedFilterChip(
+                        theme: theme,
+                        label: l10n.socialFeedFilterHot,
+                        selected: feedState.filter == SocialFeedFilter.hots,
+                        onTap: () => ref
+                            .read(socialFeedProvider.notifier)
+                            .setFeedFilter(SocialFeedFilter.hots),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _FeedFilterChip(
+                        theme: theme,
+                        label: l10n.socialFeedFilterFollowing,
+                        selected: feedState.filter == SocialFeedFilter.followings,
+                        onTap: () => ref
+                            .read(socialFeedProvider.notifier)
+                            .setFeedFilter(SocialFeedFilter.followings),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 child: RefreshIndicator(
                   color: UIColorsToken.pri350,
@@ -126,6 +180,8 @@ class SocialPage extends HookConsumerWidget {
                     theme: theme,
                     scrollController: scrollController,
                     feedState: feedState,
+                    showBoostBadge:
+                        feedState.filter == SocialFeedFilter.hots,
                     onRetry: () =>
                         ref.read(socialFeedProvider.notifier).loadFeed(refresh: true),
                     onLike: ref.read(socialFeedProvider.notifier).toggleLike,
@@ -168,11 +224,55 @@ class SocialPage extends HookConsumerWidget {
   }
 }
 
+class _FeedFilterChip extends StatelessWidget {
+  const _FeedFilterChip({
+    required this.theme,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final UIThemeData theme;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: selected
+          ? UIColorsToken.pri500.withValues(alpha: 0.22)
+          : UIColorsToken.white.withValues(alpha: 0.06),
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Center(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: theme.typo.textSm.medium.copyWith(
+                color: selected
+                    ? UIColorsToken.pri350
+                    : theme.colors.secondContentColor,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _FeedBody extends StatelessWidget {
   const _FeedBody({
     required this.theme,
     required this.scrollController,
     required this.feedState,
+    required this.showBoostBadge,
     required this.onRetry,
     required this.onLike,
     required this.onOpenComments,
@@ -184,6 +284,7 @@ class _FeedBody extends StatelessWidget {
   final UIThemeData theme;
   final ScrollController scrollController;
   final SocialFeedState feedState;
+  final bool showBoostBadge;
   final VoidCallback onRetry;
   final void Function(String postId) onLike;
   final void Function(String postId) onOpenComments;
@@ -255,7 +356,7 @@ class _FeedBody extends StatelessWidget {
         kPageHorzPadding,
         30,
         kPageHorzPadding,
-        100,
+        150,
       ),
       itemCount: itemCount,
       separatorBuilder: (context, ind) => UISpace.vert(10),
@@ -269,6 +370,7 @@ class _FeedBody extends StatelessWidget {
         final post = feedState.posts[index];
         return FeedPostCard(
           post: post,
+          showBoostBadge: showBoostBadge,
           onLikeTap: () => onLike(post.id),
           onCommentTap: () => onOpenComments(post.id),
           onMoreTap: () => onPostMenu(post),
