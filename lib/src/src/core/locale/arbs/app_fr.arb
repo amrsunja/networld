@@ -83,6 +83,25 @@
   "profileUnfollowAction": "Abonné",
   "profileFollowersEmpty": "Aucun abonné pour l'instant",
   "profileFollowingEmpty": "Aucun abonnement pour l'instant",
+  "profileNetworthRecalcFreeCta": "Mettre à jour mon patrimoine gratuitement",
+  "profileNetworthRecalcNextFreeDate": "Prochaine mise à jour gratuite : {date}",
+  "@profileNetworthRecalcNextFreeDate": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "profileNetworthRecalcPaidCta": "Mettre à jour pour {credits} crédits",
+  "@profileNetworthRecalcPaidCta": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
+  "profileNetworthRecalcInsufficientCredits": "Crédits insuffisants ({credits} requis)",
+  "@profileNetworthRecalcInsufficientCredits": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
   "rankTierStarter": "Débutant",
   "rankTierBuilder": "Bâtisseur",
   "rankTierScaler": "Accélérateur",

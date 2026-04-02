@@ -470,6 +470,30 @@ abstract class AppLocalizations {
   /// **'Aucun abonnement pour l\'instant'**
   String get profileFollowingEmpty;
 
+  /// No description provided for @profileNetworthRecalcFreeCta.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mettre à jour mon patrimoine gratuitement'**
+  String get profileNetworthRecalcFreeCta;
+
+  /// No description provided for @profileNetworthRecalcNextFreeDate.
+  ///
+  /// In fr, this message translates to:
+  /// **'Prochaine mise à jour gratuite : {date}'**
+  String profileNetworthRecalcNextFreeDate(String date);
+
+  /// No description provided for @profileNetworthRecalcPaidCta.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mettre à jour pour {credits} crédits'**
+  String profileNetworthRecalcPaidCta(int credits);
+
+  /// No description provided for @profileNetworthRecalcInsufficientCredits.
+  ///
+  /// In fr, this message translates to:
+  /// **'Crédits insuffisants ({credits} requis)'**
+  String profileNetworthRecalcInsufficientCredits(int credits);
+
   /// No description provided for @rankTierStarter.
   ///
   /// In fr, this message translates to:

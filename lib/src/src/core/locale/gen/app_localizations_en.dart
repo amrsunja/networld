@@ -214,6 +214,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileFollowingEmpty => 'Not following anyone yet';
 
   @override
+  String get profileNetworthRecalcFreeCta => 'Update my net worth for free';
+
+  @override
+  String profileNetworthRecalcNextFreeDate(String date) {
+    return 'Next free update: $date';
+  }
+
+  @override
+  String profileNetworthRecalcPaidCta(int credits) {
+    return 'Update for $credits credits';
+  }
+
+  @override
+  String profileNetworthRecalcInsufficientCredits(int credits) {
+    return 'Not enough credits (need $credits)';
+  }
+
+  @override
   String get rankTierStarter => 'Starter';
 
   @override

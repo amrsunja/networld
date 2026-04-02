@@ -4,15 +4,18 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/network/supabase.dart';
+import 'package:networld/src/src/core/providers/routing/navigation_services_provider.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
 import 'package:networld/src/src/core/widgets/pagination/infinity_data_scroll.dart';
 import 'package:networld/src/src/features/core/post/ui/pages/post_comments_page.dart';
+import 'package:networld/src/src/features/core/powens/ui/pages/set_net_worth_page.dart';
 import 'package:networld/src/src/features/core/profile/data/models/profile_model.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_posts_provider.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_posts_state.dart';
@@ -159,6 +162,11 @@ class ProfilePage extends HookConsumerWidget {
                                 _ProfileHeader(
                                   profile: profileState.profile!,
                                   postsCount: postsState.posts.length,
+                                  onOpenSetNetWorth: () async {
+                                    await context.router.push(SetNetWorthRoute(
+                                      onFinish: (context) => Navigator.of(context).pop(),
+                                    ));
+                                  },
                                 )
                               else if (!profileState.isLoading)
                                 _profileEnter(
@@ -552,14 +560,20 @@ class _SheetActionRow extends StatelessWidget {
 
 // ─── Profile header ──────────────────────────────────────────────
 
+/// Matches server logic in `recalc-networth`: free if onboarding incomplete
+/// or [ProfileModel.nextFreeCalcAt] is in the past or now.
+const int _kNetworthRecalcCreditCost = 1000;
+
 class _ProfileHeader extends StatelessWidget {
   const _ProfileHeader({
     required this.profile,
     required this.postsCount,
+    required this.onOpenSetNetWorth,
   });
 
   final ProfileModel profile;
   final int postsCount;
+  final Future<void> Function() onOpenSetNetWorth;
 
   static const double _avatarSize = 112;
 
@@ -654,19 +668,31 @@ class _ProfileHeader extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _profileEnter(
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(
-                  color: UIColorsToken.pri350.withValues(alpha: 0.2),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(999),
+                    border: Border.all(
+                      color: UIColorsToken.pri350.withValues(alpha: 0.2),
+                    ),
+                    color: const Color(0xff241E12),
+                  ),
+                  child: UINetWorthWidget(
+                    netWorth: profile.netWorth,
+                    currency: profile.currency,
+                  ),
                 ),
-                color: const Color(0xff241E12),
-              ),
-              child: UINetWorthWidget(
-                netWorth: profile.netWorth,
-                currency: profile.currency,
-              ),
+                _NetWorthRecalcSection(
+                  profile: profile,
+                  l10n: l10n,
+                  theme: theme,
+                  onOpenSetNetWorth: onOpenSetNetWorth,
+                ),
+              ],
             ),
             3,
           ),
@@ -684,6 +710,101 @@ class _ProfileHeader extends StatelessWidget {
             ),
             4,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NetWorthRecalcSection extends StatelessWidget {
+  const _NetWorthRecalcSection({
+    required this.profile,
+    required this.l10n,
+    required this.theme,
+    required this.onOpenSetNetWorth,
+  });
+
+  final ProfileModel profile;
+  final AppLocalizations l10n;
+  final UIThemeData theme;
+  final Future<void> Function() onOpenSetNetWorth;
+
+  bool get _canRecalcFree {
+    final now = DateTime.now();
+    return !profile.onboardingCompleted ||
+        !profile.nextFreeCalcAt.isAfter(now);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final localeTag = Localizations.localeOf(context).toLanguageTag();
+    final nextFreeLocal = profile.nextFreeCalcAt.toLocal();
+    final dateStr = DateFormat.yMMMd(localeTag).add_Hm().format(nextFreeLocal);
+
+    if (_canRecalcFree) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12),
+        child: TextButton(
+          onPressed: () => onOpenSetNetWorth(),
+          child: Text(
+            l10n.profileNetworthRecalcFreeCta,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: UIColorsToken.pri350,
+              decorationColor: UIColorsToken.pri350,
+            ),
+          ),
+        ),
+      );
+    }
+
+    final canAffordPaid = profile.credits >= _kNetworthRecalcCreditCost;
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            l10n.profileNetworthRecalcNextFreeDate(dateStr),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.inter(
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+              letterSpacing: 0.4,
+              color: _kMutedLabel,
+            ),
+          ),
+          if (canAffordPaid)
+            TextButton(
+              onPressed: () => onOpenSetNetWorth(),
+              child: Text(
+                l10n.profileNetworthRecalcPaidCta(_kNetworthRecalcCreditCost),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: UIColorsToken.pri350,
+                  decorationColor: UIColorsToken.pri350,
+                ),
+              ),
+            )
+          else
+            Text(
+              l10n.profileNetworthRecalcInsufficientCredits(
+                _kNetworthRecalcCreditCost,
+              ),
+              textAlign: TextAlign.center,
+              style: GoogleFonts.inter(
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+                color: theme.colors.secondContentColor.withValues(alpha: 0.75),
+              ),
+            ),
         ],
       ),
     );

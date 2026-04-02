@@ -217,6 +217,25 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profileFollowingEmpty => 'Aucun abonnement pour l\'instant';
 
   @override
+  String get profileNetworthRecalcFreeCta =>
+      'Mettre à jour mon patrimoine gratuitement';
+
+  @override
+  String profileNetworthRecalcNextFreeDate(String date) {
+    return 'Prochaine mise à jour gratuite : $date';
+  }
+
+  @override
+  String profileNetworthRecalcPaidCta(int credits) {
+    return 'Mettre à jour pour $credits crédits';
+  }
+
+  @override
+  String profileNetworthRecalcInsufficientCredits(int credits) {
+    return 'Crédits insuffisants ($credits requis)';
+  }
+
+  @override
   String get rankTierStarter => 'Débutant';
 
   @override

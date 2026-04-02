@@ -16,7 +16,7 @@ class OnboardingPage extends HookConsumerWidget {
     // Add new onboarding pages here in the desired order.
     final pages = useMemoized(() => [
       SetNetWorthPage(
-        onFinish: () {
+        onFinish: (context) {
           pageController.nextPage(
             duration: Duration(
               milliseconds: 500

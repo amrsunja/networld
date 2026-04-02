@@ -20,7 +20,7 @@ class SetNetWorthPage extends HookConsumerWidget {
     this.onFinish
   });
 
-  final VoidCallback? onFinish;
+  final Function(BuildContext context)? onFinish;
 
 
   static const double _minNetWorth = -25000;
@@ -37,7 +37,7 @@ class SetNetWorthPage extends HookConsumerWidget {
     final onNetWorthSuccess = useCallback(() async {
       await ref.read(profileProvider.notifier).loadProfile();
       if (context.mounted) {
-        onFinish?.call();
+        onFinish?.call(context);
       }
     }, const []);
 
@@ -252,7 +252,7 @@ class SetNetWorthPage extends HookConsumerWidget {
               ),
               const SizedBox(width: 6),
               Text(
-                CurrencyType.usd.symbol,
+                CurrencyType.eur.symbol,
                 style: theme.typo.displayXs.bold.copyWith(
                   color: UIColorsToken.pri350,
                   shadows: UIShadowToken.kTextShadow,

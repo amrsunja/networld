@@ -83,6 +83,25 @@
   "profileUnfollowAction": "Following",
   "profileFollowersEmpty": "No followers yet",
   "profileFollowingEmpty": "Not following anyone yet",
+  "profileNetworthRecalcFreeCta": "Update my net worth for free",
+  "profileNetworthRecalcNextFreeDate": "Next free update: {date}",
+  "@profileNetworthRecalcNextFreeDate": {
+    "placeholders": {
+      "date": { "type": "String" }
+    }
+  },
+  "profileNetworthRecalcPaidCta": "Update for {credits} credits",
+  "@profileNetworthRecalcPaidCta": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
+  "profileNetworthRecalcInsufficientCredits": "Not enough credits (need {credits})",
+  "@profileNetworthRecalcInsufficientCredits": {
+    "placeholders": {
+      "credits": { "type": "int" }
+    }
+  },
   "rankTierStarter": "Starter",
   "rankTierBuilder": "Builder",
   "rankTierScaler": "Scaler",

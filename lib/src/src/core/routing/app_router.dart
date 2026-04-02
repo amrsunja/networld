@@ -132,6 +132,10 @@ class AppRouter extends RootStackRouter {
               page: CreatePostRoute.page,
             ),
             AutoRoute(
+              path: RoutePaths.setNetworth,
+              page: SetNetWorthRoute.page,
+            ),
+            AutoRoute(
               path: RoutePaths.notifications,
               page: NotificationsRoute.page,
             ),

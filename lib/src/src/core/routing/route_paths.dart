@@ -21,6 +21,7 @@ abstract class RoutePaths {
   static const notificationPreferences = 'notification-preferences';
 
   static const shop = 'shop';
+  static const setNetworth = 'set-networth';
   static String userProfile({String? id}) => 'user-profile/${id ?? ':userId'}';
 
   // Root dialog
