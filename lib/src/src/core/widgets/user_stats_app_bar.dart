@@ -155,11 +155,7 @@ class _CreditsPill extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
-            Icons.monetization_on_rounded,
-            size: 18,
-            color: UIColorsToken.pri350,
-          ),
+          const UINetworldCoin(size: 18),
           const SizedBox(width: 4),
           Text(
             '$credits',

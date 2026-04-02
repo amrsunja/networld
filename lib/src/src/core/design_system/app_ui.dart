@@ -29,4 +29,5 @@ export './src/components/sliders/ui_dynamic_liquid_glass_slider.dart';
 export './src/components/media_picker/ui_media_picker.dart';
 export './src/components/ui_avatar.dart';
 export './src/components/ui_rank_badge.dart';
+export './src/components/ui_networld_coin.dart';
 

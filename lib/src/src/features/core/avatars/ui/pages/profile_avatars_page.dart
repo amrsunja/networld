@@ -434,11 +434,7 @@ class _BuySection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                Icons.monetization_on_rounded,
-                size: 12,
-                color: gold,
-              ),
+              UINetworldCoin(size: 12),
               const SizedBox(width: 2),
               Text(
                 '${avatar.priceCredits}',
@@ -527,11 +523,7 @@ class _CreditsBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            Icons.monetization_on_rounded,
-            size: 18,
-            color: gold,
-          ),
+          const UINetworldCoin(size: 18),
           const SizedBox(width: 4),
           Text(
             '$credits',

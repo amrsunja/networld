@@ -20,8 +20,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/google.svg
   String get google => 'assets/icons/google.svg';
 
+  /// File path: assets/icons/networld_coin_icon.png
+  AssetGenImage get networldCoinIcon =>
+      const AssetGenImage('assets/icons/networld_coin_icon.png');
+
   /// List of all assets
-  List<String> get values => [apple, google];
+  List<dynamic> get values => [apple, google, networldCoinIcon];
 }
 
 class $AssetsImagesGen {
@@ -42,8 +46,19 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logoPng => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/networld_coin.png
+  AssetGenImage get networldCoin =>
+      const AssetGenImage('assets/images/networld_coin.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [earth2, earth3, earth1, logoJpg, logoPng];
+  List<AssetGenImage> get values => [
+    earth2,
+    earth3,
+    earth1,
+    logoJpg,
+    logoPng,
+    networldCoin,
+  ];
 }
 
 class Assets {
