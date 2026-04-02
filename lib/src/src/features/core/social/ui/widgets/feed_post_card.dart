@@ -49,7 +49,7 @@ class FeedPostCard extends StatelessWidget {
     final gold = UIColorsToken.pri350;
 
     final author = post.author;
-    final isGoldCard = author.netWorth >= 1000000;
+    final rankAccent = _rankBadgeBackground(author.rankTier);
     final meta = _buildMetaLine(l10n);
     final accent = gold;
     final likeColor = post.isLiked ? gold : _kMetaGrey;
@@ -57,14 +57,14 @@ class FeedPostCard extends StatelessWidget {
 
     return UITransparentBluredCard(
       borderRadius: BorderRadius.circular(16),
-      shadowBegin: isGoldCard ? .topRight : null,
-      shadowEnd: isGoldCard ? .bottomLeft : null,
-      customShadowColors: isGoldCard ?  [
-        UIColorsToken.pri350.withValues(alpha: 0.25),
+      shadowBegin: .topRight,
+      shadowEnd: .bottomLeft,
+      customShadowColors: [
+        rankAccent.withValues(alpha: 0.4),
         UIColorsToken.black.withValues(alpha: 0.1),
         UIColorsToken.black.withValues(alpha: 0.2),
         UIColorsToken.black.withValues(alpha: 0.3),
-      ] : null,
+      ],
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -376,6 +376,16 @@ String _localizedRankTier(RankTierEnum tier, AppLocalizations l10n) {
     case RankTierEnum.Whale:
       return l10n.rankTierWhale;
   }
+}
+
+Color _rankBadgeBackground(RankTierEnum rankTier) {
+  return switch (rankTier) {
+    RankTierEnum.Starter => const Color(0xFF4A515F),
+    RankTierEnum.Builder => const Color(0xFF355C4A),
+    RankTierEnum.Scaler => const Color(0xFF2D5770),
+    RankTierEnum.Elite => const Color(0xFF6B3E7A),
+    RankTierEnum.Whale => UIColorsToken.pri350,
+  };
 }
 
 class _BoostBadge extends StatelessWidget {
