@@ -62,15 +62,6 @@ class SettingsPage extends ConsumerWidget {
               ),
               const SizedBox(height: 14),
               SettingsActionCard(
-                icon: Icons.person_outline_rounded,
-                title: l10n.settingsPersonalInformationTitle,
-                subtitle: l10n.settingsPersonalInformationSubtitle,
-                onTap: () => context.router.push(
-                  const EditProfileInformationsRoute(),
-                ),
-              ),
-              const SizedBox(height: 14),
-              SettingsActionCard(
                 icon: Icons.shield_outlined,
                 title: l10n.settingsPrivacyPolicyTitle,
                 subtitle: l10n.settingsPrivacyPolicySubtitle,

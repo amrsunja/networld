@@ -31,20 +31,6 @@ class ProfileRemoteDatasource {
     return getProfile(user.id);
   }
 
-  Future<ProfileModel> updateUsername({
-    required String userId,
-    required String username,
-  }) async {
-    final response = await supabase
-        .from(_tableName)
-        .update({'username': username})
-        .eq('id', userId)
-        .select()
-        .single();
-
-    return ProfileModel.fromJson(response as Map<String, dynamic>);
-  }
-
   /// Edge Function `delete-account`: requires `{ "confirm": true }` in the body.
   Future<void> deleteMyAccount() async {
     final user = supabase.auth.currentUser;

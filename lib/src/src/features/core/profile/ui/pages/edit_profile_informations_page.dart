@@ -16,7 +16,6 @@ class EditProfileInformationsPage extends HookConsumerWidget {
     final theme = AppTheme.of(context);
     final l10n = AppLocalizations.of(context);
     final profileState = ref.watch(profileProvider);
-    final profileNotifier = ref.read(profileProvider.notifier);
     final usernameController = useTextEditingController();
     final fieldError = useState<String?>(null);
 
@@ -72,18 +71,6 @@ class EditProfileInformationsPage extends HookConsumerWidget {
             isBusy: profileState.isSavingProfile,
             customRadius: 12,
             onTap: () async {
-              fieldError.value = null;
-              final result = await profileNotifier.saveProfileUsername(
-                usernameController.text,
-              );
-              if (!context.mounted) return;
-              if (result.validationError != null) {
-                fieldError.value = result.validationError;
-                return;
-              }
-              if (result.shouldPop) {
-                context.router.maybePop();
-              }
             },
           ),
         ],

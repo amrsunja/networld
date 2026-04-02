@@ -51,28 +51,6 @@ class ProfileRepo {
     );
   }
 
-  /// Updates the current user's username remotely and refreshes the local cache.
-  Future<SuccessOrError<ProfileModel>> updateUsername(String username) async {
-    return Failure.exceptionsCatcher(() async {
-      final userId = supabase.auth.currentUser?.id;
-      if (userId == null) {
-        throw Exception('Not signed in');
-      }
-
-      final hasInternet = await internetConnection.hasInternetAccess;
-      if (!hasInternet) {
-        throw Exception('No internet connection');
-      }
-
-      final updated = await remoteDatasource.updateUsername(
-        userId: userId,
-        username: username,
-      );
-      await localDatasource.saveProfile(userId, updated);
-      return updated;
-    });
-  }
-
   /// Deletes the account via Edge Function `delete-account` and clears local profile cache.
   Future<SuccessOrError<void>> deleteMyAccount() async {
     return Failure.exceptionsCatcher(() async {
