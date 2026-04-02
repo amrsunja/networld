@@ -25,6 +25,7 @@ class FeedPageResult {
 
 class SocialFeedRemoteDatasource {
   static const _getFeedFn = 'get-feed';
+  static const _createCommentFn = 'create-comment';
   static const _likesTable = 'post_likes';
   static const _postsTable = 'posts';
   static const _createPostReportRpc = 'create_post_report';
@@ -124,5 +125,31 @@ class SocialFeedRemoteDatasource {
       throw ServerException.fromErrorCode('unauthorized');
     }
     await supabase.from(_postsTable).delete().eq('id', postId);
+  }
+
+  Future<void> createComment({
+    required String postId,
+    required String content,
+  }) async {
+    try {
+      final res = await supabase.functions.invoke(
+        _createCommentFn,
+        body: {
+          'post_id': postId,
+          'content': content,
+        },
+      );
+      final data = Map<String, dynamic>.from((res.data as Map?) ?? {});
+      if (data['success'] != true) {
+        throw ServerException.fromErrorCode(data['error']?.toString());
+      }
+    } on FunctionException catch (e) {
+      String? code;
+      if (e.details is Map) {
+        final d = Map<String, dynamic>.from(e.details as Map);
+        code = d['error']?.toString() ?? d['code']?.toString();
+      }
+      throw ServerException.fromErrorCode(code);
+    }
   }
 }

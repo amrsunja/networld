@@ -6,6 +6,7 @@ import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/widgets/snackbar_widget.dart';
+import 'package:networld/src/src/features/core/post/ui/widgets/comment_input_field.dart';
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
 import 'package:networld/src/src/features/core/social/ui/widgets/post_poll_card_view.dart';
 
@@ -21,6 +22,7 @@ class FeedPostCard extends StatelessWidget {
     this.onShareTap,
     this.onMoreTap,
     this.onAuthorTap,
+    this.onQuickCommentSend,
   });
 
   final FeedPostModel post;
@@ -32,6 +34,8 @@ class FeedPostCard extends StatelessWidget {
   final VoidCallback? onMoreTap;
   /// Tap on author avatar or info header. If null, area is not tappable.
   final VoidCallback? onAuthorTap;
+  /// Inline comment submit from the feed card.
+  final Future<bool> Function(String text)? onQuickCommentSend;
 
   static const double _avatarSize = 52;
   static const String postShareBaseUrl = 'https://networld.app/post';
@@ -258,6 +262,13 @@ class FeedPostCard extends StatelessWidget {
                 ),
               ],
             ),
+            if (onQuickCommentSend != null) ...[
+              const SizedBox(height: 10),
+              _InlinePostCommentComposer(
+                hintText: l10n.socialCommentHint,
+                onSend: onQuickCommentSend!,
+              ),
+            ],
           ],
         ),
       ),
@@ -390,6 +401,92 @@ class _BoostBadge extends StatelessWidget {
           color: UIColorsToken.pri350,
         ),
       ),
+    );
+  }
+}
+
+class _InlinePostCommentComposer extends StatefulWidget {
+  const _InlinePostCommentComposer({
+    required this.hintText,
+    required this.onSend,
+  });
+
+  final String hintText;
+  final Future<bool> Function(String text) onSend;
+
+  @override
+  State<_InlinePostCommentComposer> createState() =>
+      _InlinePostCommentComposerState();
+}
+
+class _InlinePostCommentComposerState extends State<_InlinePostCommentComposer> {
+  late final TextEditingController _controller;
+  late final FocusNode _focusNode;
+  bool _isSending = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+    _focusNode = FocusNode()..addListener(_onFocusChanged);
+    _controller.addListener(_onTextChanged);
+  }
+
+  @override
+  void dispose() {
+    _focusNode.removeListener(_onFocusChanged);
+    _focusNode.dispose();
+    _controller.removeListener(_onTextChanged);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTextChanged() {
+    if (mounted) setState(() {});
+  }
+
+  void _onFocusChanged() {
+    if (!_focusNode.hasFocus || !mounted) return;
+    _centerComposerInViewport();
+    // Re-run after keyboard transition to keep it centered reliably.
+    Future<void>.delayed(const Duration(milliseconds: 220), () {
+      if (!mounted || !_focusNode.hasFocus) return;
+      _centerComposerInViewport();
+    });
+  }
+
+  void _centerComposerInViewport() {
+    Scrollable.ensureVisible(
+      context,
+      alignment: 0.5,
+      alignmentPolicy: ScrollPositionAlignmentPolicy.explicit,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  Future<void> _submit() async {
+    if (_isSending) return;
+    final text = _controller.text.trim();
+    if (text.isEmpty) return;
+    setState(() => _isSending = true);
+    final ok = await widget.onSend(text);
+    if (!mounted) return;
+    setState(() => _isSending = false);
+    if (ok) _controller.clear();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final text = _controller.text;
+    return CommentInputField(
+      controller: _controller,
+      hintText: widget.hintText,
+      isSending: _isSending,
+      canSend: text.trim().isNotEmpty,
+      hasText: text.isNotEmpty,
+      focusNode: _focusNode,
+      onSend: _submit,
     );
   }
 }

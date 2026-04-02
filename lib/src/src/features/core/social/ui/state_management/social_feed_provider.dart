@@ -195,4 +195,27 @@ class SocialFeedNotifier extends StateNotifier<SocialFeedState> {
       posts: state.posts.where((p) => p.id != postId).toList(),
     );
   }
+
+  Future<bool> createCommentFromFeed({
+    required String postId,
+    required String content,
+  }) async {
+    final text = content.trim();
+    if (text.isEmpty) return false;
+
+    final res = await Failure.exceptionsCatcher(
+      () => datasource.createComment(postId: postId, content: text),
+    );
+
+    return res.when(
+      (_) {
+        bumpCommentsCountForPost(postId);
+        return true;
+      },
+      (err) {
+        appEvents.send(ShowErrorEvent(err, defaultMessage: err.toMessage(locale)));
+        return false;
+      },
+    );
+  }
 }

@@ -306,6 +306,9 @@ class _UserPostsSliver extends StatelessWidget {
             onLikeTap: () => ref
                 .read(profilePostsProvider(userId).notifier)
                 .toggleLike(post.id),
+            onQuickCommentSend: (text) => ref
+                .read(profilePostsProvider(userId).notifier)
+                .createCommentFromWall(postId: post.id, content: text),
             onCommentTap: () => showModalBottomSheet<void>(
               context: context,
               isScrollControlled: true,

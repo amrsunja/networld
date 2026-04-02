@@ -13,6 +13,7 @@ import 'package:networld/src/src/core/widgets/pagination/infinity_data_scroll.da
 import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
 import 'package:networld/src/src/features/core/post/ui/state_management/post_comments_provider.dart';
 import 'package:networld/src/src/features/core/post/ui/widgets/comment_actions_bottom_sheet.dart';
+import 'package:networld/src/src/features/core/post/ui/widgets/comment_input_field.dart';
 
 class PostCommentsPage extends HookConsumerWidget {
   const PostCommentsPage({
@@ -197,7 +198,7 @@ class PostCommentsPage extends HookConsumerWidget {
                   kPageHorzPadding,
                   30,
                 ),
-                child: _CommentInput(
+                child: CommentInputField(
                   controller: inputCtrl,
                   hintText: l10n.socialCommentHint,
                   isSending: state.isSending,
@@ -229,87 +230,6 @@ List<_FlatCommentItem> _buildFlatItems(List<PostCommentModel> parents) {
     }
   }
   return items;
-}
-
-class _CommentInput extends StatelessWidget {
-  const _CommentInput({
-    required this.controller,
-    required this.hintText,
-    required this.isSending,
-    required this.canSend,
-    required this.hasText,
-    required this.onSend,
-  });
-
-  final TextEditingController controller;
-  final String hintText;
-  final bool isSending;
-  final bool canSend;
-  final bool hasText;
-  final VoidCallback onSend;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = AppTheme.of(context);
-    return UIInputField(
-      controller: controller,
-      hintText: hintText,
-      textInputAction: TextInputAction.newline,
-      suffixIcon: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (hasText)
-            IconButton(
-              onPressed: controller.clear,
-              icon: Icon(
-                Icons.close_rounded,
-                size: 20,
-                color: theme.colors.secondContentColor,
-              ),
-            ),
-          Padding(
-            padding: const EdgeInsets.only(right: 6),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(20),
-              onTap: (canSend && !isSending) ? onSend : null,
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 150),
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: canSend
-                      ? UIColorsToken.pri350
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: canSend
-                        ? UIColorsToken.pri350
-                        : theme.colors.secondContentColor
-                            .withValues(alpha: 0.3),
-                  ),
-                ),
-                child: Center(
-                  child: isSending
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: UICircularProgressBar(),
-                        )
-                      : Icon(
-                          Icons.send,
-                          size: 16,
-                          color: canSend
-                              ? UIColorsToken.black
-                              : theme.colors.secondContentColor,
-                        ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 class _CommentTile extends StatelessWidget {

@@ -144,6 +144,9 @@ class SocialPage extends HookConsumerWidget {
                       ref: ref,
                       post: post,
                     ),
+                    onQuickComment: (postId, text) => ref
+                        .read(socialFeedProvider.notifier)
+                        .createCommentFromFeed(postId: postId, content: text),
                     onAuthorTap: (authorId) {
                       final currentUid = supabase.auth.currentUser?.id;
                       if (authorId == currentUid) {
@@ -174,6 +177,7 @@ class _FeedBody extends StatelessWidget {
     required this.onLike,
     required this.onOpenComments,
     required this.onPostMenu,
+    required this.onQuickComment,
     this.onAuthorTap,
   });
 
@@ -184,6 +188,7 @@ class _FeedBody extends StatelessWidget {
   final void Function(String postId) onLike;
   final void Function(String postId) onOpenComments;
   final void Function(FeedPostModel post) onPostMenu;
+  final Future<bool> Function(String postId, String text) onQuickComment;
   final void Function(String authorId)? onAuthorTap;
 
   @override
@@ -267,6 +272,7 @@ class _FeedBody extends StatelessWidget {
           onLikeTap: () => onLike(post.id),
           onCommentTap: () => onOpenComments(post.id),
           onMoreTap: () => onPostMenu(post),
+          onQuickCommentSend: (text) => onQuickComment(post.id, text),
           onAuthorTap: onAuthorTap != null
               ? () => onAuthorTap!(post.authorId)
               : null,

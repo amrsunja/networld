@@ -190,4 +190,29 @@ class ProfilePostsNotifier extends StateNotifier<ProfilePostsState> {
       posts: state.posts.where((p) => p.id != postId).toList(),
     );
   }
+
+  Future<bool> createCommentFromWall({
+    required String postId,
+    required String content,
+  }) async {
+    final text = content.trim();
+    if (text.isEmpty) return false;
+
+    final res = await Failure.exceptionsCatcher(
+      () => socialDatasource.createComment(postId: postId, content: text),
+    );
+
+    return res.when(
+      (_) {
+        bumpCommentsCountForPost(postId);
+        return true;
+      },
+      (err) {
+        appEvents.send(
+          ShowErrorEvent(err, defaultMessage: err.toMessage(locale)),
+        );
+        return false;
+      },
+    );
+  }
 }
