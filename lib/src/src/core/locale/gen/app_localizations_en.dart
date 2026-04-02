@@ -489,6 +489,132 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorAlreadyOwned => 'You already own this avatar.';
 
   @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get notificationsEmpty => 'No notifications yet';
+
+  @override
+  String get notificationPreferencesTitle => 'Notification preferences';
+
+  @override
+  String get notificationPreferencesDescription =>
+      'Choose which notifications you want to receive.';
+
+  @override
+  String get notificationPrefLikePost => 'Post likes';
+
+  @override
+  String get notificationPrefLikePostDesc => 'When someone likes your post';
+
+  @override
+  String get notificationPrefComment => 'Comments';
+
+  @override
+  String get notificationPrefCommentDesc =>
+      'When someone comments on your post';
+
+  @override
+  String get notificationPrefNewFollower => 'New followers';
+
+  @override
+  String get notificationPrefNewFollowerDesc =>
+      'When someone starts following you';
+
+  @override
+  String get notificationPrefReward => 'Rewards';
+
+  @override
+  String get notificationPrefRewardDesc => 'Daily, weekly and monthly rewards';
+
+  @override
+  String get notificationPrefRanking => 'Ranking';
+
+  @override
+  String get notificationPrefRankingDesc => 'Ranking updates and achievements';
+
+  @override
+  String get notificationPrefSystem => 'System';
+
+  @override
+  String get notificationPrefSystemDesc => 'Important system announcements';
+
+  @override
+  String get notificationTitleLikePost => 'Post liked';
+
+  @override
+  String get notificationTitleLikeComment => 'Comment liked';
+
+  @override
+  String get notificationTitleComment => 'New comment';
+
+  @override
+  String get notificationTitleNewFollower => 'New follower';
+
+  @override
+  String get notificationTitleRewardDaily => 'Daily reward';
+
+  @override
+  String get notificationTitleRewardWeekly => 'Weekly reward';
+
+  @override
+  String get notificationTitleRewardMonthly => 'Monthly reward';
+
+  @override
+  String get notificationTitleRanking => 'Ranking update';
+
+  @override
+  String get notificationTitleSystem => 'System';
+
+  @override
+  String get notificationTitleModeration => 'Moderation';
+
+  @override
+  String get notificationBodyLikePost => 'Someone liked your post';
+
+  @override
+  String get notificationBodyLikeComment => 'Someone liked your comment';
+
+  @override
+  String get notificationBodyComment => 'Someone commented on your post';
+
+  @override
+  String get notificationBodyNewFollower => 'Someone started following you';
+
+  @override
+  String notificationBodyNewFollowerWith(String username) {
+    return '$username started following you';
+  }
+
+  @override
+  String get notificationBodyRewardDaily =>
+      'Your daily reward is ready to claim';
+
+  @override
+  String get notificationBodyRewardWeekly =>
+      'Your weekly reward is ready to claim';
+
+  @override
+  String get notificationBodyRewardMonthly =>
+      'Your monthly reward is ready to claim';
+
+  @override
+  String get notificationBodyRanking => 'Your ranking has been updated';
+
+  @override
+  String get notificationBodySystem => 'You have a new system notification';
+
+  @override
+  String get notificationBodyModeration => 'A moderation action has been taken';
+
+  @override
+  String get settingsNotificationsTitle => 'Notifications';
+
+  @override
+  String get settingsNotificationsSubtitle =>
+      'Manage your notification preferences';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

@@ -53,6 +53,15 @@ class SettingsPage extends ConsumerWidget {
               ),
               const SizedBox(height: 14),
               SettingsActionCard(
+                icon: Icons.notifications_none_rounded,
+                title: l10n.settingsNotificationsTitle,
+                subtitle: l10n.settingsNotificationsSubtitle,
+                onTap: () => context.router.push(
+                  const NotificationPreferencesRoute(),
+                ),
+              ),
+              const SizedBox(height: 14),
+              SettingsActionCard(
                 icon: Icons.person_outline_rounded,
                 title: l10n.settingsPersonalInformationTitle,
                 subtitle: l10n.settingsPersonalInformationSubtitle,
@@ -98,7 +107,7 @@ class SettingsPage extends ConsumerWidget {
                   }
                 },
               ),
-              const SizedBox(height: 150),
+              const SizedBox(height: 130),
               Text(
                 '${l10n.settingsBrandFooter}: ${AppConfig.appVersion}',
                 textAlign: TextAlign.center,
@@ -106,7 +115,7 @@ class SettingsPage extends ConsumerWidget {
                   color: UIColorsToken.neu300,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 100),
             ],
           ),
         ),

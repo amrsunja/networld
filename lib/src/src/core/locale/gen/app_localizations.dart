@@ -974,6 +974,240 @@ abstract class AppLocalizations {
   /// **'Vous possédez déjà cet avatar.'**
   String get errorAlreadyOwned;
 
+  /// No description provided for @notificationsTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTitle;
+
+  /// No description provided for @notificationsEmpty.
+  ///
+  /// In fr, this message translates to:
+  /// **'Aucune notification pour l\'instant'**
+  String get notificationsEmpty;
+
+  /// No description provided for @notificationPreferencesTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Préférences de notifications'**
+  String get notificationPreferencesTitle;
+
+  /// No description provided for @notificationPreferencesDescription.
+  ///
+  /// In fr, this message translates to:
+  /// **'Choisissez les notifications que vous souhaitez recevoir.'**
+  String get notificationPreferencesDescription;
+
+  /// No description provided for @notificationPrefLikePost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Likes de publications'**
+  String get notificationPrefLikePost;
+
+  /// No description provided for @notificationPrefLikePostDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quand quelqu\'un aime votre publication'**
+  String get notificationPrefLikePostDesc;
+
+  /// No description provided for @notificationPrefComment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Commentaires'**
+  String get notificationPrefComment;
+
+  /// No description provided for @notificationPrefCommentDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quand quelqu\'un commente votre publication'**
+  String get notificationPrefCommentDesc;
+
+  /// No description provided for @notificationPrefNewFollower.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nouveaux abonnés'**
+  String get notificationPrefNewFollower;
+
+  /// No description provided for @notificationPrefNewFollowerDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quand quelqu\'un commence à vous suivre'**
+  String get notificationPrefNewFollowerDesc;
+
+  /// No description provided for @notificationPrefReward.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompenses'**
+  String get notificationPrefReward;
+
+  /// No description provided for @notificationPrefRewardDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompenses quotidiennes, hebdomadaires et mensuelles'**
+  String get notificationPrefRewardDesc;
+
+  /// No description provided for @notificationPrefRanking.
+  ///
+  /// In fr, this message translates to:
+  /// **'Classement'**
+  String get notificationPrefRanking;
+
+  /// No description provided for @notificationPrefRankingDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mises à jour du classement et succès'**
+  String get notificationPrefRankingDesc;
+
+  /// No description provided for @notificationPrefSystem.
+  ///
+  /// In fr, this message translates to:
+  /// **'Système'**
+  String get notificationPrefSystem;
+
+  /// No description provided for @notificationPrefSystemDesc.
+  ///
+  /// In fr, this message translates to:
+  /// **'Annonces système importantes'**
+  String get notificationPrefSystemDesc;
+
+  /// No description provided for @notificationTitleLikePost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Publication aimée'**
+  String get notificationTitleLikePost;
+
+  /// No description provided for @notificationTitleLikeComment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Commentaire aimé'**
+  String get notificationTitleLikeComment;
+
+  /// No description provided for @notificationTitleComment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nouveau commentaire'**
+  String get notificationTitleComment;
+
+  /// No description provided for @notificationTitleNewFollower.
+  ///
+  /// In fr, this message translates to:
+  /// **'Nouvel abonné'**
+  String get notificationTitleNewFollower;
+
+  /// No description provided for @notificationTitleRewardDaily.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompense quotidienne'**
+  String get notificationTitleRewardDaily;
+
+  /// No description provided for @notificationTitleRewardWeekly.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompense hebdomadaire'**
+  String get notificationTitleRewardWeekly;
+
+  /// No description provided for @notificationTitleRewardMonthly.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récompense mensuelle'**
+  String get notificationTitleRewardMonthly;
+
+  /// No description provided for @notificationTitleRanking.
+  ///
+  /// In fr, this message translates to:
+  /// **'Mise à jour du classement'**
+  String get notificationTitleRanking;
+
+  /// No description provided for @notificationTitleSystem.
+  ///
+  /// In fr, this message translates to:
+  /// **'Système'**
+  String get notificationTitleSystem;
+
+  /// No description provided for @notificationTitleModeration.
+  ///
+  /// In fr, this message translates to:
+  /// **'Modération'**
+  String get notificationTitleModeration;
+
+  /// No description provided for @notificationBodyLikePost.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quelqu\'un a aimé votre publication'**
+  String get notificationBodyLikePost;
+
+  /// No description provided for @notificationBodyLikeComment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quelqu\'un a aimé votre commentaire'**
+  String get notificationBodyLikeComment;
+
+  /// No description provided for @notificationBodyComment.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quelqu\'un a commenté votre publication'**
+  String get notificationBodyComment;
+
+  /// No description provided for @notificationBodyNewFollower.
+  ///
+  /// In fr, this message translates to:
+  /// **'Quelqu\'un a commencé à vous suivre'**
+  String get notificationBodyNewFollower;
+
+  /// No description provided for @notificationBodyNewFollowerWith.
+  ///
+  /// In fr, this message translates to:
+  /// **'{username} s\'est abonné à vous'**
+  String notificationBodyNewFollowerWith(String username);
+
+  /// No description provided for @notificationBodyRewardDaily.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre récompense quotidienne est prête'**
+  String get notificationBodyRewardDaily;
+
+  /// No description provided for @notificationBodyRewardWeekly.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre récompense hebdomadaire est prête'**
+  String get notificationBodyRewardWeekly;
+
+  /// No description provided for @notificationBodyRewardMonthly.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre récompense mensuelle est prête'**
+  String get notificationBodyRewardMonthly;
+
+  /// No description provided for @notificationBodyRanking.
+  ///
+  /// In fr, this message translates to:
+  /// **'Votre classement a été mis à jour'**
+  String get notificationBodyRanking;
+
+  /// No description provided for @notificationBodySystem.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous avez une nouvelle notification système'**
+  String get notificationBodySystem;
+
+  /// No description provided for @notificationBodyModeration.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une action de modération a été effectuée'**
+  String get notificationBodyModeration;
+
+  /// No description provided for @settingsNotificationsTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Notifications'**
+  String get settingsNotificationsTitle;
+
+  /// No description provided for @settingsNotificationsSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Gérer vos préférences de notifications'**
+  String get settingsNotificationsSubtitle;
+
   /// No description provided for @l10nStopLineDontTouch.
   ///
   /// In fr, this message translates to:

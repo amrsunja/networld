@@ -221,6 +221,51 @@
   "errorAvatarNotFound": "Avatar introuvable.",
   "errorAlreadyOwned": "Vous possédez déjà cet avatar.",
 
+  "notificationsTitle": "Notifications",
+  "notificationsEmpty": "Aucune notification pour l'instant",
+  "notificationPreferencesTitle": "Préférences de notifications",
+  "notificationPreferencesDescription": "Choisissez les notifications que vous souhaitez recevoir.",
+  "notificationPrefLikePost": "Likes de publications",
+  "notificationPrefLikePostDesc": "Quand quelqu'un aime votre publication",
+  "notificationPrefComment": "Commentaires",
+  "notificationPrefCommentDesc": "Quand quelqu'un commente votre publication",
+  "notificationPrefNewFollower": "Nouveaux abonnés",
+  "notificationPrefNewFollowerDesc": "Quand quelqu'un commence à vous suivre",
+  "notificationPrefReward": "Récompenses",
+  "notificationPrefRewardDesc": "Récompenses quotidiennes, hebdomadaires et mensuelles",
+  "notificationPrefRanking": "Classement",
+  "notificationPrefRankingDesc": "Mises à jour du classement et succès",
+  "notificationPrefSystem": "Système",
+  "notificationPrefSystemDesc": "Annonces système importantes",
+  "notificationTitleLikePost": "Publication aimée",
+  "notificationTitleLikeComment": "Commentaire aimé",
+  "notificationTitleComment": "Nouveau commentaire",
+  "notificationTitleNewFollower": "Nouvel abonné",
+  "notificationTitleRewardDaily": "Récompense quotidienne",
+  "notificationTitleRewardWeekly": "Récompense hebdomadaire",
+  "notificationTitleRewardMonthly": "Récompense mensuelle",
+  "notificationTitleRanking": "Mise à jour du classement",
+  "notificationTitleSystem": "Système",
+  "notificationTitleModeration": "Modération",
+  "notificationBodyLikePost": "Quelqu'un a aimé votre publication",
+  "notificationBodyLikeComment": "Quelqu'un a aimé votre commentaire",
+  "notificationBodyComment": "Quelqu'un a commenté votre publication",
+  "notificationBodyNewFollower": "Quelqu'un a commencé à vous suivre",
+  "notificationBodyNewFollowerWith": "{username} s'est abonné à vous",
+  "@notificationBodyNewFollowerWith": {
+    "placeholders": {
+      "username": { "type": "String" }
+    }
+  },
+  "notificationBodyRewardDaily": "Votre récompense quotidienne est prête",
+  "notificationBodyRewardWeekly": "Votre récompense hebdomadaire est prête",
+  "notificationBodyRewardMonthly": "Votre récompense mensuelle est prête",
+  "notificationBodyRanking": "Votre classement a été mis à jour",
+  "notificationBodySystem": "Vous avez une nouvelle notification système",
+  "notificationBodyModeration": "Une action de modération a été effectuée",
+  "settingsNotificationsTitle": "Notifications",
+  "settingsNotificationsSubtitle": "Gérer vos préférences de notifications",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

@@ -8,8 +8,10 @@ import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
 import 'package:networld/src/src/core/utils/constants/constants.dart';
 import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/widgets/user_stats_app_bar.dart';
 import 'package:networld/src/src/features/core/daily/ui/state_management/daily_provider.dart';
+import 'package:networld/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 import 'package:networld/src/src/features/core/daily/ui/widgets/daily_missions_section.dart';
 import 'package:networld/src/src/features/core/daily/ui/widgets/daily_poll_card.dart';
@@ -48,6 +50,7 @@ class DailyPage extends HookConsumerWidget {
     final dailyNotifier = ref.read(dailyProvider.notifier);
     final dailyState = ref.watch(dailyProvider);
     final profile = ref.watch(profileProvider).profile;
+    final hasUnread = ref.watch(notificationsProvider).hasUnread;
 
     useEffect(() {
       Future.microtask(() async {
@@ -90,6 +93,8 @@ class DailyPage extends HookConsumerWidget {
           avatarId: profile?.avatarId ?? 1,
           username: profile?.username,
           isVerified: profile?.isVerified ?? false,
+          hasUnreadNotifications: hasUnread,
+          onNotificationTap: () => context.router.push(const NotificationsRoute()),
           notificationTooltip: l10n.dailyAppBarNotificationsTooltip,
         ),
         body: dailyState.isLoading && dailyState.poll == null

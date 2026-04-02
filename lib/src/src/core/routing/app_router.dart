@@ -113,6 +113,10 @@ class AppRouter extends RootStackRouter {
                       path: RoutePaths.avatars,
                       page: ProfileAvatarsRoute.page,
                     ),
+                    AutoRoute(
+                      path: RoutePaths.notificationPreferences,
+                      page: NotificationPreferencesRoute.page,
+                    ),
                     ...generalSubPages
                   ]
                 ),
@@ -126,6 +130,10 @@ class AppRouter extends RootStackRouter {
             AutoRoute(
               path: RoutePaths.createPost,
               page: CreatePostRoute.page,
+            ),
+            AutoRoute(
+              path: RoutePaths.notifications,
+              page: NotificationsRoute.page,
             ),
           ],
         ),

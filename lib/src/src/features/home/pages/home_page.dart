@@ -7,6 +7,7 @@ import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/providers/routing/navigation_services_provider.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/app_vibrations.dart';
+import 'package:networld/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 
@@ -29,6 +30,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     useEffect(() {
       Future.microtask(() async {
         await ref.read(profileProvider.notifier).loadProfile();
+        await ref.read(notificationsProvider.notifier).loadNotifications(refresh: true);
       });
       return null;
     }, []);

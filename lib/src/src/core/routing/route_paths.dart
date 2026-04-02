@@ -17,6 +17,8 @@ abstract class RoutePaths {
   static const editProfileInformations = 'edit-profile-informations';
   static const deleteAccount = 'delete-account';
   static const avatars = 'avatars';
+  static const notifications = 'notifications';
+  static const notificationPreferences = 'notification-preferences';
 
   static const shop = 'shop';
   static String userProfile({String? id}) => 'user-profile/${id ?? ':userId'}';

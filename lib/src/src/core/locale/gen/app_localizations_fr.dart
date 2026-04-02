@@ -494,6 +494,140 @@ class AppLocalizationsFr extends AppLocalizations {
   String get errorAlreadyOwned => 'Vous possédez déjà cet avatar.';
 
   @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get notificationsEmpty => 'Aucune notification pour l\'instant';
+
+  @override
+  String get notificationPreferencesTitle => 'Préférences de notifications';
+
+  @override
+  String get notificationPreferencesDescription =>
+      'Choisissez les notifications que vous souhaitez recevoir.';
+
+  @override
+  String get notificationPrefLikePost => 'Likes de publications';
+
+  @override
+  String get notificationPrefLikePostDesc =>
+      'Quand quelqu\'un aime votre publication';
+
+  @override
+  String get notificationPrefComment => 'Commentaires';
+
+  @override
+  String get notificationPrefCommentDesc =>
+      'Quand quelqu\'un commente votre publication';
+
+  @override
+  String get notificationPrefNewFollower => 'Nouveaux abonnés';
+
+  @override
+  String get notificationPrefNewFollowerDesc =>
+      'Quand quelqu\'un commence à vous suivre';
+
+  @override
+  String get notificationPrefReward => 'Récompenses';
+
+  @override
+  String get notificationPrefRewardDesc =>
+      'Récompenses quotidiennes, hebdomadaires et mensuelles';
+
+  @override
+  String get notificationPrefRanking => 'Classement';
+
+  @override
+  String get notificationPrefRankingDesc =>
+      'Mises à jour du classement et succès';
+
+  @override
+  String get notificationPrefSystem => 'Système';
+
+  @override
+  String get notificationPrefSystemDesc => 'Annonces système importantes';
+
+  @override
+  String get notificationTitleLikePost => 'Publication aimée';
+
+  @override
+  String get notificationTitleLikeComment => 'Commentaire aimé';
+
+  @override
+  String get notificationTitleComment => 'Nouveau commentaire';
+
+  @override
+  String get notificationTitleNewFollower => 'Nouvel abonné';
+
+  @override
+  String get notificationTitleRewardDaily => 'Récompense quotidienne';
+
+  @override
+  String get notificationTitleRewardWeekly => 'Récompense hebdomadaire';
+
+  @override
+  String get notificationTitleRewardMonthly => 'Récompense mensuelle';
+
+  @override
+  String get notificationTitleRanking => 'Mise à jour du classement';
+
+  @override
+  String get notificationTitleSystem => 'Système';
+
+  @override
+  String get notificationTitleModeration => 'Modération';
+
+  @override
+  String get notificationBodyLikePost => 'Quelqu\'un a aimé votre publication';
+
+  @override
+  String get notificationBodyLikeComment =>
+      'Quelqu\'un a aimé votre commentaire';
+
+  @override
+  String get notificationBodyComment =>
+      'Quelqu\'un a commenté votre publication';
+
+  @override
+  String get notificationBodyNewFollower =>
+      'Quelqu\'un a commencé à vous suivre';
+
+  @override
+  String notificationBodyNewFollowerWith(String username) {
+    return '$username s\'est abonné à vous';
+  }
+
+  @override
+  String get notificationBodyRewardDaily =>
+      'Votre récompense quotidienne est prête';
+
+  @override
+  String get notificationBodyRewardWeekly =>
+      'Votre récompense hebdomadaire est prête';
+
+  @override
+  String get notificationBodyRewardMonthly =>
+      'Votre récompense mensuelle est prête';
+
+  @override
+  String get notificationBodyRanking => 'Votre classement a été mis à jour';
+
+  @override
+  String get notificationBodySystem =>
+      'Vous avez une nouvelle notification système';
+
+  @override
+  String get notificationBodyModeration =>
+      'Une action de modération a été effectuée';
+
+  @override
+  String get settingsNotificationsTitle => 'Notifications';
+
+  @override
+  String get settingsNotificationsSubtitle =>
+      'Gérer vos préférences de notifications';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

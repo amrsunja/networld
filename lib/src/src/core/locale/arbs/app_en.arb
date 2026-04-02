@@ -221,6 +221,51 @@
   "errorAvatarNotFound": "Avatar not found.",
   "errorAlreadyOwned": "You already own this avatar.",
 
+  "notificationsTitle": "Notifications",
+  "notificationsEmpty": "No notifications yet",
+  "notificationPreferencesTitle": "Notification preferences",
+  "notificationPreferencesDescription": "Choose which notifications you want to receive.",
+  "notificationPrefLikePost": "Post likes",
+  "notificationPrefLikePostDesc": "When someone likes your post",
+  "notificationPrefComment": "Comments",
+  "notificationPrefCommentDesc": "When someone comments on your post",
+  "notificationPrefNewFollower": "New followers",
+  "notificationPrefNewFollowerDesc": "When someone starts following you",
+  "notificationPrefReward": "Rewards",
+  "notificationPrefRewardDesc": "Daily, weekly and monthly rewards",
+  "notificationPrefRanking": "Ranking",
+  "notificationPrefRankingDesc": "Ranking updates and achievements",
+  "notificationPrefSystem": "System",
+  "notificationPrefSystemDesc": "Important system announcements",
+  "notificationTitleLikePost": "Post liked",
+  "notificationTitleLikeComment": "Comment liked",
+  "notificationTitleComment": "New comment",
+  "notificationTitleNewFollower": "New follower",
+  "notificationTitleRewardDaily": "Daily reward",
+  "notificationTitleRewardWeekly": "Weekly reward",
+  "notificationTitleRewardMonthly": "Monthly reward",
+  "notificationTitleRanking": "Ranking update",
+  "notificationTitleSystem": "System",
+  "notificationTitleModeration": "Moderation",
+  "notificationBodyLikePost": "Someone liked your post",
+  "notificationBodyLikeComment": "Someone liked your comment",
+  "notificationBodyComment": "Someone commented on your post",
+  "notificationBodyNewFollower": "Someone started following you",
+  "notificationBodyNewFollowerWith": "{username} started following you",
+  "@notificationBodyNewFollowerWith": {
+    "placeholders": {
+      "username": { "type": "String" }
+    }
+  },
+  "notificationBodyRewardDaily": "Your daily reward is ready to claim",
+  "notificationBodyRewardWeekly": "Your weekly reward is ready to claim",
+  "notificationBodyRewardMonthly": "Your monthly reward is ready to claim",
+  "notificationBodyRanking": "Your ranking has been updated",
+  "notificationBodySystem": "You have a new system notification",
+  "notificationBodyModeration": "A moderation action has been taken",
+  "settingsNotificationsTitle": "Notifications",
+  "settingsNotificationsSubtitle": "Manage your notification preferences",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

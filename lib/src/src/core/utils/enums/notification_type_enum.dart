@@ -2,6 +2,7 @@ enum NotificationTypeEnum {
   like_post,
   like_comment,
   comment,
+  new_follower,
   reward_daily,
   reward_weekly,
   reward_monthly,
@@ -17,6 +18,8 @@ enum NotificationTypeEnum {
         return like_comment;
       case 'comment':
         return comment;
+      case 'new_follower':
+        return new_follower;
       case 'reward_daily':
         return reward_daily;
       case 'reward_weekly':

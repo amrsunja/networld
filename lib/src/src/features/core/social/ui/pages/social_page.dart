@@ -13,6 +13,7 @@ import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 import 'package:networld/src/src/core/widgets/user_stats_app_bar.dart';
 import 'package:networld/src/src/features/core/post/ui/pages/post_comments_page.dart';
+import 'package:networld/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
 import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
 import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
@@ -32,6 +33,7 @@ class SocialPage extends HookConsumerWidget {
     final feedState = ref.watch(socialFeedProvider);
     final scrollController = useScrollController();
     final profile = ref.watch(profileProvider).profile;
+    final hasUnread = ref.watch(notificationsProvider).hasUnread;
 
     final netWorth = profile?.netWorth ?? 0;
     final currency = profile?.currency ?? CurrencyType.usd;
@@ -82,6 +84,8 @@ class SocialPage extends HookConsumerWidget {
           avatarId: profile?.avatarId ?? 1,
           username: profile?.username,
           isVerified: profile?.isVerified ?? false,
+          hasUnreadNotifications: hasUnread,
+          onNotificationTap: () => context.router.push(const NotificationsRoute()),
           notificationTooltip: l10n.dailyAppBarNotificationsTooltip,
         ),
         floatingActionButton: Padding(
