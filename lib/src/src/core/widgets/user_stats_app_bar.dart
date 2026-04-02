@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:networld/src/src/core/design_system/app_ui.dart';
 import 'package:networld/src/src/core/routing/app_router.gr.dart';
 import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
 
 const Color _kRankLabelColor = Color(0xFF8E9AAF);
 
@@ -17,6 +18,7 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.netWorth,
     required this.currency,
     required this.rankLabel,
+    required this.rankTier,
     required this.rankPrefixLabel,
     required this.credits,
     this.avatarId = 1,
@@ -30,6 +32,7 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
   final num netWorth;
   final CurrencyType currency;
   final String rankLabel;
+  final RankTierEnum rankTier;
   /// Localized label shown before the rank name, e.g. "Rank:" / "Rang :".
   final String rankPrefixLabel;
   final int credits;
@@ -89,29 +92,26 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ),
                       ),
                       const SizedBox(height: 2),
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: rankPrefixLabel,
-                              style: GoogleFonts.inter(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: _kRankLabelColor,
-                              ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            rankPrefixLabel,
+                            style: GoogleFonts.inter(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: _kRankLabelColor,
                             ),
-                            TextSpan(
-                              text: ' $rankLabel',
-                              style: GoogleFonts.inter(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                color: UIColorsToken.pri350,
-                              ),
+                          ),
+                          const SizedBox(width: 6),
+                          Flexible(
+                            child: UIRankBadge(
+                              label: rankLabel,
+                              rankTier: rankTier,
+                              compact: true,
                             ),
-                          ],
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
                       ),
                     ],
                   ),

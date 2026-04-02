@@ -88,6 +88,7 @@ class DailyPage extends HookConsumerWidget {
           netWorth: netWorth,
           currency: currency,
           rankLabel: rankLabel,
+          rankTier: rankTier,
           rankPrefixLabel: l10n.dailyAppBarRankPrefix,
           credits: credits,
           avatarId: profile?.avatarId ?? 1,

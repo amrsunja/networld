@@ -774,22 +774,10 @@ class _UserProfileHeader extends StatelessWidget {
                   Icon(Icons.lock_rounded, size: 14, color: gold),
                 ],
                 const SizedBox(width: 8),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    color: gold.withValues(alpha: 0.15),
-                  ),
-                  child: Text(
-                    _localizedRankTier(profile.rankTier, l10n),
-                    style: GoogleFonts.inter(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 0.8,
-                      color: gold,
-                    ),
-                  ),
+                UIRankBadge(
+                  label: _localizedRankTier(profile.rankTier, l10n),
+                  rankTier: profile.rankTier,
+                  compact: true,
                 ),
               ],
             ),

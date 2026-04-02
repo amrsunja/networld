@@ -110,10 +110,14 @@ class FeedPostCard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            if (_isWhale(author.rankTier)) ...[
-                              const SizedBox(width: 8),
-                              _WhaleBadge(label: l10n.rankTierWhale.toUpperCase()),
-                            ],
+                            const SizedBox(width: 8),
+                            Flexible(
+                              child: UIRankBadge(
+                                label: _localizedRankTier(author.rankTier, l10n),
+                                rankTier: author.rankTier,
+                                uppercase: true,
+                              ),
+                            ),
                             if (post.isBoosted && post.feedSlot == 'boosted') ...[
                               const SizedBox(width: 8),
                               _BoostBadge(label: l10n.socialPostBoostBadge),
@@ -282,8 +286,6 @@ class FeedPostCard extends StatelessWidget {
   }
 }
 
-bool _isWhale(RankTierEnum tier) => tier == RankTierEnum.Whale;
-
 String _postTypeLabel(String postType, AppLocalizations l10n) {
   switch (postType) {
     case 'poll':
@@ -350,29 +352,18 @@ List<InlineSpan> _hashtagSpans(
   return spans;
 }
 
-class _WhaleBadge extends StatelessWidget {
-  const _WhaleBadge({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: UIColorsToken.pri350,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Text(
-        label,
-        style: GoogleFonts.inter(
-          fontSize: 10,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.6,
-          color: UIColorsToken.black,
-        ),
-      ),
-    );
+String _localizedRankTier(RankTierEnum tier, AppLocalizations l10n) {
+  switch (tier) {
+    case RankTierEnum.Starter:
+      return l10n.rankTierStarter;
+    case RankTierEnum.Builder:
+      return l10n.rankTierBuilder;
+    case RankTierEnum.Scaler:
+      return l10n.rankTierScaler;
+    case RankTierEnum.Elite:
+      return l10n.rankTierElite;
+    case RankTierEnum.Whale:
+      return l10n.rankTierWhale;
   }
 }
 
