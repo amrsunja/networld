@@ -201,7 +201,7 @@ class FeedPostCard extends StatelessWidget {
                         Icon(heartIcon, size: 22, color: likeColor),
                         const SizedBox(width: 6),
                         Text(
-                          '+${post.likesCount} CR',
+                          '${post.likesCount}',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
