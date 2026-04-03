@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:networld/src/src/core/utils/enums/networth_input_method_enum.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/core/utils/enums/networth_input_method_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
 
 class ProfileModel extends Equatable {
   final String id;

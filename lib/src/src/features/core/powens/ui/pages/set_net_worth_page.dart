@@ -4,14 +4,14 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconic/iconic.dart';
-import 'package:networld/gen/assets.gen.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/utils/app_vibrations.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/enums/enums.dart';
-import 'package:networld/src/src/features/core/powens/ui/pages/powens_webview_page.dart';
-import 'package:networld/src/src/features/core/powens/ui/state_management/powens_provider.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
+import 'package:brokies/gen/assets.gen.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/utils/app_vibrations.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/core/utils/enums/enums.dart';
+import 'package:brokies/src/src/features/core/powens/ui/pages/powens_webview_page.dart';
+import 'package:brokies/src/src/features/core/powens/ui/state_management/powens_provider.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 @RoutePage()
 class SetNetWorthPage extends HookConsumerWidget {

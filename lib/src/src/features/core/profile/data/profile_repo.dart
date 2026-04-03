@@ -1,12 +1,12 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/network/internet_provider.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/profile/data/datasources/profile_local_datasource.dart';
-import 'package:networld/src/src/features/core/profile/data/datasources/profile_remote_datasource.dart';
-import 'package:networld/src/src/features/core/profile/data/models/profile_model.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/network/internet_provider.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/profile/data/datasources/profile_local_datasource.dart';
+import 'package:brokies/src/src/features/core/profile/data/datasources/profile_remote_datasource.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/profile_model.dart';
 
 final profileRepoProvider = Provider<ProfileRepo>(
   (ref) => ProfileRepo(

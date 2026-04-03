@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/notifications/data/models/notification_preferences_model.dart';
+import 'package:brokies/src/src/features/core/notifications/data/models/notification_preferences_model.dart';
 
 class NotificationPreferencesState {
   const NotificationPreferencesState({

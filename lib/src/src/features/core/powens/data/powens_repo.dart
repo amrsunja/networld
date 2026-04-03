@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/powens/data/datasources/powens_remote_datasource.dart';
-import 'package:networld/src/src/features/core/powens/data/models/powens_session_model.dart';
-import 'package:networld/src/src/features/core/powens/data/models/recalced_net_worth_model.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/powens/data/datasources/powens_remote_datasource.dart';
+import 'package:brokies/src/src/features/core/powens/data/models/powens_session_model.dart';
+import 'package:brokies/src/src/features/core/powens/data/models/recalced_net_worth_model.dart';
 
 final powensRepoProvider = Provider<PowensRepo>(
   (ref) => PowensRepo(

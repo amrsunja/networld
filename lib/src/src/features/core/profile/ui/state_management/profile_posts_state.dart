@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
+import 'package:brokies/src/src/features/core/social/data/models/feed_post_model.dart';
 
 class ProfilePostsState {
   const ProfilePostsState({

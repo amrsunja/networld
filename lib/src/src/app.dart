@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/providers/routing/navigation_services_provider.dart';
-import 'package:networld/src/src/core/providers/widgets/scaffold_messenger_provider.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/enums/app_theme_type.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/features/core/internet_connection/ui/state_management/internet_connection_provider.dart';
-import 'package:networld/src/src/features/settings/ui/state_management/settings_provider.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/providers/routing/navigation_services_provider.dart';
+import 'package:brokies/src/src/core/providers/widgets/scaffold_messenger_provider.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/core/utils/enums/app_theme_type.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/features/core/internet_connection/ui/state_management/internet_connection_provider.dart';
+import 'package:brokies/src/src/features/settings/ui/state_management/settings_provider.dart';
 
 import 'core/utils/extensions/build_context_extensions.dart';
 

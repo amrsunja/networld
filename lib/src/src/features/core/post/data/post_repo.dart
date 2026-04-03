@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/post/data/datasources/post_remote_datasource.dart';
-import 'package:networld/src/src/features/core/post/data/models/create_post_result_model.dart';
-import 'package:networld/src/src/features/core/post/data/models/poll_option_payload.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/post/data/datasources/post_remote_datasource.dart';
+import 'package:brokies/src/src/features/core/post/data/models/create_post_result_model.dart';
+import 'package:brokies/src/src/features/core/post/data/models/poll_option_payload.dart';
 
 final postRepoProvider = Provider<PostRepo>(
   (ref) => PostRepo(remote: ref.read(postRemoteDatasourceProvider)),

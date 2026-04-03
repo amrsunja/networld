@@ -1,7 +1,7 @@
 // powens_webview_screen.dart
 import 'package:flutter/material.dart' hide debugPrint;
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/utils/debug_print.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/utils/debug_print.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PowensWebviewScreen extends StatefulWidget {

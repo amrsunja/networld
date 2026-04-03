@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/features/auth/ui/state_management/auth_provider.dart';
+import 'package:brokies/src/src/features/auth/ui/state_management/auth_provider.dart';
 
 import '../app_router.gr.dart';
 

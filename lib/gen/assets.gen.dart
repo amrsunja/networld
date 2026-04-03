@@ -31,6 +31,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/coin.png
+  AssetGenImage get coin => const AssetGenImage('assets/images/coin.png');
+
   /// File path: assets/images/earth2.png
   AssetGenImage get earth2 => const AssetGenImage('assets/images/earth2.png');
 
@@ -46,18 +49,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logoPng => const AssetGenImage('assets/images/logo.png');
 
-  /// File path: assets/images/networld_coin.png
-  AssetGenImage get networldCoin =>
-      const AssetGenImage('assets/images/networld_coin.png');
-
   /// List of all assets
   List<AssetGenImage> get values => [
+    coin,
     earth2,
     earth3,
     earth1,
     logoJpg,
     logoPng,
-    networldCoin,
   ];
 }
 

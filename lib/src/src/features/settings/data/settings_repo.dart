@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/utils/enums/app_theme_type.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/utils/enums/app_theme_type.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
 
 import 'datasources/settings_local_datasource.dart';
 import 'models/app_settings_model.dart';

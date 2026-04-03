@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:networld/src/src/core/utils/enums/notification_type_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/notification_type_enum.dart';
 
 class NotificationModel extends Equatable {
   final String id;

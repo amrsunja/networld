@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/post/data/datasources/post_comments_remote_datasource.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/utils/enums/report_category_enum.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/post/data/datasources/post_comments_remote_datasource.dart';
 
 final postCommentsRepoProvider = Provider<PostCommentsRepo>(
   (ref) => PostCommentsRepo(

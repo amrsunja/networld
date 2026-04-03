@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/config/app_config.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/features/auth/ui/state_management/auth_provider.dart';
-import 'package:networld/src/src/features/settings/ui/widgets/settings_action_card.dart';
-import 'package:networld/src/src/features/settings/ui/widgets/settings_logout_button.dart';
-import 'package:networld/src/src/features/settings/ui/widgets/settings_section_title.dart';
+import 'package:brokies/src/config/app_config.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/features/auth/ui/state_management/auth_provider.dart';
+import 'package:brokies/src/src/features/settings/ui/widgets/settings_action_card.dart';
+import 'package:brokies/src/src/features/settings/ui/widgets/settings_logout_button.dart';
+import 'package:brokies/src/src/features/settings/ui/widgets/settings_section_title.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()

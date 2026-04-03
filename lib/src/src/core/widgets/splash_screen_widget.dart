@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/gen/assets.gen.dart';
+import 'package:brokies/gen/assets.gen.dart';
 
 import '../design_system/app_ui.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networld/gen/assets.gen.dart';
+import 'package:brokies/gen/assets.gen.dart';
 
 import 'ui_image.dart';
 
@@ -18,7 +18,7 @@ class UINetworldCoin extends StatelessWidget {
       width: size,
       height: size,
       child: UIImage.asset(
-        image: Assets.icons.networldCoinIcon.path,
+        image: Assets.images.coin.path,
         boxFit: BoxFit.contain,
       ),
     );

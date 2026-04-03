@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/legacy.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/network/internet_provider.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/network/internet_provider.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
 
 import 'internet_connection_state.dart';
 

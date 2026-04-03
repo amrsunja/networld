@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/providers/routing/navigation_services_provider.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/app_vibrations.dart';
-import 'package:networld/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/providers/routing/navigation_services_provider.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/app_vibrations.dart';
+import 'package:brokies/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 
 @RoutePage()

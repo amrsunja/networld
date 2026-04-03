@@ -1,10 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception_type.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' show FunctionException;
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/profile/data/models/profile_model.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception_type.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/profile_model.dart';
 
 final profileRemoteDatasourceProvider = Provider<ProfileRemoteDatasource>(
   (ref) => ProfileRemoteDatasource(),

@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/utils/enums/app_theme_type.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/presenter.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/core/utils/enums/app_theme_type.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/presenter.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
 
 import '../../data/settings_repo.dart';
 import 'settings_state.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
-import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
-import 'package:networld/src/src/features/core/post/ui/state_management/post_comments_provider.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/enums/report_category_enum.dart';
+import 'package:brokies/src/src/features/core/post/data/models/post_comment_model.dart';
+import 'package:brokies/src/src/features/core/post/ui/state_management/post_comments_provider.dart';
 
 /// Root bottom sheet: Report + optional Delete (own comments only).
 void showCommentActionsBottomSheet({

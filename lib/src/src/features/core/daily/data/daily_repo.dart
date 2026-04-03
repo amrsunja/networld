@@ -1,11 +1,11 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/daily/data/datasources/daily_remote_datasource.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/mission_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/previous_pulse_entry.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/daily/data/datasources/daily_remote_datasource.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/mission_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/previous_pulse_entry.dart';
 
 final dailyRepoProvider = Provider<DailyRepo>(
   (ref) => DailyRepo(remoteDatasource: ref.read(dailyRemoteDatasourceProvider)),

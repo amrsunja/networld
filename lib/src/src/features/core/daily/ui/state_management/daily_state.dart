@@ -1,8 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/mission_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/mission_model.dart';
 
 part 'daily_state.freezed.dart';
 

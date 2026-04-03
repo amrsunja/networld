@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/profile/data/models/profile_model.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/profile_model.dart';
 
 class UserProfileState {
   const UserProfileState({

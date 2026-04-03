@@ -1,4 +1,4 @@
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception_type.dart';
+import 'server_exception_type.dart';
 
 class ServerException implements Exception {
   final ServerExceptionType type;

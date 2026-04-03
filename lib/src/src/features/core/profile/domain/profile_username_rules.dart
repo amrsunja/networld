@@ -1,4 +1,4 @@
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
 
 /// Client-side rules for editable profile username.
 String? validateProfileUsername(String raw, AppLocalizations l10n) {

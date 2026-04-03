@@ -1,4 +1,4 @@
-const String kAppName = 'Networld';
+const String kAppName = 'Brokies';
 
 const double kPageHorzPadding = 16;
 

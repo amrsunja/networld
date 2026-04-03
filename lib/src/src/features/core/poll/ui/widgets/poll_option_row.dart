@@ -1,8 +1,8 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/features/core/poll/data/models/poll_option_model.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/features/core/poll/data/models/poll_option_model.dart';
 
 class PollOptionRow extends StatelessWidget {
   final PollOptionModel option;

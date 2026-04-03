@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
 
 /// Selectable row with optional leading code (e.g. FR / EN) and selection dot.
 class SettingsCheckboxTileWidget extends StatelessWidget {

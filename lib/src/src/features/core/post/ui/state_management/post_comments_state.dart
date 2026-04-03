@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
+import 'package:brokies/src/src/features/core/post/data/models/post_comment_model.dart';
 
 class PostCommentsReplyTarget {
   const PostCommentsReplyTarget({

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/widgets/pagination/infinity_data_scroll.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/follow_list_provider.dart';
-import 'package:networld/src/src/features/core/profile/ui/widgets/follow_user_tile_widget.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/widgets/pagination/infinity_data_scroll.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/follow_list_provider.dart';
+import 'package:brokies/src/src/features/core/profile/ui/widgets/follow_user_tile_widget.dart';
 
 class ProfileFollowingsPage extends HookConsumerWidget {
   const ProfileFollowingsPage({super.key, required this.userId});

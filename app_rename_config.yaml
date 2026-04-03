@@ -1,14 +1,14 @@
 package_rename_config:
   android:
-    app_name: "Networld" # Display name
-    package_name: "com.networld.netapp" # Package name
+    app_name: "Brokies" # Display name
+    package_name: "com.brokies.app" # Package name
     #override_old_package: "com.example.worshipbarometer" # Optional: Cleans up old folder structure
     lang: "kotlin" # Optional: "kotlin" (default) or "java"
 
   ios:
-    app_name: "Networld"
-    bundle_name: "Networld" # Bundle name
-    package_name: "com.networld.netapp" # Package name
+    app_name: "Brokies"
+    bundle_name: "Brokies" # Bundle name
+    package_name: "com.brokies.app" # Package name
 
   #linux:
     #app_name: "My App" # Window title

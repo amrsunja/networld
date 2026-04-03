@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:networld/src/config/app_config.dart';
-import 'package:networld/src/config/app_runner.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/env_services.dart';
-import 'package:networld/src/src/core/utils/screen_rotation.dart';
+import 'package:brokies/src/config/app_config.dart';
+import 'package:brokies/src/config/app_runner.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/core/utils/env_services.dart';
+import 'package:brokies/src/src/core/utils/screen_rotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'dart:async';
 

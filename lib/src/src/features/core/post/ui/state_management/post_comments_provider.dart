@@ -1,12 +1,11 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
-import 'package:networld/src/src/features/core/post/data/models/post_comment_model.dart';
-import 'package:networld/src/src/features/core/post/data/post_comments_repo.dart';
-import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/utils/enums/report_category_enum.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/features/core/post/data/models/post_comment_model.dart';
+import 'package:brokies/src/src/features/core/post/data/post_comments_repo.dart';
+import 'package:brokies/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
 
 import 'post_comments_state.dart';
 

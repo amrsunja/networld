@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:networld/src/src/features/core/profile/data/models/profile_model.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/profile_model.dart';
 
 part 'profile_state.freezed.dart';
 

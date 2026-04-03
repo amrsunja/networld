@@ -2,22 +2,22 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
-import 'package:networld/src/src/core/widgets/user_stats_app_bar.dart';
-import 'package:networld/src/src/features/core/post/ui/pages/post_comments_page.dart';
-import 'package:networld/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
-import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
-import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
-import 'package:networld/src/src/features/core/social/ui/state_management/social_feed_state.dart';
-import 'package:networld/src/src/features/core/social/ui/widgets/feed_post_actions_bottom_sheet.dart';
-import 'package:networld/src/src/features/core/social/ui/widgets/feed_post_card.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/widgets/user_stats_app_bar.dart';
+import 'package:brokies/src/src/features/core/post/ui/pages/post_comments_page.dart';
+import 'package:brokies/src/src/features/core/notifications/ui/state_management/notifications_provider.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/profile_provider.dart';
+import 'package:brokies/src/src/features/core/social/ui/state_management/social_feed_provider.dart';
+import 'package:brokies/src/src/features/core/social/data/models/feed_post_model.dart';
+import 'package:brokies/src/src/features/core/social/ui/state_management/social_feed_state.dart';
+import 'package:brokies/src/src/features/core/social/ui/widgets/feed_post_actions_bottom_sheet.dart';
+import 'package:brokies/src/src/features/core/social/ui/widgets/feed_post_card.dart';
 
 @RoutePage()
 class SocialPage extends HookConsumerWidget {

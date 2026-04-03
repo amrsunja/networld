@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
 
 const Color _kRankLabelColor = Color(0xFF8E9AAF);
 

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:networld/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
+import 'package:brokies/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
 
 part 'avatars_state.freezed.dart';
 

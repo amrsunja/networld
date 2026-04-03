@@ -1,5 +1,5 @@
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
 
 class PostPollSummaryCacheEntry {
   const PostPollSummaryCacheEntry({

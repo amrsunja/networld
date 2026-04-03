@@ -1,6 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
 
 class UITransparentBluredCard extends StatelessWidget {
   final Widget child;

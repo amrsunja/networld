@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/features/core/daily/data/models/mission_model.dart';
-import 'package:networld/src/src/features/core/daily/ui/state_management/daily_provider.dart';
-import 'package:networld/src/src/features/core/daily/ui/state_management/daily_state.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/mission_model.dart';
+import 'package:brokies/src/src/features/core/daily/ui/state_management/daily_provider.dart';
+import 'package:brokies/src/src/features/core/daily/ui/state_management/daily_state.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DailyMissionsSection extends ConsumerStatefulWidget {

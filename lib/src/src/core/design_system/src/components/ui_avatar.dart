@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
-import 'package:networld/src/src/features/core/avatars/ui/state_management/avatars_provider.dart';
+import 'package:brokies/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
+import 'package:brokies/src/src/features/core/avatars/ui/state_management/avatars_provider.dart';
 
 import '../../app_ui.dart';
 

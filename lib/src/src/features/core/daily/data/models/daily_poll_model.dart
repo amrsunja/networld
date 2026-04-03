@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/poll/data/models/poll_option_model.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/poll/data/models/poll_option_model.dart';
 
 class DailyPollModel extends Equatable {
   final String id;

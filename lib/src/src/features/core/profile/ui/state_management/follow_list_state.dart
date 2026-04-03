@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/profile/data/models/follow_user_model.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/follow_user_model.dart';
 
 class FollowListState {
   const FollowListState({

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
 
 class DailyPollResultModel extends Equatable {
   final int optionId;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
 
 import '../../app_ui.dart';
 

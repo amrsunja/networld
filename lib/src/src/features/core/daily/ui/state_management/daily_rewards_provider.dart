@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/legacy.dart';
 
-import 'package:networld/src/src/features/core/daily/ui/state_management/daily_rewards_state.dart';
+import 'package:brokies/src/src/features/core/daily/ui/state_management/daily_rewards_state.dart';
 
 /// Stub provider so [survey_gift_card.dart] still compiles; daily gift/missions logic removed.
 final dailyRewardsProvider =

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/features/settings/ui/state_management/settings_provider.dart';
-import 'package:networld/src/src/features/settings/ui/widgets/settings_checkbox_tile_widget.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/features/settings/ui/state_management/settings_provider.dart';
+import 'package:brokies/src/src/features/settings/ui/widgets/settings_checkbox_tile_widget.dart';
 
 @RoutePage()
 class AppLanguagePage extends ConsumerWidget {

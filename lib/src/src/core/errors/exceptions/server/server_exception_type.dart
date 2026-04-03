@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
 
 enum ServerExceptionType {
   unauthorized,

@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/features/core/daily/data/daily_repo.dart';
-import 'package:networld/src/src/features/core/daily/data/models/previous_pulse_entry.dart';
+import 'package:brokies/src/src/features/core/daily/data/daily_repo.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/previous_pulse_entry.dart';
 
 final previousPulsesProvider =
     FutureProvider.autoDispose<List<PreviousPulseEntry>>((ref) async {

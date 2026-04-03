@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconic/iconic.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
-import 'package:networld/src/src/core/widgets/snackbar_widget.dart';
-import 'package:networld/src/src/features/core/post/ui/widgets/comment_input_field.dart';
-import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
-import 'package:networld/src/src/features/core/social/ui/widgets/post_poll_card_view.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/widgets/snackbar_widget.dart';
+import 'package:brokies/src/src/features/core/post/ui/widgets/comment_input_field.dart';
+import 'package:brokies/src/src/features/core/social/data/models/feed_post_model.dart';
+import 'package:brokies/src/src/features/core/social/ui/widgets/post_poll_card_view.dart';
 
 const Color _kMetaGrey = Color(0xFF8E8E8E);
 

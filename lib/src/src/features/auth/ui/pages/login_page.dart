@@ -4,11 +4,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconic/iconic.dart';
-import 'package:networld/gen/assets.gen.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/features/auth/ui/state_management/auth_provider.dart';
+import 'package:brokies/gen/assets.gen.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/features/auth/ui/state_management/auth_provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 
@@ -64,10 +64,6 @@ class LoginPage extends HookConsumerWidget {
                   Column(
                     spacing: 10,
                     children: [
-                      UIIcon(
-                        Iconic.globe,
-                        color: UIColorsToken.pri400,
-                      ),
                       Row(
                         mainAxisAlignment: .center,
                         children: [
@@ -75,13 +71,6 @@ class LoginPage extends HookConsumerWidget {
                             height: 40,
                             child: UIImage.asset(
                               image: Assets.images.logoPng.path,
-                            ),
-                          ),
-                          Text(
-                            'etworld'.toUpperCase(),
-                            style: theme.typo.displaySm.bold.copyWith(
-                              letterSpacing: 3,
-                              color: UIColorsToken.white
                             ),
                           ),
                         ],

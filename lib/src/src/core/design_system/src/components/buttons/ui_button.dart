@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/utils/app_vibrations.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/utils/app_vibrations.dart';
 
 class UIButton extends StatelessWidget {
   final String? title;

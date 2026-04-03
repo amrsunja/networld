@@ -1,4 +1,4 @@
-import 'package:networld/src/src/features/core/notifications/data/models/notification_model.dart';
+import 'package:brokies/src/src/features/core/notifications/data/models/notification_model.dart';
 
 class NotificationsState {
   const NotificationsState({

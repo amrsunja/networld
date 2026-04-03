@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
-import 'package:networld/src/src/core/utils/enums/rank_tier_enum.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/social/data/models/post_poll_option_model.dart';
+import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/social/data/models/post_poll_option_model.dart';
 
 /// Author snapshot as returned by `get-feed` (`profiles` join).
 class FeedAuthorModel extends Equatable {

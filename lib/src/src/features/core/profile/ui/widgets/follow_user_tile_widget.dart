@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/utils/enums/enums.dart';
-import 'package:networld/src/src/features/core/profile/data/models/follow_user_model.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/utils/enums/enums.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/follow_user_model.dart';
 
 class FollowUserTileWidget extends StatelessWidget {
   const FollowUserTileWidget({

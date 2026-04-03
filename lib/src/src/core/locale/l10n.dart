@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/features/settings/ui/state_management/settings_provider.dart';
+import 'package:brokies/src/src/features/settings/ui/state_management/settings_provider.dart';
 
 import 'gen/app_localizations.dart';
 

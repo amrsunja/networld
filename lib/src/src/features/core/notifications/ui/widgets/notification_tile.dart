@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/core/utils/enums/notification_type_enum.dart';
-import 'package:networld/src/src/features/core/notifications/data/models/notification_model.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/core/utils/enums/notification_type_enum.dart';
+import 'package:brokies/src/src/features/core/notifications/data/models/notification_model.dart';
 
 class NotificationTile extends StatelessWidget {
   const NotificationTile({

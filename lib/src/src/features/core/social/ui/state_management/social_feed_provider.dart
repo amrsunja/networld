@@ -1,13 +1,12 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
-import 'package:networld/src/src/core/errors/failures/failures.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/utils/enums/report_category_enum.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
-import 'package:networld/src/src/features/core/social/data/datasources/social_feed_remote_datasource.dart';
-import 'package:networld/src/src/features/core/social/data/models/feed_post_model.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception.dart';
+import 'package:brokies/src/src/core/errors/failures/failures.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/utils/enums/report_category_enum.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/features/core/social/data/datasources/social_feed_remote_datasource.dart';
+import 'package:brokies/src/src/features/core/social/data/models/feed_post_model.dart';
 
 import 'social_feed_state.dart';
 

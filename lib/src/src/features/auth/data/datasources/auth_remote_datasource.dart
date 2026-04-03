@@ -1,7 +1,7 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/env_services.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/env_services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final authRemoteDataProvider = Provider<AuthRemoteDatasource>(

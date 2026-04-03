@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:networld/src/src/core/design_system/src/tokens/colors/ui_colors_token.dart';
-import 'package:networld/src/src/core/utils/enums/currency_type_enum.dart';
+import 'package:brokies/src/src/core/design_system/src/tokens/colors/ui_colors_token.dart';
+import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
 
 /// Formatted net worth display: comma-separated thousands, currency symbol, and
 /// fractional digits per [CurrencyType]. Values **≥ 1,000,000** use a vertical

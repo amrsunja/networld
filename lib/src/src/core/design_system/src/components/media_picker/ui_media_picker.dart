@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconic/iconic.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';

@@ -1,4 +1,4 @@
-import 'package:networld/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
 
 enum RankTierEnum {
   Starter,

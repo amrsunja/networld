@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconic/iconic.dart';
-import 'package:networld/gen/assets.gen.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/routing/app_router.gr.dart';
-import 'package:networld/src/src/core/utils/constants/constants.dart';
-import 'package:networld/src/src/core/utils/enums/enums.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
+import 'package:brokies/gen/assets.gen.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/routing/app_router.gr.dart';
+import 'package:brokies/src/src/core/utils/constants/constants.dart';
+import 'package:brokies/src/src/core/utils/enums/enums.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 class OnboardingCompletedPage extends HookConsumerWidget {
   const OnboardingCompletedPage({super.key});

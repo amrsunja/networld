@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/core/locale/gen/app_localizations.dart';
-import 'package:networld/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
-import 'package:networld/src/src/features/core/avatars/ui/state_management/avatars_provider.dart';
-import 'package:networld/src/src/features/core/avatars/ui/state_management/avatars_state.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
+import 'package:brokies/src/src/features/core/avatars/data/models/avatar_catalog_model.dart';
+import 'package:brokies/src/src/features/core/avatars/ui/state_management/avatars_provider.dart';
+import 'package:brokies/src/src/features/core/avatars/ui/state_management/avatars_state.dart';
 
 const Color _kMutedLabel = Color(0xFF808080);
 

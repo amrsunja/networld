@@ -1,4 +1,4 @@
-import 'package:networld/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
 
 class ClaimMissionResultModel {
   final bool success;

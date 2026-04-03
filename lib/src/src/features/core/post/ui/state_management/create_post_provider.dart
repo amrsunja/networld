@@ -1,13 +1,12 @@
 import 'dart:io';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/presenter.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
-import 'package:networld/src/src/features/core/post/data/post_repo.dart';
-import 'package:networld/src/src/features/core/profile/ui/state_management/profile_provider.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/presenter.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/features/core/post/data/post_repo.dart';
+import 'package:brokies/src/src/features/core/profile/ui/state_management/profile_provider.dart';
 
 import 'create_post_state.dart';
 

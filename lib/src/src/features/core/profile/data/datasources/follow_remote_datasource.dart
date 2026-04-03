@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception_type.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/profile/data/models/follow_user_model.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception_type.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/profile/data/models/follow_user_model.dart';
 
 final followRemoteDatasourceProvider = Provider<FollowRemoteDatasource>(
   (ref) => FollowRemoteDatasource(),

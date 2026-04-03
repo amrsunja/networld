@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:hooks_riverpod/legacy.dart';
-import 'package:networld/src/src/core/locale/l10n.dart';
-import 'package:networld/src/src/core/utils/state_management/app_events.dart';
-import 'package:networld/src/src/core/utils/state_management/presenter.dart';
-import 'package:networld/src/src/core/utils/state_management/single_events.dart';
+import 'package:brokies/src/src/core/locale/l10n.dart';
+import 'package:brokies/src/src/core/utils/state_management/app_events.dart';
+import 'package:brokies/src/src/core/utils/state_management/presenter.dart';
+import 'package:brokies/src/src/core/utils/state_management/single_events.dart';
 
 import '../../data/daily_repo.dart';
 import 'daily_state.dart';

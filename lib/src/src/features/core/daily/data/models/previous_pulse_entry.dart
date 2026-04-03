@@ -1,5 +1,5 @@
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
 
 class PreviousPulseEntry {
   final DailyPollModel poll;

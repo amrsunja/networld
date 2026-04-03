@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
-import 'package:networld/src/src/core/design_system/app_ui.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_model.dart';
-import 'package:networld/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
-import 'package:networld/src/src/features/core/poll/ui/widgets/poll_option_row.dart';
+import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_model.dart';
+import 'package:brokies/src/src/features/core/daily/data/models/daily_poll_result_model.dart';
+import 'package:brokies/src/src/features/core/poll/ui/widgets/poll_option_row.dart';
 
 /// Shared layout for [DailyPollCard] and archived “Previous Pulses” polls.
 class PulsePollCardView extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:networld/src/src/core/errors/exceptions/server/server_exception.dart';
-import 'package:networld/src/src/core/network/supabase.dart';
-import 'package:networld/src/src/core/utils/typedefs.dart';
-import 'package:networld/src/src/features/core/post/data/models/create_post_result_model.dart';
+import 'package:brokies/src/src/core/errors/exceptions/server/server_exception.dart';
+import 'package:brokies/src/src/core/network/supabase.dart';
+import 'package:brokies/src/src/core/utils/typedefs.dart';
+import 'package:brokies/src/src/features/core/post/data/models/create_post_result_model.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' show FunctionException;
 
@@ -77,7 +77,7 @@ class PostRemoteDatasource {
       final details = e.details;
       String? code;
       if (details is Map) {
-        final m = Map<String, dynamic>.from(details as Map);
+        final m = Map<String, dynamic>.from(details);
         code = m['error'] as String? ?? m['code'] as String?;
         if (code == null && m['message'] is String) {
           code = m['message'] as String?;
