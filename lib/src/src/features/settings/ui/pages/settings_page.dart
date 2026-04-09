@@ -100,7 +100,7 @@ class SettingsPage extends ConsumerWidget {
               ),
               const SizedBox(height: 130),
               Text(
-                '${l10n.settingsBrandFooter}: ${AppConfig.appVersion}',
+                '${l10n.settingsBrandFooter}: ${AppConfig.shared.appVersion}',
                 textAlign: TextAlign.center,
                 style: theme.typo.textXs.bold.copyWith(
                   color: UIColorsToken.neu300,
