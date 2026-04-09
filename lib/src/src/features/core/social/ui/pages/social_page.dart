@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:brokies/src/src/core/design_system/app_ui.dart';
@@ -174,8 +175,7 @@ class SocialPage extends HookConsumerWidget {
                 child: RefreshIndicator(
                   color: UIColorsToken.pri350,
                   backgroundColor: theme.colors.bgColor,
-                  onRefresh: () =>
-                      ref.read(socialFeedProvider.notifier).loadFeed(refresh: true),
+                  onRefresh: () => ref.read(socialFeedProvider.notifier).loadFeed(refresh: true),
                   child: _FeedBody(
                     theme: theme,
                     scrollController: scrollController,
@@ -380,6 +380,6 @@ class _FeedBody extends StatelessWidget {
               : null,
         );
       },
-    );
+    ).animate(effects: [FadeEffect()]);
   }
 }
