@@ -5,6 +5,7 @@ import 'package:brokies/src/config/app_runner.dart';
 import 'package:brokies/src/src/core/utils/constants/constants.dart';
 import 'package:brokies/src/src/core/utils/env_services.dart';
 import 'package:brokies/src/src/core/utils/screen_rotation.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'dart:async';
 
@@ -16,11 +17,16 @@ void main() {
 			// init env
 			await dotenv.load();
 
+      PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
 			// App configuration
 			AppConfig.create(
 				appName: kAppName,
-        isDebug: false
+        isDebug: false,
+        appVersion: packageInfo.version,
+        appBuildNumber: packageInfo.buildNumber,
 			);
+
 
       await Supabase.initialize(
         url: EnvServices.supabaseUrl,
