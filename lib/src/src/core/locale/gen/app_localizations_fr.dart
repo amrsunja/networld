@@ -273,6 +273,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsTermsOfUseSubtitle => 'Accords juridiques';
 
   @override
+  String get settingsContactTitle => 'Contact';
+
+  @override
+  String get settingsContactSubtitle => 'Visiter notre site';
+
+  @override
   String get settingsDeleteAccountTitle => 'Supprimer le compte';
 
   @override

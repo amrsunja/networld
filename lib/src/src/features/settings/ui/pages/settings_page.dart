@@ -74,6 +74,13 @@ class SettingsPage extends ConsumerWidget {
                 subtitle: l10n.settingsTermsOfUseSubtitle,
                 onTap: () => _openExternalLink(context, l10n, kTermsOfUseUrl),
               ),
+              const SizedBox(height: 14),
+              SettingsActionCard(
+                icon: Icons.contact_support_outlined,
+                title: l10n.settingsContactTitle,
+                subtitle: l10n.settingsContactSubtitle,
+                onTap: () => _openExternalLink(context, l10n, kWebsiteUrl),
+              ),
               const SizedBox(height: 12),
               SettingsActionCard(
                 icon: Icons.delete_forever_outlined,

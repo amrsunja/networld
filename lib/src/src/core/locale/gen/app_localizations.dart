@@ -566,6 +566,18 @@ abstract class AppLocalizations {
   /// **'Accords juridiques'**
   String get settingsTermsOfUseSubtitle;
 
+  /// No description provided for @settingsContactTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Contact'**
+  String get settingsContactTitle;
+
+  /// No description provided for @settingsContactSubtitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Visiter notre site'**
+  String get settingsContactSubtitle;
+
   /// No description provided for @settingsDeleteAccountTitle.
   ///
   /// In fr, this message translates to:
