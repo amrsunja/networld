@@ -642,6 +642,85 @@ class AppLocalizationsEn extends AppLocalizations {
       'Manage your notification preferences';
 
   @override
+  String get shopTitle => 'Shop';
+
+  @override
+  String get shopRestorePurchasesTooltip => 'Restore purchases';
+
+  @override
+  String get shopSectionCreditPacks => 'Credit packs';
+
+  @override
+  String get shopSectionSubscriptions => 'Subscriptions';
+
+  @override
+  String shopCreditsWithSuffix(String amount) {
+    return '$amount credits';
+  }
+
+  @override
+  String get shopCreditPackPopularBadge => '⭐ POPULAR';
+
+  @override
+  String shopSubscriptionPricePerMonth(String price) {
+    return '$price/month';
+  }
+
+  @override
+  String get shopSubTierSilver => 'Silver';
+
+  @override
+  String get shopSubTierGold => 'Gold';
+
+  @override
+  String get shopSubTierDiamond => 'Diamond';
+
+  @override
+  String get shopSubSilverPerk1 => '500 credits/week';
+
+  @override
+  String get shopSubSilverPerk2 => '-25% on posts';
+
+  @override
+  String get shopSubSilverPerk3 => 'Silver badge';
+
+  @override
+  String get shopSubGoldPerk1 => '1,500 credits/week';
+
+  @override
+  String get shopSubGoldPerk2 => '-50% on posts';
+
+  @override
+  String get shopSubGoldPerk3 => 'Gold badge';
+
+  @override
+  String get shopSubGoldPerk4 => 'Priority access';
+
+  @override
+  String get shopSubDiamondPerk1 => '5,000 credits/week';
+
+  @override
+  String get shopSubDiamondPerk2 => '-75% on posts';
+
+  @override
+  String get shopSubDiamondPerk3 => 'Diamond badge';
+
+  @override
+  String get shopSubDiamondPerk4 => 'VIP access';
+
+  @override
+  String get shopSubDiamondPerk5 => 'Exclusive avatar';
+
+  @override
+  String get shopSubscriptionActive => 'Subscription active';
+
+  @override
+  String get shopSubscribe => 'Subscribe';
+
+  @override
+  String get shopSubscriptionPopularRibbon => 'POPULAR';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

@@ -656,6 +656,85 @@ class AppLocalizationsFr extends AppLocalizations {
       'Gérer vos préférences de notifications';
 
   @override
+  String get shopTitle => 'Boutique';
+
+  @override
+  String get shopRestorePurchasesTooltip => 'Restaurer les achats';
+
+  @override
+  String get shopSectionCreditPacks => 'Packs de crédits';
+
+  @override
+  String get shopSectionSubscriptions => 'Abonnements';
+
+  @override
+  String shopCreditsWithSuffix(String amount) {
+    return '$amount crédits';
+  }
+
+  @override
+  String get shopCreditPackPopularBadge => '⭐ POPULAIRE';
+
+  @override
+  String shopSubscriptionPricePerMonth(String price) {
+    return '$price/mois';
+  }
+
+  @override
+  String get shopSubTierSilver => 'Silver';
+
+  @override
+  String get shopSubTierGold => 'Gold';
+
+  @override
+  String get shopSubTierDiamond => 'Diamond';
+
+  @override
+  String get shopSubSilverPerk1 => '500 crédits/semaine';
+
+  @override
+  String get shopSubSilverPerk2 => '-25% sur les posts';
+
+  @override
+  String get shopSubSilverPerk3 => 'Badge Silver';
+
+  @override
+  String get shopSubGoldPerk1 => '1 500 crédits/semaine';
+
+  @override
+  String get shopSubGoldPerk2 => '-50% sur les posts';
+
+  @override
+  String get shopSubGoldPerk3 => 'Badge Gold';
+
+  @override
+  String get shopSubGoldPerk4 => 'Accès prioritaire';
+
+  @override
+  String get shopSubDiamondPerk1 => '5 000 crédits/semaine';
+
+  @override
+  String get shopSubDiamondPerk2 => '-75% sur les posts';
+
+  @override
+  String get shopSubDiamondPerk3 => 'Badge Diamond';
+
+  @override
+  String get shopSubDiamondPerk4 => 'Accès VIP';
+
+  @override
+  String get shopSubDiamondPerk5 => 'Avatar exclusif';
+
+  @override
+  String get shopSubscriptionActive => 'Abonnement actif';
+
+  @override
+  String get shopSubscribe => 'S\'abonner';
+
+  @override
+  String get shopSubscriptionPopularRibbon => 'POPULAIRE';
+
+  @override
   String get l10nStopLineDontTouch =>
       '☠☠☠☠☠☠☠☠☠☠☠☠☠ Don\'t touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠';
 }

@@ -288,6 +288,42 @@
   "settingsNotificationsTitle": "Notifications",
   "settingsNotificationsSubtitle": "Manage your notification preferences",
 
+  "shopTitle": "Shop",
+  "shopRestorePurchasesTooltip": "Restore purchases",
+  "shopSectionCreditPacks": "Credit packs",
+  "shopSectionSubscriptions": "Subscriptions",
+  "shopCreditsWithSuffix": "{amount} credits",
+  "@shopCreditsWithSuffix": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "shopCreditPackPopularBadge": "⭐ POPULAR",
+  "shopSubscriptionPricePerMonth": "{price}/month",
+  "@shopSubscriptionPricePerMonth": {
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+  "shopSubTierSilver": "Silver",
+  "shopSubTierGold": "Gold",
+  "shopSubTierDiamond": "Diamond",
+  "shopSubSilverPerk1": "500 credits/week",
+  "shopSubSilverPerk2": "-25% on posts",
+  "shopSubSilverPerk3": "Silver badge",
+  "shopSubGoldPerk1": "1,500 credits/week",
+  "shopSubGoldPerk2": "-50% on posts",
+  "shopSubGoldPerk3": "Gold badge",
+  "shopSubGoldPerk4": "Priority access",
+  "shopSubDiamondPerk1": "5,000 credits/week",
+  "shopSubDiamondPerk2": "-75% on posts",
+  "shopSubDiamondPerk3": "Diamond badge",
+  "shopSubDiamondPerk4": "VIP access",
+  "shopSubDiamondPerk5": "Exclusive avatar",
+  "shopSubscriptionActive": "Subscription active",
+  "shopSubscribe": "Subscribe",
+  "shopSubscriptionPopularRibbon": "POPULAR",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

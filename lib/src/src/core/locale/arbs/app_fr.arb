@@ -288,6 +288,42 @@
   "settingsNotificationsTitle": "Notifications",
   "settingsNotificationsSubtitle": "Gérer vos préférences de notifications",
 
+  "shopTitle": "Boutique",
+  "shopRestorePurchasesTooltip": "Restaurer les achats",
+  "shopSectionCreditPacks": "Packs de crédits",
+  "shopSectionSubscriptions": "Abonnements",
+  "shopCreditsWithSuffix": "{amount} crédits",
+  "@shopCreditsWithSuffix": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "shopCreditPackPopularBadge": "⭐ POPULAIRE",
+  "shopSubscriptionPricePerMonth": "{price}/mois",
+  "@shopSubscriptionPricePerMonth": {
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+  "shopSubTierSilver": "Silver",
+  "shopSubTierGold": "Gold",
+  "shopSubTierDiamond": "Diamond",
+  "shopSubSilverPerk1": "500 crédits/semaine",
+  "shopSubSilverPerk2": "-25% sur les posts",
+  "shopSubSilverPerk3": "Badge Silver",
+  "shopSubGoldPerk1": "1 500 crédits/semaine",
+  "shopSubGoldPerk2": "-50% sur les posts",
+  "shopSubGoldPerk3": "Badge Gold",
+  "shopSubGoldPerk4": "Accès prioritaire",
+  "shopSubDiamondPerk1": "5 000 crédits/semaine",
+  "shopSubDiamondPerk2": "-75% sur les posts",
+  "shopSubDiamondPerk3": "Badge Diamond",
+  "shopSubDiamondPerk4": "Accès VIP",
+  "shopSubDiamondPerk5": "Avatar exclusif",
+  "shopSubscriptionActive": "Abonnement actif",
+  "shopSubscribe": "S'abonner",
+  "shopSubscriptionPopularRibbon": "POPULAIRE",
+
   "l10nStopLineDontTouch": "☠☠☠☠☠☠☠☠☠☠☠☠☠ Don't touch this line ☠☠☠☠☠☠☠☠☠☠☠☠☠"
 }
 

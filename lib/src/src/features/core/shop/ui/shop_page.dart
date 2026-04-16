@@ -5,6 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/locale/gen/app_localizations.dart';
 import 'package:brokies/src/src/core/utils/constants/constants.dart';
 import 'package:brokies/src/src/core/utils/enums/subscription_tier_enum.dart';
 import 'package:brokies/src/src/features/core/profile/data/models/profile_model.dart';
@@ -124,18 +125,26 @@ const List<String> _kCreditPackProductOrder = [
   ShopProductIds.credits150000,
 ];
 
-String _creditsLabelFr(String productId) {
+String _shopCreditsLabel(BuildContext context, String productId) {
   final n = ShopProductIds.creditsByProductId[productId] ?? 0;
+  final l10n = AppLocalizations.of(context);
+  final locale = Localizations.localeOf(context).toString();
+  final dfK = NumberFormat('#0.0', locale);
+  final String amountPart;
   switch (n) {
     case 15000:
-      return '15.0K crédits';
+      amountPart = '${dfK.format(15)}K';
+      break;
     case 50000:
-      return '50.0K crédits';
+      amountPart = '${dfK.format(50)}K';
+      break;
     case 150000:
-      return '150.0K crédits';
+      amountPart = '${dfK.format(150)}K';
+      break;
     default:
-      return '${NumberFormat.decimalPattern('fr').format(n)} crédits';
+      amountPart = NumberFormat.decimalPattern(locale).format(n);
   }
+  return l10n.shopCreditsWithSuffix(amountPart);
 }
 
 bool _isPopularCreditPack(String productId) =>
@@ -157,42 +166,44 @@ class _SubscriptionUi {
   final bool popularBadge;
 }
 
-const List<_SubscriptionUi> _kSubscriptions = [
-  _SubscriptionUi(
-    tier: SubscriptionTier.silver,
-    productId: ShopProductIds.subSilver,
-    name: 'Silver',
-    perks: [
-      '500 crédits/semaine',
-      '-25% sur les posts',
-      'Badge Silver',
-    ],
-  ),
-  _SubscriptionUi(
-    tier: SubscriptionTier.gold,
-    productId: ShopProductIds.subGold,
-    name: 'Gold',
-    perks: [
-      '1 500 crédits/semaine',
-      '-50% sur les posts',
-      'Badge Gold',
-      'Accès prioritaire',
-    ],
-    popularBadge: true,
-  ),
-  _SubscriptionUi(
-    tier: SubscriptionTier.diamond,
-    productId: ShopProductIds.subDiamond,
-    name: 'Diamond',
-    perks: [
-      '5 000 crédits/semaine',
-      '-75% sur les posts',
-      'Badge Diamond',
-      'Accès VIP',
-      'Avatar exclusif',
-    ],
-  ),
-];
+List<_SubscriptionUi> _subscriptionCatalog(AppLocalizations l10n) {
+  return [
+    _SubscriptionUi(
+      tier: SubscriptionTier.silver,
+      productId: ShopProductIds.subSilver,
+      name: l10n.shopSubTierSilver,
+      perks: [
+        l10n.shopSubSilverPerk1,
+        l10n.shopSubSilverPerk2,
+        l10n.shopSubSilverPerk3,
+      ],
+    ),
+    _SubscriptionUi(
+      tier: SubscriptionTier.gold,
+      productId: ShopProductIds.subGold,
+      name: l10n.shopSubTierGold,
+      perks: [
+        l10n.shopSubGoldPerk1,
+        l10n.shopSubGoldPerk2,
+        l10n.shopSubGoldPerk3,
+        l10n.shopSubGoldPerk4,
+      ],
+      popularBadge: true,
+    ),
+    _SubscriptionUi(
+      tier: SubscriptionTier.diamond,
+      productId: ShopProductIds.subDiamond,
+      name: l10n.shopSubTierDiamond,
+      perks: [
+        l10n.shopSubDiamondPerk1,
+        l10n.shopSubDiamondPerk2,
+        l10n.shopSubDiamondPerk3,
+        l10n.shopSubDiamondPerk4,
+        l10n.shopSubDiamondPerk5,
+      ],
+    ),
+  ];
+}
 
 // --- Page --------------------------------------------------------------------------------------
 
@@ -203,6 +214,7 @@ class ShopPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = AppTheme.of(context);
+    final l10n = AppLocalizations.of(context);
     final shop = ref.watch(shopIapProvider);
     final profile = ref.watch(profileProvider).profile;
     final notifier = ref.read(shopIapProvider.notifier);
@@ -218,14 +230,14 @@ class ShopPage extends ConsumerWidget {
         scrolledUnderElevation: 0,
         foregroundColor: theme.colors.contentColor,
         title: Text(
-          'Shop',
+          l10n.shopTitle,
           style: theme.typo.textMd.semibold.copyWith(
             color: theme.colors.contentColor,
           ),
         ),
         actions: [
           IconButton(
-            tooltip: 'Restaurer les achats',
+            tooltip: l10n.shopRestorePurchasesTooltip,
             onPressed: () => notifier.restorePurchases(),
             icon: const Icon(Icons.restore_rounded),
           ),
@@ -257,7 +269,9 @@ class ShopPage extends ConsumerWidget {
                         sliver: SliverList(
                           delegate: SliverChildListDelegate(
                             _buildStaggeredChildren(
+                              context: context,
                               theme: theme,
+                              l10n: l10n,
                               shop: shop,
                               profile: profile,
                               notifier: notifier,
@@ -277,7 +291,9 @@ class ShopPage extends ConsumerWidget {
   }
 
   List<Widget> _buildStaggeredChildren({
+    required BuildContext context,
     required UIThemeData theme,
+    required AppLocalizations l10n,
     required ShopIapState shop,
     required ProfileModel? profile,
     required ShopIapNotifier notifier,
@@ -291,7 +307,7 @@ class ShopPage extends ConsumerWidget {
           theme: theme,
           icon: Icons.currency_exchange_rounded,
           iconColor: UIColorsToken.pri400,
-          title: 'Packs de crédits',
+          title: l10n.shopSectionCreditPacks,
         ),
         step,
       ),
@@ -308,9 +324,10 @@ class ShopPage extends ConsumerWidget {
             padding: const EdgeInsets.only(bottom: 10),
             child: _CreditPackCard(
               theme: theme,
-              creditsLabel: _creditsLabelFr(productId),
+              creditsLabel: _shopCreditsLabel(context, productId),
               priceText: pd?.price ?? '—',
               isPopular: _isPopularCreditPack(productId),
+              popularBadgeLabel: l10n.shopCreditPackPopularBadge,
               isBusy: busy,
               onTap: () {
                 AppVibrations.buttonClick();
@@ -331,7 +348,7 @@ class ShopPage extends ConsumerWidget {
           theme: theme,
           icon: Icons.star_outline_rounded,
           iconColor: UIColorsToken.pri350,
-          title: 'Abonnements',
+          title: l10n.shopSectionSubscriptions,
         ),
         step,
       ),
@@ -342,6 +359,7 @@ class ShopPage extends ConsumerWidget {
     out.add(
       _SubscriptionSection(
         theme: theme,
+        l10n: l10n,
         shop: shop,
         profile: profile,
         notifier: notifier,
@@ -389,6 +407,7 @@ class _CreditPackCard extends StatelessWidget {
     required this.creditsLabel,
     required this.priceText,
     required this.isPopular,
+    required this.popularBadgeLabel,
     required this.isBusy,
     required this.onTap,
   });
@@ -397,6 +416,7 @@ class _CreditPackCard extends StatelessWidget {
   final String creditsLabel;
   final String priceText;
   final bool isPopular;
+  final String popularBadgeLabel;
   final bool isBusy;
   final VoidCallback onTap;
 
@@ -461,7 +481,7 @@ class _CreditPackCard extends StatelessWidget {
                       if (isPopular) ...[
                         const SizedBox(height: 4),
                         Text(
-                          '⭐ POPULAIRE',
+                          popularBadgeLabel,
                           style: theme.typo.textXs.semibold.copyWith(
                             color: UIColorsToken.pri500,
                             letterSpacing: 0.4,
@@ -496,6 +516,7 @@ class _CreditPackCard extends StatelessWidget {
 class _SubscriptionSection extends StatelessWidget {
   const _SubscriptionSection({
     required this.theme,
+    required this.l10n,
     required this.shop,
     required this.profile,
     required this.notifier,
@@ -503,6 +524,7 @@ class _SubscriptionSection extends StatelessWidget {
   });
 
   final UIThemeData theme;
+  final AppLocalizations l10n;
   final ShopIapState shop;
   final ProfileModel? profile;
   final ShopIapNotifier notifier;
@@ -512,11 +534,14 @@ class _SubscriptionSection extends StatelessWidget {
   Widget build(BuildContext context) {
     var step = firstStep;
     final children = <Widget>[];
+    final subs = _subscriptionCatalog(l10n);
 
-    for (var i = 0; i < _kSubscriptions.length; i++) {
-      final sub = _kSubscriptions[i];
+    for (var i = 0; i < subs.length; i++) {
+      final sub = subs[i];
       final pd = shop.product(sub.productId);
-      final priceLine = pd != null ? '${pd.price}/mois' : '—';
+      final priceLine = pd != null
+          ? l10n.shopSubscriptionPricePerMonth(pd.price)
+          : '—';
       final busy = shop.purchasingProductIds.contains(sub.productId);
 
       final active = _subscriptionActive(profile, sub.tier);
@@ -524,9 +549,10 @@ class _SubscriptionSection extends StatelessWidget {
       children.add(
         _shopEnter(
           Padding(
-            padding: EdgeInsets.only(bottom: i < _kSubscriptions.length - 1 ? 12 : 0),
+            padding: EdgeInsets.only(bottom: i < subs.length - 1 ? 12 : 0),
             child: _SubscriptionCard(
               theme: theme,
+              l10n: l10n,
               name: sub.name,
               priceLine: priceLine,
               perks: sub.perks,
@@ -560,6 +586,7 @@ class _SubscriptionSection extends StatelessWidget {
 class _SubscriptionCard extends StatelessWidget {
   const _SubscriptionCard({
     required this.theme,
+    required this.l10n,
     required this.name,
     required this.priceLine,
     required this.perks,
@@ -570,6 +597,7 @@ class _SubscriptionCard extends StatelessWidget {
   });
 
   final UIThemeData theme;
+  final AppLocalizations l10n;
   final String name;
   final String priceLine;
   final List<String> perks;
@@ -655,7 +683,7 @@ class _SubscriptionCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   if (isActive)
                     Text(
-                      'Abonnement actif',
+                      l10n.shopSubscriptionActive,
                       textAlign: TextAlign.center,
                       style: theme.typo.textSm.medium.copyWith(
                         color: UIColorsToken.pos500,
@@ -663,7 +691,7 @@ class _SubscriptionCard extends StatelessWidget {
                     )
                   else
                     UIButton.primary(
-                      title: 'S\'abonner',
+                      title: l10n.shopSubscribe,
                       prefixIcon: Icons.bolt_rounded,
                       fullWidth: true,
                       height: 52,
@@ -693,7 +721,7 @@ class _SubscriptionCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
-                  'POPULAIRE',
+                  l10n.shopSubscriptionPopularRibbon,
                   style: theme.typo.textXs.semibold.copyWith(
                     color: theme.colors.fgColor,
                     letterSpacing: 0.5,

@@ -632,6 +632,12 @@ abstract class AppLocalizations {
   /// **'Anglais'**
   String get settingsLanguageEnglishLabel;
 
+  /// No description provided for @settingsLanguageSystemLabel.
+  ///
+  /// In fr, this message translates to:
+  /// **'Système'**
+  String get settingsLanguageSystemLabel;
+
   /// No description provided for @editProfileDescription.
   ///
   /// In fr, this message translates to:
@@ -1249,6 +1255,156 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Gérer vos préférences de notifications'**
   String get settingsNotificationsSubtitle;
+
+  /// No description provided for @shopTitle.
+  ///
+  /// In fr, this message translates to:
+  /// **'Boutique'**
+  String get shopTitle;
+
+  /// No description provided for @shopRestorePurchasesTooltip.
+  ///
+  /// In fr, this message translates to:
+  /// **'Restaurer les achats'**
+  String get shopRestorePurchasesTooltip;
+
+  /// No description provided for @shopSectionCreditPacks.
+  ///
+  /// In fr, this message translates to:
+  /// **'Packs de crédits'**
+  String get shopSectionCreditPacks;
+
+  /// No description provided for @shopSectionSubscriptions.
+  ///
+  /// In fr, this message translates to:
+  /// **'Abonnements'**
+  String get shopSectionSubscriptions;
+
+  /// No description provided for @shopCreditsWithSuffix.
+  ///
+  /// In fr, this message translates to:
+  /// **'{amount} crédits'**
+  String shopCreditsWithSuffix(String amount);
+
+  /// No description provided for @shopCreditPackPopularBadge.
+  ///
+  /// In fr, this message translates to:
+  /// **'⭐ POPULAIRE'**
+  String get shopCreditPackPopularBadge;
+
+  /// No description provided for @shopSubscriptionPricePerMonth.
+  ///
+  /// In fr, this message translates to:
+  /// **'{price}/mois'**
+  String shopSubscriptionPricePerMonth(String price);
+
+  /// No description provided for @shopSubTierSilver.
+  ///
+  /// In fr, this message translates to:
+  /// **'Silver'**
+  String get shopSubTierSilver;
+
+  /// No description provided for @shopSubTierGold.
+  ///
+  /// In fr, this message translates to:
+  /// **'Gold'**
+  String get shopSubTierGold;
+
+  /// No description provided for @shopSubTierDiamond.
+  ///
+  /// In fr, this message translates to:
+  /// **'Diamond'**
+  String get shopSubTierDiamond;
+
+  /// No description provided for @shopSubSilverPerk1.
+  ///
+  /// In fr, this message translates to:
+  /// **'500 crédits/semaine'**
+  String get shopSubSilverPerk1;
+
+  /// No description provided for @shopSubSilverPerk2.
+  ///
+  /// In fr, this message translates to:
+  /// **'-25% sur les posts'**
+  String get shopSubSilverPerk2;
+
+  /// No description provided for @shopSubSilverPerk3.
+  ///
+  /// In fr, this message translates to:
+  /// **'Badge Silver'**
+  String get shopSubSilverPerk3;
+
+  /// No description provided for @shopSubGoldPerk1.
+  ///
+  /// In fr, this message translates to:
+  /// **'1 500 crédits/semaine'**
+  String get shopSubGoldPerk1;
+
+  /// No description provided for @shopSubGoldPerk2.
+  ///
+  /// In fr, this message translates to:
+  /// **'-50% sur les posts'**
+  String get shopSubGoldPerk2;
+
+  /// No description provided for @shopSubGoldPerk3.
+  ///
+  /// In fr, this message translates to:
+  /// **'Badge Gold'**
+  String get shopSubGoldPerk3;
+
+  /// No description provided for @shopSubGoldPerk4.
+  ///
+  /// In fr, this message translates to:
+  /// **'Accès prioritaire'**
+  String get shopSubGoldPerk4;
+
+  /// No description provided for @shopSubDiamondPerk1.
+  ///
+  /// In fr, this message translates to:
+  /// **'5 000 crédits/semaine'**
+  String get shopSubDiamondPerk1;
+
+  /// No description provided for @shopSubDiamondPerk2.
+  ///
+  /// In fr, this message translates to:
+  /// **'-75% sur les posts'**
+  String get shopSubDiamondPerk2;
+
+  /// No description provided for @shopSubDiamondPerk3.
+  ///
+  /// In fr, this message translates to:
+  /// **'Badge Diamond'**
+  String get shopSubDiamondPerk3;
+
+  /// No description provided for @shopSubDiamondPerk4.
+  ///
+  /// In fr, this message translates to:
+  /// **'Accès VIP'**
+  String get shopSubDiamondPerk4;
+
+  /// No description provided for @shopSubDiamondPerk5.
+  ///
+  /// In fr, this message translates to:
+  /// **'Avatar exclusif'**
+  String get shopSubDiamondPerk5;
+
+  /// No description provided for @shopSubscriptionActive.
+  ///
+  /// In fr, this message translates to:
+  /// **'Abonnement actif'**
+  String get shopSubscriptionActive;
+
+  /// No description provided for @shopSubscribe.
+  ///
+  /// In fr, this message translates to:
+  /// **'S\'abonner'**
+  String get shopSubscribe;
+
+  /// No description provided for @shopSubscriptionPopularRibbon.
+  ///
+  /// In fr, this message translates to:
+  /// **'POPULAIRE'**
+  String get shopSubscriptionPopularRibbon;
 
   /// No description provided for @l10nStopLineDontTouch.
   ///
