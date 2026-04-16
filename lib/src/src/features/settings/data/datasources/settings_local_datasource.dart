@@ -47,15 +47,16 @@ class SettingsLocalDatasource {
     return AppSettingsModel.fromJson(map);
   }
 
-  Future<void> changeAppLanguage(Locale locale) async {
+  /// [locale] is `null` to follow the device language (clears stored locale).
+  Future<void> changeAppLanguage(Locale? locale) async {
     await services.initDatabase();
     final dbInstance = services.db;
 
     await dbInstance.update(
       SQLiteConfig.settingsTableName,
       {
-        SQLiteConfig.languageCodeKey: locale.languageCode,
-        SQLiteConfig.countryCodeKey: locale.countryCode,
+        SQLiteConfig.languageCodeKey: locale?.languageCode,
+        SQLiteConfig.countryCodeKey: locale?.countryCode,
       },
       where: 'id = ?',
       whereArgs: [1],

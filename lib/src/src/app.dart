@@ -117,7 +117,7 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
 				title: kAppName,
 			  debugShowCheckedModeBanner: false,
 				supportedLocales: L10n.all,
-		  	locale: appSettings?.locale,
+		  	locale: appSettings?.locale ?? L10n.defaultLocale,
 				localizationsDelegates: AppLocale.localizationsDelegates,
 			  scaffoldMessengerKey: ref.read(scaffoldMessengerProvider),
 				routerConfig: appRouter.router.config(

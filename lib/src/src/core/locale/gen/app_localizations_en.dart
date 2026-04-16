@@ -302,6 +302,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguageEnglishLabel => 'English';
 
   @override
+  String get settingsLanguageSystemLabel => 'System';
+
+  @override
   String get editProfileDescription =>
       'You can update how others see your name on Networld.';
 

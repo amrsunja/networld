@@ -19,11 +19,11 @@ class AppLanguagePage extends ConsumerWidget {
     final settingsNotifier = ref.read(settingsProvider.notifier);
     final settingsState = ref.watch(settingsProvider);
 
-    final effectiveLanguageCode = settingsState.data?.locale?.languageCode ??
-        L10n.defaultLocale.languageCode;
+    final savedLocale = settingsState.data?.locale;
 
-    Future<void> changeLang(Locale lang) async {
-      if (effectiveLanguageCode == lang.languageCode) return;
+    Future<void> changeLang(Locale? lang) async {
+      if (savedLocale == null && lang == null) return;
+      if (savedLocale?.languageCode == lang?.languageCode) return;
       await settingsNotifier.changeAppLanguage(lang);
     }
 
@@ -49,18 +49,25 @@ class AppLanguagePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SettingsCheckboxTileWidget(
-              isSelected: effectiveLanguageCode == L10n.fr.languageCode,
+              isSelected: savedLocale?.languageCode == L10n.fr.languageCode,
               leading: L10n.fr.languageCode,
-              title: "Français",
+              title: l10n.settingsLanguageFrenchLabel,
               onTap: () async => changeLang(L10n.fr),
             ),
 
             const SizedBox(height: 10),
             SettingsCheckboxTileWidget(
-              isSelected: effectiveLanguageCode == L10n.en.languageCode,
+              isSelected: savedLocale?.languageCode == L10n.en.languageCode,
               leading: L10n.en.languageCode,
-              title: "English",
+              title: l10n.settingsLanguageEnglishLabel,
               onTap: () async => changeLang(L10n.en),
+            ),
+
+            const SizedBox(height: 10),
+            SettingsCheckboxTileWidget(
+              isSelected: savedLocale == null,
+              title: l10n.settingsLanguageSystemLabel,
+              onTap: () async => changeLang(null),
             ),
           ],
         ),

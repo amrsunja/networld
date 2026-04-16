@@ -31,7 +31,7 @@ class SettingsRepo {
 		});
   }
 
-  Future<SuccessOrError<AppSettingsModel>> changeAppLanguage(Locale locale) async {
+  Future<SuccessOrError<AppSettingsModel>> changeAppLanguage(Locale? locale) async {
 		return await Failure.exceptionsCatcher(() async {
 			await localDatasource.changeAppLanguage(locale);
 			return await localDatasource.getLocalSettings();

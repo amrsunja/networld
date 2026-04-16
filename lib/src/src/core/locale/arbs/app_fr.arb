@@ -126,6 +126,7 @@
   "settingsAppLanguageCardSubtitle": "Choisir la langue d'affichage",
   "settingsLanguageFrenchLabel": "Français",
   "settingsLanguageEnglishLabel": "Anglais",
+  "settingsLanguageSystemLabel": "Système",
 
   "editProfileDescription": "Vous pouvez modifier la façon dont les autres vous voient sur Networld.",
   "editProfileUsernameLabel": "Nom d'utilisateur",

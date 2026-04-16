@@ -308,6 +308,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settingsLanguageEnglishLabel => 'Anglais';
 
   @override
+  String get settingsLanguageSystemLabel => 'Système';
+
+  @override
   String get editProfileDescription =>
       'Vous pouvez modifier la façon dont les autres vous voient sur Networld.';
 
