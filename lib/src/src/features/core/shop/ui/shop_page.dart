@@ -52,14 +52,6 @@ Widget _shopEnter(Widget child, int step) {
       );
 }
 
-const List<Shadow> _kCreditsLabelShadows = [
-  Shadow(
-    color: Color(0x5C000000),
-    offset: Offset(0, 1),
-    blurRadius: 2,
-  ),
-];
-
 class _ShopCoinBackdrop extends StatefulWidget {
   const _ShopCoinBackdrop();
 
@@ -469,13 +461,16 @@ class _CreditPackCard extends StatelessWidget {
                 const SizedBox(width: 14),
                 Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: .center,
+                    crossAxisAlignment: isPopular
+                        ? CrossAxisAlignment.start
+                        : CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         creditsLabel,
+                        textAlign: TextAlign.start,
                         style: theme.typo.textMd.semibold.copyWith(
                           color: theme.colors.contentColor,
-                          shadows: _kCreditsLabelShadows,
                         ),
                       ),
                       if (isPopular) ...[
