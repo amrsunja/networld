@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:brokies/src/src/core/utils/enums/networth_input_method_enum.dart';
 import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
+import 'package:brokies/src/src/core/utils/enums/subscription_tier_enum.dart';
 import 'package:brokies/src/src/core/utils/typedefs.dart';
 
 class ProfileModel extends Equatable {
@@ -27,6 +28,9 @@ class ProfileModel extends Equatable {
   final DateTime lastNetworthCalcAt;
   final DateTime nextFreeCalcAt;
   final DateTime createdAt;
+  /// From IAP (`verify-iap`); clients cannot set in DB (trigger).
+  final SubscriptionTier subscriptionTier;
+  final DateTime? subscriptionExpiresAt;
 
   const ProfileModel({
     required this.id,
@@ -51,6 +55,8 @@ class ProfileModel extends Equatable {
     required this.lastNetworthCalcAt,
     required this.nextFreeCalcAt,
     required this.createdAt,
+    this.subscriptionTier = SubscriptionTier.none,
+    this.subscriptionExpiresAt,
   });
 
   factory ProfileModel.fromJson(Json json) {
@@ -83,6 +89,12 @@ class ProfileModel extends Equatable {
       lastNetworthCalcAt: _parseDateTime(json['last_networth_calc_at']),
       nextFreeCalcAt: _parseDateTime(json['next_free_calc_at']),
       createdAt: _parseDateTime(json['created_at']),
+      subscriptionTier: SubscriptionTier.fromDb(
+        json['subscription_tier'] as String?,
+      ),
+      subscriptionExpiresAt: _parseDateTimeNullable(
+        json['subscription_expires_at'],
+      ),
     );
   }
 
@@ -98,6 +110,13 @@ class ProfileModel extends Equatable {
     if (value is DateTime) return value;
     if (value is String) return DateTime.tryParse(value) ?? DateTime.now();
     return DateTime.now();
+  }
+
+  static DateTime? _parseDateTimeNullable(dynamic value) {
+    if (value == null) return null;
+    if (value is DateTime) return value;
+    if (value is String) return DateTime.tryParse(value);
+    return null;
   }
 
   Json toJson() => {
@@ -123,11 +142,16 @@ class ProfileModel extends Equatable {
         'last_networth_calc_at': lastNetworthCalcAt.toIso8601String(),
         'next_free_calc_at': nextFreeCalcAt.toIso8601String(),
         'created_at': createdAt.toIso8601String(),
+        'subscription_tier': subscriptionTier.dbValue,
+        'subscription_expires_at': subscriptionExpiresAt?.toIso8601String(),
       };
 
   ProfileModel copyWith({
     int? followersCount,
     int? followingCount,
+    int? credits,
+    SubscriptionTier? subscriptionTier,
+    DateTime? subscriptionExpiresAt,
   }) {
     return ProfileModel(
       id: id,
@@ -135,7 +159,7 @@ class ProfileModel extends Equatable {
       netWorth: netWorth,
       currency: currency,
       netWorthInputMethod: netWorthInputMethod,
-      credits: credits,
+      credits: credits ?? this.credits,
       xp: xp,
       elo: elo,
       rankTier: rankTier,
@@ -152,6 +176,8 @@ class ProfileModel extends Equatable {
       lastNetworthCalcAt: lastNetworthCalcAt,
       nextFreeCalcAt: nextFreeCalcAt,
       createdAt: createdAt,
+      subscriptionTier: subscriptionTier ?? this.subscriptionTier,
+      subscriptionExpiresAt: subscriptionExpiresAt ?? this.subscriptionExpiresAt,
     );
   }
 
@@ -179,5 +205,7 @@ class ProfileModel extends Equatable {
         lastNetworthCalcAt,
         nextFreeCalcAt,
         createdAt,
+        subscriptionTier,
+        subscriptionExpiresAt,
       ];
 }

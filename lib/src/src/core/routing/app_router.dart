@@ -139,6 +139,10 @@ class AppRouter extends RootStackRouter {
               path: RoutePaths.notifications,
               page: NotificationsRoute.page,
             ),
+            AutoRoute(
+              path: RoutePaths.shop,
+              page: ShopRoute.page,
+            ),
           ],
         ),
       ],

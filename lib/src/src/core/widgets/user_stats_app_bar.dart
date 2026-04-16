@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:brokies/src/src/core/design_system/app_ui.dart';
+import 'package:brokies/src/src/core/providers/routing/navigation_services_provider.dart';
 import 'package:brokies/src/src/core/routing/app_router.gr.dart';
 import 'package:brokies/src/src/core/utils/enums/currency_type_enum.dart';
 import 'package:brokies/src/src/core/utils/enums/rank_tier_enum.dart';
@@ -12,7 +14,7 @@ const Color _kRankLabelColor = Color(0xFF8E9AAF);
 ///
 /// Intended for tab home pages such as Daily; pass values from [ProfileModel] or
 /// another source.
-class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
+class UserStatsAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const UserStatsAppBar({
     super.key,
     required this.netWorth,
@@ -50,7 +52,7 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(_toolbarHeight);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
@@ -120,7 +122,10 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           const SizedBox(width: 6),
-          _CreditsPill(credits: credits),
+          _CreditsPill(
+            credits: credits,
+            onTap: () => ref.read(navigationServicesProvider).toShop(),
+          ),
           _NotificationBell(
             onTap: onNotificationTap,
             hasUnread: hasUnreadNotifications,
@@ -133,39 +138,50 @@ class UserStatsAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class _CreditsPill extends StatelessWidget {
-  const _CreditsPill({required this.credits});
+  const _CreditsPill({
+    required this.credits,
+    required this.onTap,
+  });
 
   final int credits;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: UIColorsToken.pri350, width: 1),
-        boxShadow: [
-          BoxShadow(
-            color: UIColorsToken.pri350.withValues(alpha: 0.22),
-            blurRadius: 8,
-            spreadRadius: 0,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: UIColorsToken.pri350, width: 1),
+            boxShadow: [
+              BoxShadow(
+                color: UIColorsToken.pri350.withValues(alpha: 0.22),
+                blurRadius: 8,
+                spreadRadius: 0,
+              ),
+            ],
           ),
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const UINetworldCoin(size: 18),
-          const SizedBox(width: 4),
-          Text(
-            '$credits',
-            style: GoogleFonts.inter(
-              fontSize: 10,
-              fontWeight: FontWeight.w700,
-              color: UIColorsToken.white,
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const UINetworldCoin(size: 18),
+              const SizedBox(width: 4),
+              Text(
+                '$credits',
+                style: GoogleFonts.inter(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w700,
+                  color: UIColorsToken.white,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

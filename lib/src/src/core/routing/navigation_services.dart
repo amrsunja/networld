@@ -1,5 +1,5 @@
 import 'app_router.dart';
-import 'route_paths.dart';
+import 'app_router.gr.dart';
 
 abstract class NavigationServices {
 	void pop();
@@ -38,7 +38,7 @@ class NavigationServicesImpl implements NavigationServices {
 
   @override
   void toShop() {
-    // TODO: implement toShop
+    router.push(const ShopRoute());
   }
 
   @override
