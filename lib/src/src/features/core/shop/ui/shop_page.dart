@@ -167,7 +167,7 @@ List<_SubscriptionUi> _subscriptionCatalog(AppLocalizations l10n) {
       perks: [
         l10n.shopSubSilverPerk1,
         l10n.shopSubSilverPerk2,
-        l10n.shopSubSilverPerk3,
+        //l10n.shopSubSilverPerk3,
       ],
     ),
     _SubscriptionUi(
@@ -177,8 +177,8 @@ List<_SubscriptionUi> _subscriptionCatalog(AppLocalizations l10n) {
       perks: [
         l10n.shopSubGoldPerk1,
         l10n.shopSubGoldPerk2,
-        l10n.shopSubGoldPerk3,
-        l10n.shopSubGoldPerk4,
+        //l10n.shopSubGoldPerk3,
+        //l10n.shopSubGoldPerk4,
       ],
       popularBadge: true,
     ),
@@ -189,9 +189,9 @@ List<_SubscriptionUi> _subscriptionCatalog(AppLocalizations l10n) {
       perks: [
         l10n.shopSubDiamondPerk1,
         l10n.shopSubDiamondPerk2,
-        l10n.shopSubDiamondPerk3,
-        l10n.shopSubDiamondPerk4,
-        l10n.shopSubDiamondPerk5,
+        //l10n.shopSubDiamondPerk3,
+        //l10n.shopSubDiamondPerk4,
+        //l10n.shopSubDiamondPerk5,
       ],
     ),
   ];
